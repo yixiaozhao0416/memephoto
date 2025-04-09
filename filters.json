@@ -1,0 +1,38 @@
+{
+  "filters": [
+    {
+      "id": 3,
+      "name": "滤镜3",
+      "src": "https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/3.png
+"
+    },
+    {
+      "id": 4,
+      "name": "滤镜4",
+      "src": "https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/4.png
+"
+    },
+   {
+      "id": 5,
+      "name": "滤镜5",
+      "src": "https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/5.png
+"
+    },
+  {
+      "id": 6,
+      "name": "滤镜6",
+      "src": "https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/6.png
+"
+    },
+      {
+      "id": 7,
+      "name": "滤镜2",
+      "src": "https://raw.githubusercontent.com/your-username/your-repo/main/filters/filter2.png"
+    },
+      {
+      "id": 8,
+      "name": "滤镜7",
+      "src": "https://raw.githubusercontent.com/your-username/your-repo/main/filters/filter2.png"
+    },
+  ]
+}
