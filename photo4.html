@@ -475,37 +475,28 @@ select {
   font-family: 'Courier New', monospace;
   font-size: 16px;
 }
-.landscape-overlay {
+.rotate-tip {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #111;
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
-  font-size: 20px;
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
+  font-size: 22px;
+  display: none;
   justify-content: center;
+  align-items: center;
   text-align: center;
   z-index: 9999;
-  padding: 20px;
 }
 
   </style>
 </head>
-    <!-- 横屏提示 -->
-<div id="landscape-warning" style="display: none;">
-  <div class="landscape-overlay">
-    <div>
-      📱 请将设备横屏使用，获得最佳体验！
-      <br><br>
-      <small>（横屏后提示将自动消失）</small>
-    </div>
-  </div>
+ <!-- 横屏提示遮罩 -->
+<div id="rotateTip" class="rotate-tip">
+  📱 请将手机横屏以获得最佳体验！
 </div>
-
 <body>
    <div id="loading-screen">
       <div class="running-character">
@@ -1062,6 +1053,20 @@ function renderFilters() {
 
   updatePagination();
 }
+function checkOrientation() {
+  const rotateTip = document.getElementById("rotateTip");
+  if (window.innerHeight > window.innerWidth) {
+    // 竖屏
+    rotateTip.style.display = "flex";
+  } else {
+    // 横屏
+    rotateTip.style.display = "none";
+  }
+}
+
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("load", checkOrientation);
 
 
 
