@@ -62,7 +62,8 @@
   border: 5px solid #1070B4;
   box-shadow: 8px 8px #9bbfd9;
   padding: 15px;
-  width: 20%;
+  width: 23%;
+text-align: center;
 }
 
 .center {
@@ -70,7 +71,7 @@
   border: 5px solid #1070B4;
   box-shadow: 8px 8px #9bbfd9;
   padding: 15px;
-  width: 55%;
+  width: 50%;
   text-align: center;
 }
 
@@ -80,6 +81,7 @@
   box-shadow: 8px 8px #9bbfd9;
   padding: 15px;
   width: 20%;
+ text-align: center;
 }
     .photo-frame {
       display: inline-block;
@@ -117,33 +119,42 @@
     .pixel-computer img {
       position: absolute;
     }
-    .pixel-computer video {
-      top: 9.5%;
-      left: 25%;
-      width: 50%;
-      height: 48%;
-      object-fit: cover;
-      border-radius: 4px;
-      z-index: 1;
-    }
+  .pixel-computer video {
+  top: 15.7%;
+  left: 25%;
+  width: 50%;
+  height: 40%;
+  object-fit: cover;
+  border-radius: 4px;
+  z-index: 2;
+  transform: scaleX(-1); /* 左右镜像翻转 */
+}
+
     .computer-frame {
       top: -15%;
       left: 0;
       width: 100%;
       height: 130%;
-      z-index: 3;
+      z-index: 4;
+      pointer-events: none; }
+    .computer-frame2 {
+      top: -15%;
+      left: 0;
+      width: 100%;
+      height: 130%;
+      z-index: 1;
       pointer-events: none;
     }
     #filter-preview {
       position: absolute;
-      top: 10%;
-      left: 22%;
-      width: 300px;
-      height: 200px;
+  top: 15.7%;
+      left: 25%;
+      width: 50%;
+      height: 40%;
       pointer-events: none;
       display: none;
       border-radius: 10px;
-      z-index: 2;
+      z-index: 3;
     }
     .more-filters-btn {
       background: #d2b48c;
@@ -169,21 +180,21 @@
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px black;
-    z-index:4; /* 提高层级，确保显示 */
+    z-index:5; /* 提高层级，确保显示 */
 }
 .modal {
     display: none; /* 默认隐藏 */
     position: fixed;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 400px;
     background: #f6f3d4;
     padding: 20px;
     border: 5px solid #1070B4;
     box-shadow: 8px 8px #9bbfd9;
     text-align: center;
-    z-index: 5; /* 确保在最前 */
+    z-index: 6; /* 确保在最前 */
 }
       /* 添加Windows风格的框架样式 */
 .window-frame {
@@ -196,7 +207,7 @@
   overflow: hidden;
 }
 .window-frame.sidebar {
-  background-color:  #FDD672; /* 浅蓝色背景 */
+  background-color:  #FDD672; 
     border: 5px solid #E5B13A;
      box-shadow: 10px 10px #C68A20;
 }
@@ -293,7 +304,7 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 
               inset 0 2px 4px rgba(255, 255, 255, 0.5); /* 外投影+内反光 */
   cursor: grab;
-    z-index: 6; /* 确保在最前 */
+    z-index: 7; /* 确保在最前 */
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -305,7 +316,7 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 
               inset 0 2px 4px rgba(255, 255, 255, 0.5);
   cursor: grab;
-        z-index: 6; /* 确保在最前 */
+        z-index: 7; /* 确保在最前 */
 }
 
 /* 复古调色盘样式 */
@@ -370,42 +381,168 @@ select {
   cursor: pointer;
   transition: transform 0.2s, border-color 0.2s;
 }
-
+#extra-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
 #extra-filters img:hover {
   transform: scale(1.05);
   border-color: gold;
 }
+/* 全屏加载遮罩 */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:  #FDBE3B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+  color: white;
+  font-family: sans-serif;
+}
 
+.loading-bar {
+  width: 200px;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #f6d365,
+    #f6d365 10%,
+    #4d6a75 10%,
+    #4d6a75 20%
+  );
+  animation: scan 1s linear infinite;
+  background-size: 200% 100%;
+  border-radius: 3px;
+}
+
+@keyframes scan {
+  0% { background-position: 0 0; }
+  100% { background-position: -100% 0; }
+}
+
+.retro-text {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  color: #5c1133;
+  letter-spacing: 1px;
+}
+.running-character img {
+  width: 50px;
+  height: auto;
+  animation: runAcross 2s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes runAcross {
+  0% { transform: translateX(-80px); opacity: 0.5; }
+  50% { transform: translateX(80px); opacity: 1; }
+  100% { transform: translateX(-80px); opacity: 0.5; }
+}
+.filter-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FDBE3B;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: inset 0 0 20px #fff3;
+}
+
+.filter-loader img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.loading-text {
+  color: #ffd700;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+}
+.landscape-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #111;
+  color: #fff;
+  font-size: 20px;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 9999;
+  padding: 20px;
+}
 
   </style>
 </head>
+    <!-- 横屏提示 -->
+<div id="landscape-warning" style="display: none;">
+  <div class="landscape-overlay">
+    <div>
+      📱 请将设备横屏使用，获得最佳体验！
+      <br><br>
+      <small>（横屏后提示将自动消失）</small>
+    </div>
+  </div>
+</div>
+
 <body>
+   <div id="loading-screen">
+      <div class="running-character">
+  <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/New%20Piskel.gif" alt="camera runner">
+</div>
+  <div class="loading-bar"></div>
+  <p class="retro-text">加载中...</p>
+</div>
 <h1 class="animated-title">   </h1>
   <div class="container">
     <!-- 左侧模式选择 -->
      <div class="window-frame sidebar">
     <div class="title-bar">STEP1</div>
       <h2>✦ SELECT MODE ✦</h2>
+      <h2>.选择拍照数量</h2>
       <button onclick="setMode(2)">2 格</button><br/>
       <button onclick="setMode(4)">4 格</button><br/>
       <button onclick="setMode(6)">6 格</button>
-         <h2>✦ 选择边框颜色 ✦</h2>
+         <h2>.选择边框颜色</h2>
           <div id="color-palette" class="color-palette">
     <div class="color-box" style="background-color: #ffffff;" onclick="selectColor('#ffffff')"></div>
     <div class="color-box" style="background-color: #f0e68c;" onclick="selectColor('#f0e68c')"></div>
     <div class="color-box" style="background-color: #d2b48c;" onclick="selectColor('#d2b48c')"></div>
-    <div class="color-box" style="background-color: #808080;" onclick="selectColor('#808080')"></div>
+    <div class="color-box" style="background-color: #A8E6CF;" onclick="selectColor('#A8E6CF')"></div>
     <div class="color-box" style="background-color: #c8a69d;" onclick="selectColor('#c8a69d')"></div>
     <div class="color-box" style="background-color: #d6cfc7;" onclick="selectColor('#d6cfc7')"></div>
-    <div class="color-box" style="background-color: #8b0000;" onclick="selectColor('#8b0000')"></div>
+    <div class="color-box" style="background-color: #708090;" onclick="selectColor('#708090')"></div>
               <!-- 第二排：复古颜色 -->
-  <div class="color-box" style="background-color: #556b2f;" onclick="selectColor('#556b2f')"></div> <!-- 暗橄榄绿 -->
-  <div class="color-box" style="background-color: #6b4226;" onclick="selectColor('#6b4226')"></div> <!-- 复古棕 -->
+              <div class="color-box" style="background-color: #FFC3A0;" onclick="selectColor('#FFC3A0')"></div> 
+  <div class="color-box" style="background-color: #E3DFFD;" onclick="selectColor('#E3DFFD')"></div> 
+  <div class="color-box" style="background-color: #FFB7C5;" onclick="selectColor('#FFB7C5')"></div> 
+  <div class="color-box" style="background-color: #AEEEEE;" onclick="selectColor('#AEEEEE')"></div> 
   <div class="color-box" style="background-color: #a0522d;" onclick="selectColor('#a0522d')"></div> <!-- 复古红棕 -->
-  <div class="color-box" style="background-color: #708090;" onclick="selectColor('#708090')"></div> <!-- 石板灰蓝 -->
-  <div class="color-box" style="background-color: #013220;" onclick="selectColor('#013220')"></div> <!-- 墨绿色 -->
+  <div class="color-box" style="background-color: #8b0000;" onclick="selectColor('#8b0000')"></div> <!-- 石板灰蓝 -->
+  <div class="color-box" style="background-color: #0A0A0A;" onclick="selectColor('#0A0A0A')"></div> <!-- 墨绿色 -->
   </div>
-  <label for="border-thickness">边框厚度：</label>
+  <label for="border-thickness">.选择边框厚度</label>
   <select id="border-thickness" onchange="changeBorderThickness()">
     <option value="5">细边框</option>
     <option value="10">厚边框</option>
@@ -414,7 +551,7 @@ select {
     <!-- 中间区域 摄像头 + 滤镜 -->
       <div class="window-frame center">
     <div class="title-bar">STEP2</div>
-      <h2>✦ SELECT FILTER ✦</h2>
+      <h2>✦ SELECT STICKER ✦</h2>
       <div id="frame-list">
         <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/01.png" onclick="selectFilter(this)" />
         <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/02.png" onclick="selectFilter(this)" />
@@ -431,7 +568,8 @@ select {
 <input type="range" id="contrast" min="0.7" max="1.3" step="0.1" value="1">
 
         <img id="filter-preview" />
-        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/%E7%9B%B8%E6%9C%BA.png" class="computer-frame" />
+        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/TV01.png" class="computer-frame" />
+        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/TV02.png" class="computer-frame2" />
       </div>
       <button onclick="startCamera()">启动摄像头</button>
       <button onclick="takePhoto()">拍照</button>
@@ -441,7 +579,7 @@ select {
     <!-- 右侧照片预览 -->
    <div class="window-frame preview">
     <div class="title-bar">STEP3</div>
-      <h2>✦ 照片预览 ✦</h2>
+      <h2>✦ PREVIEW ✦</h2>
       <div id="photo-preview"></div>
     </div>
   </div>
@@ -449,6 +587,10 @@ select {
   <!-- Modal 弹窗 -->
   <div id="filterModal" class="modal">
     <div class="modal-content">
+        <div id="filterLoader" class="filter-loader">
+  <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/Piskel3.gif" alt="loading..." />
+  <p class="loading-text">加载滤镜中...</p>
+</div>
       <h2>✦ 更多滤镜 ✦</h2>
    <div id="extra-filters" class="filter-grid"></div>
 
@@ -644,7 +786,12 @@ function takePhoto() {
     
 
     // 先绘制摄像头画面
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    ctx.save();
+ctx.translate(canvas.width, 0); // 水平镜像
+ctx.scale(-1, 1);
+ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+ctx.restore();
+
           
 
     if (selectedFilter) {
@@ -870,7 +1017,55 @@ function updateBorderPreview() {
     frame.style.border = `${borderThickness}px solid ${selectedColor}`;
   });
 }
+window.addEventListener("load", () => {
+  const loadingScreen = document.getElementById("loading-screen");
+  loadingScreen.style.opacity = 0;
+
+  setTimeout(() => {
+    loadingScreen.style.display = "none";
+  }, 600); // 动画淡出时间
+});
+
+function renderFilters() {
+  const container = document.getElementById('extra-filters');
+  const loader = document.getElementById('filterLoader');
+  container.innerHTML = "";
+
+  const start = (currentPage - 1) * filtersPerPage;
+  const end = start + filtersPerPage;
+  const currentFilters = filters.slice(start, end);
+
+  let loadedCount = 0;
+  const totalToLoad = currentFilters.length;
+
+  loader.style.display = "flex"; // 显示 loading 动画
+
+  currentFilters.forEach(filter => {
+    const img = document.createElement("img");
+    img.src = filter.url;
+    img.alt = filter.name;
+
+    // 成功加载
+    img.onload = img.onerror = () => {
+      loadedCount++;
+      if (loadedCount === totalToLoad) {
+        // 延迟让效果更自然
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 400);
+      }
+    };
+
+    img.onclick = () => selectExtraFilter(img);
+    container.appendChild(img);
+  });
+
+  updatePagination();
+}
+
+
 
   </script>
 </body>
 </html>
+
