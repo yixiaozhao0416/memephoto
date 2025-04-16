@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>大头贴拍照</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
   <style>
     body {
       font-family: 'Press Start 2P', cursive;
@@ -1068,18 +1069,33 @@ window.addEventListener("resize", checkOrientation);
 window.addEventListener("orientationchange", checkOrientation);
 window.addEventListener("load", checkOrientation);
 
-let link = document.createElement("a");
-link.href = finalCanvas.toDataURL("image/png");
-link.download = "bighead_collage.png";
-
 // 手机端：提示用户长按保存
-if (/Android|iPhone/i.test(navigator.userAgent)) {
-    alert("请长按图片保存到相册！");
-    window.open(link.href, "_blank");
-} else {
-    link.click();
-    polaroidSound.play();
-}
+finalCanvas.toBlob(function(blob) {
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // 手机端：创建一个可点击的图片链接，提示用户长按保存
+        const blobUrl = URL.createObjectURL(blob);
+        const imgWindow = window.open("", "_blank");
+        if (imgWindow) {
+            imgWindow.document.write(`
+                <html>
+                  <head><title>保存照片</title></head>
+                  <body style="margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#000;">
+                    <img src="${blobUrl}" style="max-width:100%;max-height:100%;" />
+                    <script>alert("📷 请长按图片保存到手机相册");</script>
+                  </body>
+                </html>
+            `);
+        } else {
+            alert("弹窗被浏览器拦截，请允许弹窗后再试！");
+        }
+    } else {
+        // 电脑端：直接触发下载
+        saveAs(blob, "bighead_collage.png");
+        polaroidSound.play();
+    }
+}, "image/png");
 
   </script>
 </body>
