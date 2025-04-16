@@ -1068,7 +1068,18 @@ window.addEventListener("resize", checkOrientation);
 window.addEventListener("orientationchange", checkOrientation);
 window.addEventListener("load", checkOrientation);
 
+let link = document.createElement("a");
+link.href = finalCanvas.toDataURL("image/png");
+link.download = "bighead_collage.png";
 
+// 手机端：提示用户长按保存
+if (/Android|iPhone/i.test(navigator.userAgent)) {
+    alert("请长按图片保存到相册！");
+    window.open(link.href, "_blank");
+} else {
+    link.click();
+    polaroidSound.play();
+}
 
   </script>
 </body>
