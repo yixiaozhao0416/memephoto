@@ -520,16 +520,16 @@ select {
   text-align: center;
   z-index: 9999;
 }
-.window-frame {
-  box-sizing: border-box; /* 保证 padding/border 不撑大 */
-}
-
-@media (max-width: 768px) {
-  .window-frame {
+@media (max-width: 800px) {
+  .sidebar,
+  .center,
+  .preview {
     width: 100%;
-    margin-bottom: 15px;  /* 分隔一下 */
+    padding: 10px;
+    box-sizing: border-box;
   }
 }
+
 
   </style>
 </head>
