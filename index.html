@@ -58,27 +58,18 @@
       box-sizing: border-box;
     }
    .sidebar {
-  background-color: #ADD8E6; /* 浅蓝色背景 */
-  border: 5px solid #1070B4;
-  box-shadow: 8px 8px #9bbfd9;
   padding: 15px;
   width: 23%;
 text-align: center;
 }
 
 .center {
-  background-color: #90EE90; /* 浅绿色背景 */
-  border: 5px solid #1070B4;
-  box-shadow: 8px 8px #9bbfd9;
   padding: 15px;
   width: 50%;
   text-align: center;
 }
 
 .preview {
-  background-color: #D3D3D3; /* 浅灰色背景 */
-  border: 5px solid #1070B4;
-  box-shadow: 8px 8px #9bbfd9;
   padding: 15px;
   width: 20%;
  text-align: center;
@@ -86,7 +77,7 @@ text-align: center;
     .photo-frame {
       display: inline-block;
       width: 100px;
-      height: 75px;
+      height: 80px;
       border: 2px solid #5c4033;
       margin: 5px;
       position: relative;
@@ -120,10 +111,10 @@ text-align: center;
       position: absolute;
     }
   .pixel-computer video {
-  top: 15.7%;
-  left: 25%;
-  width: 50%;
-  height: 40%;
+  top: 12%;
+  left: 24%;
+width: 300px;  /* 你想要的宽度 */
+  height: 240px;  /* 5:4 高度 */
   object-fit: cover;
   border-radius: 4px;
   z-index: 2;
@@ -131,26 +122,26 @@ text-align: center;
 }
 
     .computer-frame {
-      top: -15%;
-      left: 0;
-      width: 100%;
-      height: 130%;
+      top: -6%;
+      left: 15%;
+      width: 70%;
+      height: auto;
       z-index: 4;
       pointer-events: none; }
     .computer-frame2 {
-      top: -15%;
-      left: 0;
-      width: 100%;
-      height: 130%;
+      top: -6%;
+      left: 15%;
+      width: 70%;
+      height: auto;
       z-index: 1;
       pointer-events: none;
     }
     #filter-preview {
       position: absolute;
-  top: 15.7%;
-      left: 25%;
-      width: 50%;
-      height: 40%;
+ top: 12%;
+ left: 24%;
+width: 300px;  /* 你想要的宽度 */
+  height: 240px;  /* 5:4 高度 */
       pointer-events: none;
       display: none;
       border-radius: 10px;
@@ -172,15 +163,43 @@ text-align: center;
       transform: scale(1.2);
       color: #a0522d;  
     }
-      .countdown-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 4px black;
-    z-index:5; /* 提高层级，确保显示 */
+      /* Tooltip 初始隐藏 */
+.more-filters-btn .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #FDBE3B;;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 10;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+max-height: 20px; /* 设置最大高度 */
+line-height: 20px;
+transition: opacity 0.2s;
+
+  /* 箭头 */
+  position: absolute;
+}
+
+.more-filters-btn .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* 箭头靠左边 */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #FDBE3B transparent transparent;
+}
+
+.more-filters-btn:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
 .modal {
     display: none; /* 默认隐藏 */
@@ -493,7 +512,7 @@ select {
 
   </style>
 </head>
- <!-- 横屏提示遮罩 -->
+    <!-- 横屏提示遮罩 -->
 <div id="rotateTip" class="rotate-tip">
   📱 请将手机横屏以获得最佳体验！
 </div>
@@ -546,7 +565,7 @@ select {
       <div id="frame-list">
         <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/01.png" onclick="selectFilter(this)" />
         <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/02.png" onclick="selectFilter(this)" />
-        <button class="more-filters-btn" onclick="openFilterModal()">...</button>
+        <button class="more-filters-btn" onclick="openFilterModal()">...<span class="tooltip-text">更多滤镜</span></button>
       </div>
       <div class="pixel-computer">
         <video id="video" autoplay muted playsinline></video>
@@ -559,8 +578,8 @@ select {
 <input type="range" id="contrast" min="0.7" max="1.3" step="0.1" value="1">
 
         <img id="filter-preview" />
-        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/TV01.png" class="computer-frame" />
-        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/TV02.png" class="computer-frame2" />
+        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/computer02.png" class="computer-frame" />
+        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/computer01.png" class="computer-frame2" />
       </div>
       <button onclick="startCamera()">启动摄像头</button>
       <button onclick="takePhoto()">拍照</button>
@@ -780,7 +799,28 @@ function takePhoto() {
     ctx.save();
 ctx.translate(canvas.width, 0); // 水平镜像
 ctx.scale(-1, 1);
-ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+          
+          // 计算裁切区域，模拟 object-fit: cover
+const videoAspect = video.videoWidth / video.videoHeight;
+const targetAspect = 5 / 4;
+          let sx, sy, sWidth, sHeight;
+if (videoAspect > targetAspect) {
+    // video 比 5:4 更宽 → 裁左右
+    sHeight = video.videoHeight;
+    sWidth = sHeight * targetAspect;
+    sx = (video.videoWidth - sWidth) / 2;
+    sy = 0;
+} else {
+    // video 比 5:4 更窄 → 裁上下
+    sWidth = video.videoWidth;
+    sHeight = sWidth / targetAspect;
+    sx = 0;
+    sy = (video.videoHeight - sHeight) / 2;
+}
+
+          
+          
+ctx.drawImage(video, sx, sy, sWidth, sHeight, 0, 0, canvas.width, canvas.height);
 ctx.restore();
 
           
@@ -832,10 +872,10 @@ ctx.restore();
         return;
     }
 
-    const photoWidth = 300;  // 每张导出图片宽度
-    const photoHeight = 200; // 高度（保持 4:3）
-    const gap = 10;
+    const photoWidth = 500;  // 每张导出图片宽度
+    const photoHeight = 400; // 高度（保持 4:3）
     const borderWidth = parseInt(borderThickness) * 4; // 用户设置的边框粗细
+    const gap = borderWidth * 1.3;
     const outerPadding = borderWidth;
 
     const cols = mode === 2 ? 1 : mode === 4 ? 2 : 3;
@@ -887,7 +927,7 @@ finalCtx.filter = "none";
             finalCtx.font = "14px 'Courier New', monospace"; // 复古字体
             finalCtx.fillStyle = "rgba(0, 0, 0, 0.7)";
             finalCtx.textAlign = "left";
-            finalCtx.fillText("MEME'S-CAMERA-01", x, y + photoHeight + borderWidth / 2 - 10); // 你可以修改为拍摄时间、设备名、emoji等
+            finalCtx.fillText("@memephoto.com.cn", x, y + photoHeight + borderWidth / 2 - 10); // 你可以修改为拍摄时间、设备名、emoji等
             
             loadedCount++;
             // 等所有图片都加载后再触发下载
@@ -1067,8 +1107,9 @@ function checkOrientation() {
 window.addEventListener("resize", checkOrientation);
 window.addEventListener("orientationchange", checkOrientation);
 window.addEventListener("load", checkOrientation);
-    
+
+
+
   </script>
 </body>
 </html>
-
