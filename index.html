@@ -9,7 +9,7 @@
     body {
       font-family: 'Press Start 2P', cursive;
       color: #4b3832;
-       background-image: url('https://github.com/yixiaozhao0416/tiezhi/blob/main/background1.png?raw=true');
+       background-image: url('https://gitee.com/yixiaozhao0416/tiezhi/raw/main/background1.png');
   background-size:  cover; /* 或 contain / auto，依你想要的效果 */
   background-position: center;
   background-repeat: no-repeat;
@@ -163,7 +163,7 @@ text-align: center;
       transform: scale(1.2);
       color: #a0522d;  
     }
-      /* Tooltip 初始隐藏 */
+     /* Tooltip 初始隐藏 */
 .more-filters-btn .tooltip-text {
   visibility: hidden;
   opacity: 0;
@@ -201,17 +201,17 @@ transition: opacity 0.2s;
   visibility: visible;
   opacity: 1;
 }
-     .countdown-text {
+      .countdown-text {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* 真正中心 */
     font-size: 50px;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px black;
     z-index:5; /* 提高层级，确保显示 */
 }
+
 .modal {
     display: none; /* 默认隐藏 */
     position: fixed;
@@ -520,7 +520,7 @@ select {
   text-align: center;
   z-index: 9999;
 }
-@media (max-width: 800px) {
+      @media (max-width: 800px) {
   .sidebar,
   .center,
   .preview,
@@ -536,8 +536,6 @@ select {
   }
 }
 
-
-
   </style>
 </head>
     <!-- 横屏提示遮罩 -->
@@ -547,7 +545,7 @@ select {
 <body>
    <div id="loading-screen">
       <div class="running-character">
-  <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/New%20Piskel.gif" alt="camera runner">
+  <img src="https://gitee.com/yixiaozhao0416/tiezhi/raw/main/New%20Piskel.gif" alt="camera runner">
 </div>
   <div class="loading-bar"></div>
   <p class="retro-text">加载中...</p>
@@ -591,8 +589,8 @@ select {
     <div class="title-bar">STEP2</div>
       <h2>✦ SELECT STICKER ✦</h2>
       <div id="frame-list">
-        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/01.png" onclick="selectFilter(this)" />
-        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/02.png" onclick="selectFilter(this)" />
+        <img src="https://gitee.com/yixiaozhao0416/tiezhi/raw/main/01.png" onclick="selectFilter(this)" />
+        <img src="https://gitee.com/yixiaozhao0416/tiezhi/raw/main/02.png" onclick="selectFilter(this)" />
         <button class="more-filters-btn" onclick="openFilterModal()">...<span class="tooltip-text">更多滤镜</span></button>
       </div>
       <div class="pixel-computer">
@@ -606,8 +604,8 @@ select {
 <input type="range" id="contrast" min="0.7" max="1.3" step="0.1" value="1">
 
         <img id="filter-preview" />
-        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/computer02.png" class="computer-frame" />
-        <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/computer01.png" class="computer-frame2" />
+        <img src="https://gitee.com/yixiaozhao0416/tiezhi/raw/main/computer02.png" class="computer-frame" />
+        <img src="https://gitee.com/yixiaozhao0416/tiezhi/raw/main/computer01.png" class="computer-frame2" />
       </div>
       <button onclick="startCamera()">启动摄像头</button>
       <button onclick="takePhoto()">拍照</button>
@@ -626,7 +624,7 @@ select {
   <div id="filterModal" class="modal">
     <div class="modal-content">
         <div id="filterLoader" class="filter-loader">
-  <img src="https://raw.githubusercontent.com/yixiaozhao0416/tiezhi/main/Piskel3.gif" alt="loading..." />
+  <img src="https://gitee.com/yixiaozhao0416/tiezhi/raw/main/Piskel3.gif" alt="loading..." />
   <p class="loading-text">加载滤镜中...</p>
 </div>
       <h2>✦ 更多滤镜 ✦</h2>
@@ -660,9 +658,9 @@ let borderThickness = 2;  // 默认边框厚度
         const ctx = canvas.getContext("2d");
         const photoPreview = document.getElementById("photo-preview");
         const filterPreview = document.getElementById("filter-preview");
-        const keyboardSound = new Audio("https://github.com/yixiaozhao0416/tiezhi/raw/main/keyboard.mp3");
-        const polaroidSound = new Audio("https://github.com/yixiaozhao0416/tiezhi/raw/main/polaroid.mp3");
-        const shutterSound = new Audio("https://github.com/yixiaozhao0416/tiezhi/raw/main/shutter.mp3");
+        const keyboardSound = new Audio("https://gitee.com/yixiaozhao0416/tiezhi/raw/main/keyboard.mp3");
+        const polaroidSound = new Audio("https://gitee.com/yixiaozhao0416/tiezhi/raw/main/polaroid.mp3");
+        const shutterSound = new Audio("https://gitee.com/yixiaozhao0416/tiezhi/raw/main/shutter.mp3");
 
 function updateFilter() {
     const brightness = brightnessControl.value;
