@@ -538,6 +538,10 @@ select {
 
   </style>
 </head>
+  <!-- 横屏提示遮罩 -->
+<div id="rotateTip" class="rotate-tip">
+  📱 请将手机横屏以获得最佳体验！
+</div>
 <body>
    <div id="loading-screen">
       <div class="running-character">
@@ -1112,6 +1116,18 @@ function renderFilters() {
     img.onclick = () => selectExtraFilter(img);
     container.appendChild(img);
   });
+updatePagination();
+}
+function checkOrientation() {
+  const rotateTip = document.getElementById("rotateTip");
+  if (window.innerHeight > window.innerWidth) {
+    // 竖屏
+    rotateTip.style.display = "flex";
+  } else {
+    // 横屏
+    rotateTip.style.display = "none";
+  }
+}
 
 window.addEventListener("resize", checkOrientation);
 window.addEventListener("orientationchange", checkOrientation);
