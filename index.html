@@ -9,7 +9,7 @@
     body {
       font-family: 'Press Start 2P', cursive;
       color: #4b3832;
-       background-image: url('https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/background01.png');
+       background-image: url('https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/background01.png');
   background-size:  cover; /* 或 contain / auto，依你想要的效果 */
   background-position: center;
   background-repeat: no-repeat;
@@ -585,8 +585,8 @@ select {
     <div class="title-bar">STEP2</div>
       <h2>✦ SELECT STICKER ✦</h2>
       <div id="frame-list">
-<img src="https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/01.png" onclick="selectFilter(this)" />
-<img src="https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/02.png" onclick="selectFilter(this)" />
+<img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/01.png" onclick="selectFilter(this)" />
+<img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/02.png" onclick="selectFilter(this)" />
         <button class="more-filters-btn" onclick="openFilterModal()">...<span class="tooltip-text">更多滤镜</span></button>
       </div>
       <div class="pixel-computer">
@@ -600,8 +600,8 @@ select {
 <input type="range" id="contrast" min="0.7" max="1.3" step="0.1" value="1">
 
         <img id="filter-preview" />
-        <img src="https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/computer02.png" class="computer-frame" />
-        <img src="https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/computer01.png" class="computer-frame2" />
+        <img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/computer02.png" class="computer-frame" />
+        <img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/computer01.png" class="computer-frame2" />
       </div>
       <button onclick="startCamera()">启动摄像头</button>
       <button onclick="takePhoto()">拍照</button>
@@ -620,7 +620,7 @@ select {
   <div id="filterModal" class="modal">
     <div class="modal-content">
         <div id="filterLoader" class="filter-loader">
-  <img src="https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/Piskel3.gif" alt="loading..." />
+  <img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/Piskel3.gif" alt="loading..." />
   <p class="loading-text">加载滤镜中...</p>
 </div>
       <h2>✦ 更多滤镜 ✦</h2>
@@ -654,9 +654,9 @@ let borderThickness = 2;  // 默认边框厚度
         const ctx = canvas.getContext("2d");
         const photoPreview = document.getElementById("photo-preview");
         const filterPreview = document.getElementById("filter-preview");
-        const keyboardSound = new Audio("https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/keyboard.mp3");
-        const polaroidSound = new Audio("https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/polaroid.mp3");
-        const shutterSound = new Audio("https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/shutter.mp3");
+        const keyboardSound = new Audio("https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/keyboard.mp3");
+        const polaroidSound = new Audio("https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/polaroid.mp3");
+        const shutterSound = new Audio("https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/shutter.mp3");
 
 function updateFilter() {
     const brightness = brightnessControl.value;
@@ -971,7 +971,7 @@ const filtersPerPage = 12; // 每页显示数量
       
 async function loadFilters() {
   try {
-    const response = await fetch('https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/filters.json');
+    const response = await fetch('https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/filters.json');
     if (!response.ok) throw new Error("网络错误");
     filters = await response.json();
     renderFilters();
