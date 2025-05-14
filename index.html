@@ -969,18 +969,85 @@ let filters = []; // 存储加载的滤镜数据
 let currentPage = 1;
 const filtersPerPage = 12; // 每页显示数量
       
-async function loadFilters() {
+function loadFilters() {
   try {
-    const response = await fetch('https://cdn.jsdelivr.net/gh/yixiaozhao0416/memephoto/filters.json');
-    if (!response.ok) throw new Error("网络错误");
-    filters = await response.json();
+    // 直接定义本地 filters 数据
+    const filters = [
+      {
+        id: 3,
+        name: "滤镜3",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/3.png"
+      },
+      {
+        id: 4,
+        name: "滤镜4",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/4.png"
+      },
+      {
+        id: 5,
+        name: "滤镜5",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/5.png"
+      },
+      {
+        id: 6,
+        name: "滤镜6",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/6.png"
+      },
+      {
+        id: 7,
+        name: "滤镜7",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/7.png"
+      },
+      {
+        id: 8,
+        name: "滤镜8",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/8.png"
+      },
+      {
+        id: 9,
+        name: "滤镜9",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/9.png"
+      },
+      {
+        id: 10,
+        name: "滤镜10",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/10.png"
+      },
+      {
+        id: 11,
+        name: "滤镜11",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/11.png"
+      },
+      {
+        id: 12,
+        name: "滤镜12",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/12.png"
+      },
+      {
+        id: 13,
+        name: "滤镜13",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/13.png"
+      },
+      {
+        id: 14,
+        name: "滤镜14",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/14.png"
+      },
+      {
+        id: 15,
+        name: "滤镜15",
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/15.png"
+      }
+    ];
+
+    // 赋值到全局 filters 变量（假设你外部已声明）
+    window.filters = filters;
     renderFilters();
   } catch (e) {
-    alert("滤镜加载失败，请检查 JSON 地址或网络连接！");
+    alert("滤镜加载失败，请检查数据！");
     console.error(e);
   }
 }
-
 
 function renderFilters() {
   const container = document.getElementById('extra-filters');
