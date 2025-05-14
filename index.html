@@ -1036,8 +1036,8 @@ function loadFilters() {
         url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/15.png"
       }
     ];
-
-    renderFilters();
+  window.filters = filters;
+  renderFilters();
   } catch (e) {
     alert("滤镜加载失败！");
     console.error(e);
