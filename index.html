@@ -1113,7 +1113,9 @@ function renderFilters() {
     container.appendChild(img);
   });
 
-
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("load", checkOrientation);
 
   </script>
 </body>
