@@ -971,73 +971,75 @@ const filtersPerPage = 12; // 每页显示数量
 
 function loadFilters() {
   try {
-    filters = [
+    // 直接定义本地 filters 数据
+    const filters = [
       {
         id: 3,
         name: "滤镜3",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/3.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/3.png"
       },
       {
         id: 4,
         name: "滤镜4",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/4.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/4.png"
       },
       {
         id: 5,
         name: "滤镜5",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/5.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/5.png"
       },
       {
         id: 6,
         name: "滤镜6",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/6.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/6.png"
       },
       {
         id: 7,
         name: "滤镜7",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/7.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/7.png"
       },
       {
         id: 8,
         name: "滤镜8",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/8.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/8.png"
       },
       {
         id: 9,
         name: "滤镜9",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/9.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/9.png"
       },
       {
         id: 10,
         name: "滤镜10",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/10.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/10.png"
       },
       {
         id: 11,
         name: "滤镜11",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/11.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/11.png"
       },
       {
         id: 12,
         name: "滤镜12",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/12.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/12.png"
       },
       {
         id: 13,
         name: "滤镜13",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/13.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/13.png"
       },
       {
         id: 14,
         name: "滤镜14",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/14.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/14.png"
       },
       {
         id: 15,
         name: "滤镜15",
-        url: "https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/tiezhi@main/15.png"
+        url: "https://gitee.com/yixiaozhao0416/tiezhi/raw/main/15.png"
       }
     ];
+
 
     renderFilters();
   } catch (e) {
