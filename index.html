@@ -973,7 +973,8 @@ const filtersPerPage = 12; // 每页显示数量
 function loadFilters() {
   try {
     // 直接定义本地 filters 数据
-     filters = [
+     filters = [ { id: -2, name: "上传贴纸", url: "upload_icon.png", isUpload: true },
+      { id: -1, name: "空白贴纸", url: "blank.png", isBlank: true },
       {
         id: 3,
         name: "滤镜3",
@@ -1062,6 +1063,11 @@ function renderFilters() {
     const img = document.createElement("img");
     img.src = filter.url;
     img.alt = filter.name;
+    img.title = filter.name;
+    
+    if (filter.isBlank) img.classList.add("blank-sticker");
+    if (filter.isUpload) img.classList.add("upload-sticker");
+    
     img.onclick = () => selectExtraFilter(img);
     container.appendChild(img);
   });
@@ -1108,6 +1114,25 @@ function openFilterModal() {
 function closeFilterModal() {
     document.getElementById("filterModal").style.display = "none";
 }
+function selectExtraFilter(img) {
+  const alt = img.alt;
+
+  if (alt === "空白贴纸") {
+    // 清除贴纸
+    alert("贴纸已清除！");
+    // 执行清除逻辑（如隐藏贴纸图层）
+    return;
+  }
+
+  if (alt === "上传贴纸") {
+    // 打开上传文件对话框
+    document.getElementById("uploadInput").click();
+    return;
+  }
+
+  // 默认行为：应用选中滤镜
+  console.log("应用滤镜:", alt);
+}
 
 // 选择 modal 中的滤镜
 function selectExtraFilter(imgElement) {
@@ -1116,6 +1141,27 @@ function selectExtraFilter(imgElement) {
     filterPreview.style.display = "block";
     closeFilterModal();
 }
+    function handleUploadSticker() {
+  const input = document.getElementById("uploadInput");
+  const file = input.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const img = new Image();
+    img.src = e.target.result;
+    img.alt = "自定义贴纸";
+    img.title = "自定义贴纸";
+    img.onclick = () => selectExtraFilter(img);
+    img.style.border = "2px dashed green";
+    img.style.maxWidth = "100px";
+    img.style.maxHeight = "100px";
+
+    document.getElementById("extra-filters").appendChild(img);
+  };
+  reader.readAsDataURL(file);
+}
+
       // 选择边框颜色
 function selectColor(color) {
   selectedColor = color;
