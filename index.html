@@ -595,7 +595,6 @@ select {
     <input type="file" id="uploadInput" accept="image/*" style="display: none;" onchange="handleUploadSticker()" />
       </div>
       <div class="pixel-computer">
-        <div class="video-container">
         <video id="video" autoplay muted playsinline></video>
           <!-- 亮度调节 -->
 <label for="brightness">亮度</label>
@@ -667,7 +666,6 @@ let borderThickness = 2;  // 默认边框厚度
 function updateFilter() {
     const brightness = brightnessControl.value;
     const contrast = contrastControl.value;
-  const video = document.getElementById("video");
     video.style.filter = `brightness(${brightness}) contrast(${contrast})`;
   }
 
