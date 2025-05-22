@@ -591,6 +591,8 @@ select {
 <img src="01.png" onclick="selectFilter(this)" />
 <img src="02.png" onclick="selectFilter(this)" />
         <button class="more-filters-btn" onclick="openFilterModal()">...<span class="tooltip-text">更多滤镜</span></button>
+        <!-- 上传贴纸文件 input（隐藏） -->
+    <input type="file" id="uploadInput" accept="image/*" style="display: none;" onchange="handleUploadSticker()" />
       </div>
       <div class="pixel-computer">
         <video id="video" autoplay muted playsinline></video>
@@ -1114,33 +1116,30 @@ function openFilterModal() {
 function closeFilterModal() {
     document.getElementById("filterModal").style.display = "none";
 }
-function selectExtraFilter(img) {
+
+// 选择 modal 中的滤镜
+    function selectExtraFilter(img) {
   const alt = img.alt;
 
   if (alt === "空白贴纸") {
-    // 清除贴纸
     alert("贴纸已清除！");
-    // 执行清除逻辑（如隐藏贴纸图层）
+    // TODO: 在这里清除贴纸图层
     return;
   }
 
   if (alt === "上传贴纸") {
-    // 打开上传文件对话框
     document.getElementById("uploadInput").click();
     return;
   }
 
-  // 默认行为：应用选中滤镜
-  console.log("应用滤镜:", alt);
+  // 默认：设置滤镜预览图
+  selectedFilter = img.src;
+  filterPreview.src = selectedFilter;
+  filterPreview.style.display = "block";
+  closeFilterModal();
 }
 
-// 选择 modal 中的滤镜
-function selectExtraFilter(imgElement) {
-    selectedFilter = imgElement.src;
-    filterPreview.src = selectedFilter;
-    filterPreview.style.display = "block";
-    closeFilterModal();
-}
+
     function handleUploadSticker() {
   const input = document.getElementById("uploadInput");
   const file = input.files[0];
