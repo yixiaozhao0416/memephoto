@@ -673,35 +673,6 @@ function updateFilter() {
   // 监听滑块变化
   brightnessControl.addEventListener("input", updateFilter);
   contrastControl.addEventListener("input", updateFilter);
-      
-// 实现窗口大小调整功能
-const resizeHandles = document.querySelectorAll('.resize-handle');
-resizeHandles.forEach(handle => {
-  handle.addEventListener('mousedown', resizeStart);
-
-  function resizeStart(e) {
-    const windowFrame = handle.parentElement;
-    const initWidth = windowFrame.offsetWidth;
-    const initHeight = windowFrame.offsetHeight;
-    const initMouseX = e.clientX;
-    const initMouseY = e.clientY;
-
-    document.addEventListener('mousemove', resizeMove);
-    document.addEventListener('mouseup', resizeEnd);
-
-    function resizeMove(e) {
-      const newWidth = initWidth + (e.clientX - initMouseX);
-      const newHeight = initHeight + (e.clientY - initMouseY);
-      windowFrame.style.width = newWidth + 'px';
-      windowFrame.style.height = newHeight + 'px';
-    }
-
-    function resizeEnd() {
-      document.removeEventListener('mousemove', resizeMove);
-      document.removeEventListener('mouseup', resizeEnd);
-    }
-  }
-});
 
         // 选择拍摄模式
         function setMode(num) {
