@@ -666,6 +666,7 @@ let borderThickness = 2;  // 默认边框厚度
 function updateFilter() {
     const brightness = brightnessControl.value;
     const contrast = contrastControl.value;
+  const video = document.getElementById("video");
     video.style.filter = `brightness(${brightness}) contrast(${contrast})`;
   }
 
