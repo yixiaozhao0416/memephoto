@@ -1121,12 +1121,6 @@ function closeFilterModal() {
     function selectExtraFilter(img) {
   const alt = img.alt;
 
-  if (alt === "空白贴纸") {
-    alert("贴纸已清除！");
-    // TODO: 在这里清除贴纸图层
-    return;
-  }
-
   if (alt === "上传贴纸") {
     document.getElementById("uploadInput").click();
     return;
