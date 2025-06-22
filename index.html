@@ -640,6 +640,17 @@ select {
       <button onclick="closeFilterModal()">关闭</button>
     </div>
   </div>
+  <div id="editor-box" style="display:none;">
+  <input type="file" id="upload-input">
+  <canvas id="editor-canvas" width="300" height="300"></canvas>
+  <div>
+    <button onclick="maskShape('circle')">圆形</button>
+    <button onclick="maskShape('rect')">矩形</button>
+    <button onclick="sharpen()">锐化</button>
+    <button onclick="saveSticker()">保存</button>
+  </div>
+</div>
+
 
   <!-- canvas 不显示 -->
   <canvas id="canvas" style="display:none;"></canvas>
