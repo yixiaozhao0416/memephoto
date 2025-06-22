@@ -640,16 +640,6 @@ select {
       <button onclick="closeFilterModal()">关闭</button>
     </div>
   </div>
-  <div id="editor-box" style="display:none;">
-  <input type="file" id="upload-input">
-  <canvas id="editor-canvas" width="300" height="300"></canvas>
-  <div>
-    <button onclick="maskShape('circle')">圆形</button>
-    <button onclick="maskShape('rect')">矩形</button>
-    <button onclick="sharpen()">锐化</button>
-    <button onclick="saveSticker()">保存</button>
-  </div>
-</div>
 
 
   <!-- canvas 不显示 -->
@@ -1051,99 +1041,8 @@ function renderFilters() {
     img.title = filter.name;
     
     if (filter.isBlank) img.classList.add("blank-sticker");
-   if (filter.isUpload) {
-  img.classList.add("upload-sticker");
-  img.onclick = openImageEditor;
-} else {
-  img.onclick = () => selectExtraFilter(img);
-}
-let uploadedImg = null;
+if (filter.isUpload) img.classList.add("upload-sticker");
 
-function openImageEditor() {
-  document.getElementById('editor-box').style.display = 'block';
-  document.getElementById('upload-input').click();
-}
-
-document.getElementById('upload-input').onchange = function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  const img = new Image();
-  img.onload = function() {
-    uploadedImg = img;
-    const canvas = document.getElementById('editor-canvas');
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  };
-  img.src = URL.createObjectURL(file);
-};
-
-function maskShape(shape) {
-  const canvas = document.getElementById('editor-canvas');
-  const ctx = canvas.getContext('2d');
-  const temp = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  
-  const maskCanvas = document.createElement('canvas');
-  maskCanvas.width = canvas.width;
-  maskCanvas.height = canvas.height;
-  const mctx = maskCanvas.getContext('2d');
-
-  mctx.beginPath();
-  if (shape === 'circle') {
-    mctx.arc(canvas.width/2, canvas.height/2, canvas.width/2, 0, Math.PI * 2);
-  } else {
-    mctx.rect(0, 0, canvas.width, canvas.height);
-  }
-  mctx.fill();
-
-  const maskData = mctx.getImageData(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < temp.data.length; i += 4) {
-    if (maskData.data[i + 3] === 0) temp.data[i + 3] = 0;
-  }
-  ctx.putImageData(temp, 0, 0);
-}
-
-function sharpen() {
-  const canvas = document.getElementById('editor-canvas');
-  const ctx = canvas.getContext('2d');
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  const data = imageData.data;
-  const copy = new Uint8ClampedArray(data);
-
-  const weights = [0, -1, 0, -1, 5, -1, 0, -1, 0];
-  for (let y = 1; y < canvas.height - 1; y++) {
-    for (let x = 1; x < canvas.width - 1; x++) {
-      for (let c = 0; c < 3; c++) {
-        let i = (y * canvas.width + x) * 4 + c;
-        let sum = 0, wIndex = 0;
-        for (let dy = -1; dy <= 1; dy++) {
-          for (let dx = -1; dx <= 1; dx++) {
-            const ni = ((y + dy) * canvas.width + (x + dx)) * 4 + c;
-            sum += copy[ni] * weights[wIndex++];
-          }
-        }
-        data[i] = Math.min(255, Math.max(0, sum));
-      }
-    }
-  }
-  ctx.putImageData(imageData, 0, 0);
-}
-
-function saveSticker() {
-  const canvas = document.getElementById('editor-canvas');
-  const dataUrl = canvas.toDataURL("image/png");
-
-  filters.push({
-    id: filters.length + 1,
-    name: "自定义贴纸",
-    url: dataUrl
-  });
-  renderFilters();
-  document.getElementById('editor-box').style.display = 'none';
-}
-
-    
     img.onclick = () => selectExtraFilter(img);
     container.appendChild(img);
   });
