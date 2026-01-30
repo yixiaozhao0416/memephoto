@@ -205,14 +205,24 @@ transition: opacity 0.2s;
   opacity: 1;
 }
       .countdown-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 4px black;
-    z-index:5; /* 提高层级，确保显示 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 居中到父容器中心（pixel-computer） */
+  font-size: clamp(32px, 8vw, 72px); /* 响应式字号，手机端也可见 */
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+  z-index: 2000; /* 放到视频及滤镜之上 */
+  pointer-events: none; /* 不阻挡触摸/点击 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+@media (max-width: 420px) {
+  .countdown-text { font-size: clamp(28px, 12vw, 56px); }
 }
 
 .modal {
@@ -732,23 +742,36 @@ function updateBorderPreview() {
 
         // 拍照
 function takePhoto() {
-            if (currentIndex >= mode) {
-                alert("已拍完所有照片！");
-                return;
-            }
+    if (currentIndex >= mode) {
+        alert("已拍完所有照片！");
+        return;
+    }
     let countdown = 3; // 倒计时秒数
     let countdownText = document.createElement("div");
-   countdownText.classList.add("countdown-text"); // 添加样式类
-    document.body.appendChild(countdownText);
+    countdownText.classList.add("countdown-text");
 
-    // 启动倒计时
+    // 把倒计时插入到 video 的父容器（.pixel-computer），这样会相对于视频居中
+    const pixelComputer = document.querySelector('.pixel-computer') || document.body;
+    pixelComputer.appendChild(countdownText);
+
+    // 立刻显示初始数值（防止延迟导致短时间空白）
+    countdownText.innerText = countdown;
+
+   // 启动倒计时
     let interval = setInterval(() => {
-        countdownText.innerText = countdown;
         countdown--;
+        if (countdown >= 0) {
+            countdownText.innerText = countdown;
+        }
         if (countdown < 0) {
             clearInterval(interval);
-            document.body.removeChild(countdownText);
 
+            // 移除倒计时元素（更通用）
+            if (countdownText && countdownText.remove) {
+                countdownText.remove();
+            } else if (countdownText && countdownText.parentNode) {
+                countdownText.parentNode.removeChild(countdownText);
+            }
             // 模拟闪光灯效果
             let flash = document.createElement("div");
             flash.style.position = "fixed";
@@ -759,6 +782,7 @@ function takePhoto() {
             flash.style.backgroundColor = "white";
             flash.style.opacity = "1";
             flash.style.transition = "opacity 0.3s";
+            flash.style.zIndex = 3000;
             document.body.appendChild(flash);
 
             setTimeout(() => {shutterSound.play();
@@ -773,7 +797,7 @@ function takePhoto() {
             }, 300); // 等待闪光灯效果结束
         }
     }, 1000);
-
+ keyboardSound.play();
     }
 
 
