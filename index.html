@@ -953,35 +953,14 @@ function downloadPhoto() {
             finalCtx.fillText("@memephoto.com.cn", x, y + photoHeight + Math.round(sideBorder/2) - 10);
 
             loadedCount++;
-            if (loadedCount === capturedPhotos.length) {
-                // 所有图片绘制完成后，绘制 scalloped 边框并下载
-                // 把照片区域的边界作为 “hole” 的参考（hole 即要被抠出的区域）
-                const hole = {
-                    x: outerPadding,
-                    y: outerPadding,
-                    w: photosWidth,
-                    h: photosHeight
-                };
-                drawScallopedFrameAndDownload(finalCtx, totalWidth, totalHeight, {
-                    sideBorder, bottomBorder, outerPadding
-                }, finalCanvas, hole);
-            }
-        };
-
-        img.onerror = () => {
-            alert("合成时某张图片加载失败，请重试。");
-        };
-    });
-}
-
-
-    // 3) 导出图片
-    const link = document.createElement("a");
-    link.download = "memephoto.png";
-    link.href = finalCanvas.toDataURL("image/png");
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+if (loadedCount === capturedPhotos.length) {
+              // 所有图片绘制完成 —— 直接导出合成图片（已移除内孔与装饰边框的绘制）
+              const link = document.createElement("a");
+              link.download = "memephoto.png";
+              link.href = finalCanvas.toDataURL("image/png");
+              document.body.appendChild(link);
+              link.click();
+              link.remove();
 
     // 播放合成音效（如果存在）
     if (typeof polaroidSound !== "undefined") polaroidSound.play();
