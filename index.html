@@ -898,85 +898,91 @@ ctx.restore();
 
 // 把 downloadPhoto() 中调用 drawAccentBorderAndDownload(...) 的行替换为下面的完整实现
 function downloadPhoto() {
-    if (capturedPhotos.includes(null)) {
+    // 校验所有格子是否都��照片
+    if (!capturedPhotos || capturedPhotos.length !== mode || capturedPhotos.some(p => !p || !p.photo)) {
         alert("请完成所有拍照！");
         return;
     }
 
+    // 基础参数（你可以根据需要调整宽高或按屏幕缩放）
     const photoWidth = 500;
     const photoHeight = 400;
-    const baseBorder = parseInt(borderThickness) * 4;
-    const bottomMultiplier = 1.6 + Math.random() * 1.0;
-    const bottomBorder = Math.round(baseBorder * bottomMultiplier);
-    const sideBorder = Math.round(baseBorder);
-    const gap = Math.round(baseBorder * 1.3);
-    const outerPadding = Math.round(baseBorder);
 
-    const cols = mode === 2 ? 1 : mode === 4 ? 2 : 3;
+    const baseBorder = parseInt(borderThickness, 10) || 2;
+    const outerPadding = Math.round(baseBorder * 4);
+    const gap = Math.round(baseBorder * 1.3);
+    const bottomMultiplier = 1.6 + Math.random() * 1.0;
+    const bottomBorder = Math.round(baseBorder * 4 * bottomMultiplier);
+    const sideBorder = Math.round(baseBorder * 4);
+
+    // 更通用的行列计算：以接近正方形网格为目标
+    const cols = Math.ceil(Math.sqrt(mode));
     const rows = Math.ceil(mode / cols);
 
+    // 计算总尺寸
     const photosWidth = cols * (photoWidth + gap) - gap;
     const photosHeight = rows * (photoHeight + gap) - gap;
 
-    const totalWidth = cols * (photoWidth + gap) - gap + outerPadding * 2;
-    const totalHeight = rows * (photoHeight + gap) - gap + outerPadding * 2 + (bottomBorder - sideBorder);
+    const totalWidth = photosWidth + outerPadding * 2;
+    // bottomBorder 与 sideBorder 的差异用于做一点不对称底边（参考原代码意图）
+    const totalHeight = photosHeight + outerPadding * 2 + Math.max(0, bottomBorder - sideBorder);
 
-    let finalCanvas = document.createElement("canvas");
+    const finalCanvas = document.createElement("canvas");
     finalCanvas.width = totalWidth;
     finalCanvas.height = totalHeight;
-    let finalCtx = finalCanvas.getContext("2d");
+    const finalCtx = finalCanvas.getContext("2d");
 
-    // 1) 外层填充（边框颜色）
+    // 外层填充（边框颜色）
     finalCtx.fillStyle = selectedColor || "#ffffff";
     finalCtx.fillRect(0, 0, totalWidth, totalHeight);
 
-    // 2) （可选）对合成整体应用亮度/对比度 —— 这里保持默认无��局滤镜
-    // finalCtx.filter = `brightness(${brightness}) contrast(${contrast})`;
-
+    // 绘制每张照片
     let loadedCount = 0;
+    const total = capturedPhotos.length;
 
-    // 把所有小照片绘制到 finalCanvas
-    capturedPhotos.forEach((photo, index) => {
-        let img = new Image();
-        img.src = photo.photo;
-        let x = (index % cols) * (photoWidth + gap) + outerPadding;
-        let y = Math.floor(index / cols) * (photoHeight + gap) + outerPadding;
+    function tryFinish() {
+        if (++loadedCount === total) {
+            // 所有图片都已处理（成功或失败），导出图片
+            const link = document.createElement("a");
+            link.download = "memephoto.png";
+            link.href = finalCanvas.toDataURL("image/png");
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
 
-        img.onload = () => {
-            // 直接绘制照片（不再改变 filter）
+            if (typeof polaroidSound !== "undefined") polaroidSound.play();
+        }
+    }
+
+    capturedPhotos.forEach((photoObj, index) => {
+        const img = new Image();
+        img.onload = function () {
+            const colsIndex = index % cols;
+            const rowsIndex = Math.floor(index / cols);
+            const x = colsIndex * (photoWidth + gap) + outerPadding;
+            const y = rowsIndex * (photoHeight + gap) + outerPadding;
+
+            // 若源图片尺寸不���目标尺寸，直接 drawImage 拉伸到目标尺寸（与你之前的行为一致）
             finalCtx.drawImage(img, x, y, photoWidth, photoHeight);
 
             // 小标识（可选）
             finalCtx.font = "14px 'Courier New', monospace";
             finalCtx.fillStyle = "rgba(0, 0, 0, 0.7)";
             finalCtx.textAlign = "left";
-            finalCtx.fillText("@memephoto.com.cn", x, y + photoHeight + Math.round(sideBorder/2) - 10);
+            finalCtx.fillText("@memephoto.com.cn", x, y + photoHeight + Math.round(sideBorder / 2) - 10);
 
-            loadedCount++;
-if (loadedCount === capturedPhotos.length) {
-              // 所有图片绘制完成 —— 直接导出合成图片（已移除内孔与装饰边框的绘制）
-              const link = document.createElement("a");
-              link.download = "memephoto.png";
-              link.href = finalCanvas.toDataURL("image/png");
-              document.body.appendChild(link);
-              link.click();
-              link.remove();
+            tryFinish();
+        };
 
-    // 播放合成音效（如果存在）
-    if (typeof polaroidSound !== "undefined") polaroidSound.play();
-}
+        img.onerror = function () {
+            console.warn("某张照片加载失败，继续导出其它照片（index=" + index + "）");
+            // 在加载失败时仍占位（可选：绘制空白或错误图标），这里只跳过并继续计数
+            tryFinish();
+        };
 
-// 小工具：给颜色做一点加深/变浅（百分比 -100..100）
-function shadeColor(color, percent) {
-    // color 形如 "#rrggbb"
-    if (!color) return "#000";
-    const f = parseInt(color.slice(1), 16);
-    const t = percent < 0 ? 0 : 255;
-    const p = Math.abs(percent) / 100;
-    const R = Math.round((t - (f >> 16)) * p) + (f >> 16);
-    const G = Math.round((t - (f >> 8 & 0x00FF)) * p) + (f >> 8 & 0x00FF);
-    const B = Math.round((t - (f & 0x0000FF)) * p) + (f & 0x0000FF);
-    return "#" + (0x1000000 + (R<<16) + (G<<8) + B).toString(16).slice(1);
+        // capturedPhotos 存的是 dataURL（canvas.toDataURL），直接设置即可
+        img.src = photoObj.photo;
+    });
 }
 
 let filters = []; // 存储加载的滤镜数据
