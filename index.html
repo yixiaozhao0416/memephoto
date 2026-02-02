@@ -896,17 +896,17 @@ ctx.restore();
   这版会在照片区域周围“抠出”一个 scalloped（波浪）内孔，保留外侧实色边框。
 */
 
-// 把 downloadPhoto() 中调用 drawAccentBorderAndDownload(...) 的行替换为下面的完整实现
+// 替换原文件中的 downloadPhoto() 实现为下面代码
 function downloadPhoto() {
-    // 校验所有格子是否都��照片
+    // 校验所有格子是否都已拍照片
     if (!capturedPhotos || capturedPhotos.length !== mode || capturedPhotos.some(p => !p || !p.photo)) {
         alert("请完成所有拍照！");
         return;
     }
 
     // 基础参数（你可以根据需要调整宽高或按屏幕缩放）
-    const photoWidth = 500;
-    const photoHeight = 400;
+    let photoWidth = 500;
+    let photoHeight = 400;
 
     const baseBorder = parseInt(borderThickness, 10) || 2;
     const outerPadding = Math.round(baseBorder * 4);
@@ -915,9 +915,25 @@ function downloadPhoto() {
     const bottomBorder = Math.round(baseBorder * 4 * bottomMultiplier);
     const sideBorder = Math.round(baseBorder * 4);
 
-    // 更通用的行列计算：以接近正方形网格为目标
-    const cols = Math.ceil(Math.sqrt(mode));
+    // 固定列数规则：2/4 -> 1 列（竖排），6 -> 2 列，9 -> 3 列，其他回退到 sqrt 近似
+    let cols;
+    if (mode === 2 || mode === 4) {
+        cols = 1;
+    } else if (mode === 6) {
+        cols = 2;
+    } else if (mode === 9) {
+        cols = 3;
+    } else {
+        cols = Math.ceil(Math.sqrt(mode));
+    }
     const rows = Math.ceil(mode / cols);
+
+    // 如果是单列模式，使用纵向照片尺寸（更适合竖排）
+    if (cols === 1) {
+        // 竖版尺寸（可根据喜好调整）
+        photoWidth = 400;
+        photoHeight = 500;
+    }
 
     // 计算总尺寸
     const photosWidth = cols * (photoWidth + gap) - gap;
@@ -962,7 +978,7 @@ function downloadPhoto() {
             const x = colsIndex * (photoWidth + gap) + outerPadding;
             const y = rowsIndex * (photoHeight + gap) + outerPadding;
 
-            // 若源图片尺寸不���目标尺寸，直接 drawImage 拉伸到目标尺寸（与你之前的行为一致）
+            // 若源图片尺寸不等于目标尺寸，直接 drawImage 拉伸到目标尺寸（与你之前的行为一致）
             finalCtx.drawImage(img, x, y, photoWidth, photoHeight);
 
             // 小标识（可选）
@@ -976,7 +992,6 @@ function downloadPhoto() {
 
         img.onerror = function () {
             console.warn("某张照片加载失败，继续导出其它照片（index=" + index + "）");
-            // 在加载失败时仍占位（可选：绘制空白或错误图标），这里只跳过并继续计数
             tryFinish();
         };
 
