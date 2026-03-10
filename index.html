@@ -1,19 +1,1277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" href="/path/to/your/important.css" as="style">
-    <link rel="preload" href="/path/to/your/font.woff2" as="font" type="font/woff2" crossorigin>
-    <title>Your Website Title</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8979740265237967"
+     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-8979740265237967">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>大头贴拍照</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Press Start 2P', cursive;
+      color: #4b3832;
+       background-image: url('https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/background01.png');
+  background-size:  cover; /* 或 contain / auto，依你想要的效果 */
+  background-position: center;
+  background-repeat: no-repeat;
+
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      color: #5c1133;
+      margin: 20px 0;
+      text-shadow: 2px 2px #ffe2b0;
+    }
+    h2 {
+      font-size: 16px;
+      color: #723c1e;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 0 #ffffff, 3px 3px 0 #c7b299;
+    }
+    button {
+      padding: 10px 16px;
+      cursor: pointer;
+      background: linear-gradient(to top, #a0522d, #cd853f);
+      color: #fff;
+      border: 3px solid #5c4033;
+      border-radius: 10px;
+      font-family: "Georgia", serif;
+      font-size: 12px;
+      margin: 5px;
+      box-shadow: 0 6px #5c4033, inset 0 -4px 0 rgba(255,255,255,0.3);
+      transition: all 0.15s ease-in-out;
+    }
+    button:active {
+      box-shadow: 0 2px #5c4033;
+      transform: translateY(4px);
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+   .sidebar {
+  padding: 15px;
+  width: 23%;
+text-align: center;
+}
+
+.center {
+  padding: 15px;
+  width: 50%;
+  text-align: center;
+}
+
+.preview {
+  padding: 15px;
+  width: 20%;
+ text-align: center;
+}
+    .photo-frame {
+      display: inline-block;
+      width: 100px;
+      height: 80px;
+      border: 2px solid #5c4033;
+      margin: 5px;
+      position: relative;
+      cursor: pointer;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+    }
+    #frame-list img {
+      border: 3px solid #d2b48c;
+      border-radius: 8px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+      width: 50px;
+    }
+    #frame-list img:hover {
+      transform: scale(1.1) rotate(-2deg);
+    }
+    #frame-list img:active {
+      transform: scale(0.95);
+    }
+    .pixel-computer {
+      position: relative;
+      width: 100%;
+      padding-top: 66.66%;
+      margin-bottom: 10px;
+    }
+    .pixel-computer video,
+    .pixel-computer img {
+      position: absolute;
+    }
+  .pixel-computer video {
+  top: 12%;
+  left: 24%;
+ width: 51.2%;  /* 让宽度占父容器40%，可根据需要调整 */
+  aspect-ratio: 5/ 4;  /* 固定比例 5:4 */
+  object-fit: cover;
+  border-radius: 4px;
+  z-index: 2;
+  transform: scaleX(-1); /* 左右镜像翻转 */
+}
+
+    .computer-frame {
+      top: -6%;
+      left: 15%;
+      width: 70%;
+      height: auto;
+      z-index: 4;
+      pointer-events: none; }
+    .computer-frame2 {
+      top: -6%;
+      left: 15%;
+      width: 70%;
+      height: auto;
+      z-index: 1;
+      pointer-events: none;
+    }
+    #filter-preview {
+      position: absolute;
+ top: 12%;
+ left: 24%;
+ width: 51.2%;  /* 让宽度占父容器40%，可根据需要调整 */
+  aspect-ratio: 5/ 4;  /* 固定比例 5:4 */
+      pointer-events: none;
+      display: none;
+      border-radius: 10px;
+      z-index: 3;
+    }
+    .more-filters-btn {
+      background: #d2b48c;
+      border: none;
+      font-size: 18px;
+      margin-left: 5px;
+      cursor: pointer;
+      color: #5c4033;
+      transition: transform 0.2s;
+      width: 50px;
+      height: 50px;
+      line-height: 80px;
+    }
+    .more-filters-btn:hover {
+      transform: scale(1.2);
+      color: #a0522d;  
+    }
+     /* Tooltip 初始隐藏 */
+.more-filters-btn .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #FDBE3B;;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 10;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+max-height: 20px; /* 设置最大高度 */
+line-height: 20px;
+transition: opacity 0.2s;
+
+  /* 箭头 */
+  position: absolute;
+}
+
+.more-filters-btn .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* 箭头靠左边 */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #FDBE3B transparent transparent;
+}
+
+.more-filters-btn:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+      .countdown-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 居中到父容器中心（pixel-computer） */
+  font-size: clamp(32px, 8vw, 72px); /* 响应式字号，手机端也可见 */
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+  z-index: 2000; /* 放到视频及滤镜之上 */
+  pointer-events: none; /* 不阻挡触摸/点击 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+@media (max-width: 420px) {
+  .countdown-text { font-size: clamp(28px, 12vw, 56px); }
+}
+
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: #f6f3d4;
+    padding: 20px;
+    border: 5px solid #1070B4;
+    box-shadow: 8px 8px #9bbfd9;
+    text-align: center;
+    z-index: 6; /* 确保在最前 */
+}
+      /* 添加Windows风格的框架样式 */
+.window-frame {
+  position: relative;
+  background-color: #f6f3d4;
+  border: 5px solid #1070B4;
+  box-shadow: 4px 4px 0 #9bbfd9, 8px 8px 0 #4363D8; /* 让边缘更像素化 */
+  padding: 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.window-frame.sidebar {
+  background-color:  #FDD672; 
+    border: 5px solid #E5B13A;
+     box-shadow: 10px 10px #C68A20;
+}
+
+.window-frame.center {
+  background-color: #f6f3d4; /* 浅绿色背景 */
+  
+}
+
+.window-frame.preview {
+  background-color:  #ffdc63; /* 浅灰色背景 */
+        border: 5px solid #E5B13A;
+     box-shadow: 10px 10px#C68A20;
+}
+
+/* 长方形条 */
+.window-frame .title-bar {
+  height: 30px;
+  background-color: #1070B4;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  cursor: move;  /* 可拖动 */
+}
+.animated-title {
+  display: flex;
+  white-space: nowrap;
+  font-size: 24px;
+  color: #fceabb;
+  margin: 20px 0;
+  text-shadow: 2px 2px #ffe2b0;
+  overflow: hidden;
+  position: relative;
+   width: 100%; /* 适当调整宽度 */
+}
+
+/* 文字滚动动画 */
+@keyframes scroll-text {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-10%); }
+}
+
+.animated-title::after {
+  content: " TAKE PHOTO TAKE PHOTO TAKE PHOTO TAKE PHOTO TAKE PHOTO TAKE PHOTO"; /* 重复内容，模拟滚动 */
+  display: flex;
+  animation: scroll-text 80s linear infinite; /* 5秒滚动一次 */
+}
+
+/* 鼠标悬停加速滚动 */
+.animated-title:hover::after {
+  animation-duration: 30s; /* 悬停时加快滚动 */
+  color: #1070B4; /* 变色 */
+  font-size: 28px; /* 放大 */
+  text-shadow: 3px 3px #ffe2b0;
+}
+
+/* 滑块轨道 */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 25%;
+  height: 12px;
+  background: linear-gradient(to right, #fceabb, #e7b77b);
+  border-radius: 6px;
+  border: 2px solid #d2a679;
+  outline: none;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 
+              0 2px 4px rgba(255, 255, 255, 0.6); /* 内阴影+顶部高光 */
+  cursor: pointer;
+  position: relative;
+}
+
+/* 轨道上的反光效果 */
+input[type="range"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width:100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+}
+
+/* 滑块按钮 */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, #ffdab9 30%, #d2691e 80%);
+  border: 2px solid #8B4513;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 
+              inset 0 2px 4px rgba(255, 255, 255, 0.5); /* 外投影+内反光 */
+  cursor: grab;
+    z-index: 7; /* 确保在最前 */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, #ffdab9 30%, #d2691e 80%);
+  border: 2px solid #8B4513;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 
+              inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  cursor: grab;
+        z-index: 7; /* 确保在最前 */
+}
+
+/* 复古调色盘样式 */
+.color-palette {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5c4033;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.color-box:hover {
+  transform: scale(1.2);
+}
+
+.color-box.selected {
+  border: 4px solid #ff4500;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+}
+
+#photo-preview .photo-frame {
+  border: 2px solid #ffffff; /* 默认边框颜色 */
+}
+
+/* 选择边框厚度样式 */
+select {
+  background: #fceabb;
+  border: 2px solid #d2a679;
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 10px;
+  width: 120px;
+}
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10px, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+#extra-filters img {
+  max-width: 100px;
+  max-height: 100px;
+  margin: 5px;
+  object-fit: contain;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+#extra-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+#extra-filters img:hover {
+  transform: scale(1.05);
+  border-color: gold;
+}
+/* 全屏加载遮罩 */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:  #FDBE3B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+  color: white;
+  font-family: sans-serif;
+}
+
+.loading-bar {
+  width: 200px;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #f6d365,
+    #f6d365 10%,
+    #4d6a75 10%,
+    #4d6a75 20%
+  );
+  animation: scan 1s linear infinite;
+  background-size: 200% 100%;
+  border-radius: 3px;
+}
+
+@keyframes scan {
+  0% { background-position: 0 0; }
+  100% { background-position: -100% 0; }
+}
+
+.retro-text {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  color: #5c1133;
+  letter-spacing: 1px;
+}
+.running-character img {
+  width: 50px;
+  height: auto;
+  animation: runAcross 2s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes runAcross {
+  0% { transform: translateX(-80px); opacity: 0.5; }
+  50% { transform: translateX(80px); opacity: 1; }
+  100% { transform: translateX(-80px); opacity: 0.5; }
+}
+.filter-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FDBE3B;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: inset 0 0 20px #fff3;
+}
+
+.filter-loader img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.loading-text {
+  color: #ffd700;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+}
+.rotate-tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 22px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 9999;
+}
+      @media (max-width: 800px) {
+  .sidebar,
+  .center,
+  .preview,
+  .window-frame.sidebar,
+  .window-frame.center,
+  .window-frame.preview {
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box;
+  }
+.container {
+    flex-direction: column !important; /* 横排改纵排 */
+  }
+}
+
+  </style>
 </head>
 <body>
-    <img src="/path/to/your/image.webp" loading="lazy" alt="Description">
-    <audio src="/path/to/your/audio.mp3" loading="lazy" controls></audio>
-    <!-- Replace GIFs with WebP format where applicable -->
-    <div>
-        <img src="/path/to/your/gif.webp" alt="Animated Image">
+   <div id="loading-screen">
+      <div class="running-character">
+  <img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/New%20Piskel.gif" alt="camera runner">
+</div>
+  <div class="loading-bar"></div>
+  <p class="retro-text">加载中...</p>
+</div>
+<h1 class="animated-title">   </h1>
+  <div class="container">
+    <!-- 左侧模式选择 -->
+     <div class="window-frame sidebar">
+    <div class="title-bar">STEP1</div>
+      <h2>✦ SELECT MODE ✦</h2>
+      <h2>.选择拍照数量</h2>
+      <button onclick="setMode(2)">2 格</button><br/>
+      <button onclick="setMode(4)">4 格</button><br/>
+      <button onclick="setMode(6)">6 格</button><br/>
+      <button onclick="setMode(9)">9 格</button>
+         <h2>.选择边框颜色</h2>
+          <div id="color-palette" class="color-palette">
+    <div class="color-box" style="background-color: #ffffff;" onclick="selectColor('#ffffff')"></div>
+    <div class="color-box" style="background-color: #f0e68c;" onclick="selectColor('#f0e68c')"></div>
+    <div class="color-box" style="background-color: #d2b48c;" onclick="selectColor('#d2b48c')"></div>
+    <div class="color-box" style="background-color: #A8E6CF;" onclick="selectColor('#A8E6CF')"></div>
+    <div class="color-box" style="background-color: #c8a69d;" onclick="selectColor('#c8a69d')"></div>
+    <div class="color-box" style="background-color: #d6cfc7;" onclick="selectColor('#d6cfc7')"></div>
+    <div class="color-box" style="background-color: #708090;" onclick="selectColor('#708090')"></div>
+              <!-- 第二排：复古颜色 -->
+              <div class="color-box" style="background-color: #FFC3A0;" onclick="selectColor('#FFC3A0')"></div> 
+  <div class="color-box" style="background-color: #E3DFFD;" onclick="selectColor('#E3DFFD')"></div> 
+  <div class="color-box" style="background-color: #FFB7C5;" onclick="selectColor('#FFB7C5')"></div> 
+  <div class="color-box" style="background-color: #AEEEEE;" onclick="selectColor('#AEEEEE')"></div> 
+  <div class="color-box" style="background-color: #a0522d;" onclick="selectColor('#a0522d')"></div> <!-- 复古红棕 -->
+  <div class="color-box" style="background-color: #8b0000;" onclick="selectColor('#8b0000')"></div> <!-- 石板灰蓝 -->
+  <div class="color-box" style="background-color: #0A0A0A;" onclick="selectColor('#0A0A0A')"></div> <!-- 墨绿色 -->
+  </div>
+  <label for="border-thickness">.选择边框厚度</label>
+  <select id="border-thickness" onchange="changeBorderThickness()">
+    <option value="5">细边框</option>
+    <option value="10">厚边框</option>
+  </select>
     </div>
+    <!-- 中间区域 摄像头 + 滤镜 -->
+      <div class="window-frame center">
+    <div class="title-bar">STEP2</div>
+      <h2>✦ SELECT STICKER ✦</h2>
+      <div id="frame-list">
+<img src="01.png" onclick="selectFilter(this)" />
+<img src="02.png" onclick="selectFilter(this)" />
+        <button class="more-filters-btn" onclick="openFilterModal()">...<span class="tooltip-text">更多滤镜</span></button>
+        <!-- 上传贴纸文件 input（隐藏） -->
+    <input type="file" id="uploadInput" accept="image/*" style="display: none;" onchange="handleUploadSticker()" />
+      </div>
+      <div class="pixel-computer">
+        <video id="video" autoplay muted playsinline></video>
+          <!-- 亮度调节 -->
+<label for="brightness">亮度</label>
+<input type="range" id="brightness" min="0.7" max="1.3" step="0.1" value="1">
+
+<!-- 对比度调节 -->
+<label for="contrast">对比度</label>
+<input type="range" id="contrast" min="0.7" max="1.3" step="0.1" value="1">
+
+        <img id="filter-preview" />
+        <img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/computer02.png" class="computer-frame" />
+        <img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/computer01.png" class="computer-frame2" />
+      </div>
+      <button onclick="startCamera()">启动摄像头</button>
+      <button onclick="takePhoto()">拍照</button>
+      <button onclick="downloadPhoto()">下载组合照片</button>
+    </div>
+
+    <!-- 右侧照片预览 -->
+   <div class="window-frame preview">
+    <div class="title-bar">STEP3</div>
+      <h2>✦ PREVIEW ✦</h2>
+      <div id="photo-preview"></div>
+    </div>
+  </div>
+
+  <!-- Modal 弹窗 -->
+  <div id="filterModal" class="modal">
+    <div class="modal-content">
+        <div id="filterLoader" class="filter-loader">
+  <img src="https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/Piskel3.gif" alt="loading..." />
+  <p class="loading-text">加载滤镜中...</p>
+</div>
+      <h2>✦ 更多滤镜 ✦</h2>
+   <div id="extra-filters" class="filter-grid"></div>
+
+<div class="pagination-controls">
+  <button id="prevPage">‹ 上一页</button>
+  <span id="pageInfo"></span>
+  <button id="nextPage">下一页 ›</button>
+</div>
+      <button onclick="closeFilterModal()">关闭</button>
+    </div>
+  </div>
+
+
+  <!-- canvas 不显示 -->
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <!-- JS 脚本区域 -->
+  <script>
+    // 👉 你已有的 JS 可以保持不变，照常使用
+let mode = 2; // 默认模式 2 格
+        let selectedFilter = null; // 当前选中的滤镜
+        let capturedPhotos = []; // 存已拍照片
+        let currentIndex = 0; // 当前拍摄的格子索引
+      let selectedColor = "#000";    // 默认边框颜色
+let borderThickness = 2;  // 默认边框厚度
+        const video = document.getElementById("video");
+        const brightnessControl = document.getElementById("brightness");
+  const contrastControl = document.getElementById("contrast");
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const photoPreview = document.getElementById("photo-preview");
+        const filterPreview = document.getElementById("filter-preview");
+        const keyboardSound = new Audio("https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/keyboard.mp3");
+        const polaroidSound = new Audio("https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/polaroid.mp3");
+        const shutterSound = new Audio("https://jsd.cdn.zzko.cn/gh/yixiaozhao0416/memephoto/shutter.mp3");
+
+function updateFilter() {
+    const brightness = brightnessControl.value;
+    const contrast = contrastControl.value;
+    video.style.filter = `brightness(${brightness}) contrast(${contrast})`;
+  }
+
+  // 监听滑块变化
+  brightnessControl.addEventListener("input", updateFilter);
+  contrastControl.addEventListener("input", updateFilter);
+
+        // 选择拍摄模式
+        function setMode(num) {
+            mode = num;
+            capturedPhotos = Array(num).fill(null); // 预留空间
+            currentIndex = 0;
+            renderPhotoFrames();
+           keyboardSound.play();
+
+        }
+
+        // 选择滤镜
+        function selectFilter(imgElement) {
+            selectedFilter = imgElement.src;
+            filterPreview.src = selectedFilter;
+            filterPreview.style.display = "block";
+        }
+
+        // 启动摄像头
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+                video.srcObject = stream;
+            }).catch(err => alert("无法访问摄像头：" + err));
+            keyboardSound.play();
+
+
+        }
+// 只在这里统一管理边框样式
+function updateBorderPreview() {
+  const frames = document.querySelectorAll(".photo-frame");
+  frames.forEach(frame => {
+    frame.style.border = `${borderThickness}px solid ${selectedColor}`;
+  });
+}
+
+        // 渲染相框
+       function renderPhotoFrames() {
+    photoPreview.innerHTML = "";
+    for (let i = 0; i < mode; i++) {
+        let frame = document.createElement("div");
+        frame.className = "photo-frame";
+        frame.dataset.index = i;
+        frame.onclick = () => redoPhoto(i); // 点击重拍
+
+        if (capturedPhotos[i]) {
+            let img = document.createElement("img");
+            img.src = capturedPhotos[i].photo;
+            frame.appendChild(img);
+        }
+
+        photoPreview.appendChild(frame); // ✅ 只添加一次 frame
+    }
+              // 🛠 添加这行，确保边框样式更新
+    updateBorderPreview();
+}
+
+        // 拍照
+function takePhoto() {
+    if (currentIndex >= mode) {
+        alert("已拍完所有照片！");
+        return;
+    }
+    let countdown = 3; // 倒计时秒数
+    let countdownText = document.createElement("div");
+    countdownText.classList.add("countdown-text");
+
+    // 把倒计时插入到 video 的父容器（.pixel-computer），这样会相对于视频居中
+    const pixelComputer = document.querySelector('.pixel-computer') || document.body;
+    pixelComputer.appendChild(countdownText);
+
+    // 立刻显示初始数值（防止延迟导致短时间空白）
+    countdownText.innerText = countdown;
+
+   // 启动倒计时
+    let interval = setInterval(() => {
+        countdown--;
+        if (countdown >= 0) {
+            countdownText.innerText = countdown;
+        }
+        if (countdown < 0) {
+            clearInterval(interval);
+
+            // 移除倒计时元素（更通用）
+            if (countdownText && countdownText.remove) {
+                countdownText.remove();
+            } else if (countdownText && countdownText.parentNode) {
+                countdownText.parentNode.removeChild(countdownText);
+            }
+            // 模拟闪光灯效果
+            let flash = document.createElement("div");
+            flash.style.position = "fixed";
+            flash.style.top = "0";
+            flash.style.left = "0";
+            flash.style.width = "100vw";
+            flash.style.height = "100vh";
+            flash.style.backgroundColor = "white";
+            flash.style.opacity = "1";
+            flash.style.transition = "opacity 0.3s";
+            flash.style.zIndex = 3000;
+            document.body.appendChild(flash);
+
+            setTimeout(() => {shutterSound.play();
+
+                flash.style.opacity = "0";
+                setTimeout(() => document.body.removeChild(flash), 300);
+            }, 100);
+
+            // 在闪光灯模拟后执行拍照
+            setTimeout(() => {
+                capturePhoto(currentIndex);
+            }, 300); // 等待闪光灯效果结束
+        }
+    }, 1000);
+ keyboardSound.play();
+    }
+
+
+      function capturePhoto(index) { 
+            if (!video || !canvas || !ctx) {
+                console.error("Camera or canvas not initialized!");
+                alert("相机或画布未初始化！");
+                return;
+}
+
+    // 设置 canvas 的大小
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+// 获取当前亮度 & 对比度
+    const brightness = brightnessControl.value;
+    const contrast = contrastControl.value;
+
+    // 先应用滤镜
+    ctx.filter = `brightness(${brightness}) contrast(${contrast})`;
+    
+
+    // 先绘制摄像头画面
+    ctx.save();
+ctx.translate(canvas.width, 0); // 水平镜像
+ctx.scale(-1, 1);
+          
+          // 计算裁切区域，模拟 object-fit: cover
+const videoAspect = video.videoWidth / video.videoHeight;
+const targetAspect = 5 / 4;
+          let sx, sy, sWidth, sHeight;
+if (videoAspect > targetAspect) {
+    // video 比 5:4 更宽 → 裁左右
+    sHeight = video.videoHeight;
+    sWidth = sHeight * targetAspect;
+    sx = (video.videoWidth - sWidth) / 2;
+    sy = 0;
+} else {
+    // video 比 5:4 更窄 → 裁上下
+    sWidth = video.videoWidth;
+    sHeight = sWidth / targetAspect;
+    sx = 0;
+    sy = (video.videoHeight - sHeight) / 2;
+}
+
+          
+          
+ctx.drawImage(video, sx, sy, sWidth, sHeight, 0, 0, canvas.width, canvas.height);
+ctx.restore();
+
+          
+
+    if (selectedFilter) {
+        let frameImg = new Image();
+        frameImg.crossOrigin = "anonymous"; // 确保可以加载外部图片
+        frameImg.src = selectedFilter;
+
+        frameImg.onload = function () {
+            ctx.globalAlpha = 1.0; // 确保滤镜完全不透明
+            ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
+
+            // 确保照片存入数组
+            let photoData = canvas.toDataURL("image/png");
+            capturedPhotos[currentIndex] = { photo: photoData };
+            currentIndex++;
+
+            renderPhotoFrames(); // 重新渲染已拍照片
+        };
+
+        frameImg.onerror = function () {
+            alert("滤镜加载失败，请检查图片路径！");
+        };
+    } else {
+        // 没有滤镜，直接拍照
+        let photoData = canvas.toDataURL("image/png");
+        capturedPhotos[currentIndex] = { photo: photoData };
+        currentIndex++;
+
+        renderPhotoFrames();
+    }
+}
+
+
+        // 重拍某个格子
+        function redoPhoto(index) {
+            if (confirm("确定要重拍这个照片吗？")) {
+                currentIndex = index;
+                capturedPhotos[index] = null;
+                renderPhotoFrames();
+            }
+        }
+
+        // 下载合成大头贴
+/*
+  替换 downloadPhoto() 中最后调用 drawAccentBorderAndDownload 的部分，
+  以及替换原来的 createPattern / drawAccentBorderAndDownload 实现。
+  这版会在照片区域周围“抠出”一个 scalloped（波浪）内孔，保留外侧实色边框。
+*/
+
+// 替换原文件中的 downloadPhoto() 实现为下面代码
+function downloadPhoto() {
+    // 校验所有格子是否都已拍照片
+    if (!capturedPhotos || capturedPhotos.length !== mode || capturedPhotos.some(p => !p || !p.photo)) {
+        alert("请完成所有拍照！");
+        return;
+    }
+
+    // 基础参数（你可以根据需要调整宽高或按屏幕缩放）
+    let photoWidth = 500;
+    let photoHeight = 400;
+
+    const baseBorder = parseInt(borderThickness, 10) || 2;
+    const outerPadding = Math.round(baseBorder * 4);
+    const gap = Math.round(baseBorder * 1.3);
+    const bottomMultiplier = 1.6 + Math.random() * 1.0;
+    const bottomBorder = Math.round(baseBorder * 4 * bottomMultiplier);
+    const sideBorder = Math.round(baseBorder * 4);
+
+    // 固定列数规则：2/4 -> 1 列（竖排），6 -> 2 列，9 -> 3 列，其他回退到 sqrt 近似
+    let cols;
+    if (mode === 2 || mode === 4) {
+        cols = 1;
+    } else if (mode === 6) {
+        cols = 2;
+    } else if (mode === 9) {
+        cols = 3;
+    } else {
+        cols = Math.ceil(Math.sqrt(mode));
+    }
+    const rows = Math.ceil(mode / cols);
+
+    // 如果是单列模式，使用纵向照片尺寸（更适合竖排）
+    if (cols === 1) {
+        // 竖版尺寸（可根据喜好调整）
+        photoWidth = 500;
+        photoHeight = 400;
+    }
+
+    // 计算总尺寸
+    const photosWidth = cols * (photoWidth + gap) - gap;
+    const photosHeight = rows * (photoHeight + gap) - gap;
+
+    const totalWidth = photosWidth + outerPadding * 2;
+    // bottomBorder 与 sideBorder 的差异用于做一点不对称底边（参考原代码意图）
+    const totalHeight = photosHeight + outerPadding * 2 + Math.max(0, bottomBorder - sideBorder);
+
+    const finalCanvas = document.createElement("canvas");
+    finalCanvas.width = totalWidth;
+    finalCanvas.height = totalHeight;
+    const finalCtx = finalCanvas.getContext("2d");
+
+    // 外层填充（边框颜色）
+    finalCtx.fillStyle = selectedColor || "#ffffff";
+    finalCtx.fillRect(0, 0, totalWidth, totalHeight);
+
+    // 绘制每张照片
+    let loadedCount = 0;
+    const total = capturedPhotos.length;
+
+    function tryFinish() {
+        if (++loadedCount === total) {
+            // 所有图片都已处理（成功或失败），导出图片
+            const link = document.createElement("a");
+            link.download = "memephoto.png";
+            link.href = finalCanvas.toDataURL("image/png");
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            if (typeof polaroidSound !== "undefined") polaroidSound.play();
+        }
+    }
+
+    capturedPhotos.forEach((photoObj, index) => {
+        const img = new Image();
+        img.onload = function () {
+            const colsIndex = index % cols;
+            const rowsIndex = Math.floor(index / cols);
+            const x = colsIndex * (photoWidth + gap) + outerPadding;
+            const y = rowsIndex * (photoHeight + gap) + outerPadding;
+
+            // 若源图片尺寸不等于目标尺寸，直接 drawImage 拉伸到目标尺寸（与你之前的行为一致）
+            finalCtx.drawImage(img, x, y, photoWidth, photoHeight);
+
+            // 小标识（可选）
+            finalCtx.font = "14px 'Courier New', monospace";
+            finalCtx.fillStyle = "rgba(0, 0, 0, 0.7)";
+            finalCtx.textAlign = "left";
+            finalCtx.fillText("@memephoto.com.cn", x, y + photoHeight + Math.round(sideBorder / 2) - 10);
+
+            tryFinish();
+        };
+
+        img.onerror = function () {
+            console.warn("某张照片加载失败，继续导出其它照片（index=" + index + "）");
+            tryFinish();
+        };
+
+        // capturedPhotos 存的是 dataURL（canvas.toDataURL），直接设置即可
+        img.src = photoObj.photo;
+    });
+}
+
+let filters = []; // 存储加载的滤镜数据
+let currentPage = 1;
+const filtersPerPage = 12; // 每页显示数量
+      
+function loadFilters() {
+  try {
+    // 直接定义本地 filters 数据
+     filters = [ { id: -2, name: "上传贴纸", url: "upload.png", isUpload: true },
+      { id: -1, name: "空白贴纸", url: "blank.png", isBlank: true },
+      {
+        id: 3,
+        name: "滤镜3",
+        url: "3.png"
+      },
+      {
+        id: 4,
+        name: "滤镜4",
+        url: "4.png"
+      },
+      {
+        id: 5,
+        name: "滤镜5",
+        url: "5.png"
+      },
+      {
+        id: 6,
+        name: "滤镜6",
+        url: "6.png"
+      },
+      {
+        id: 7,
+        name: "滤镜7",
+        url: "7.png"
+      },
+      {
+        id: 8,
+        name: "滤镜8",
+        url: "8.png"
+      },
+      {
+        id: 9,
+        name: "滤镜9",
+        url: "9.png"
+      },
+      {
+        id: 10,
+        name: "滤镜10",
+        url: "10.png"
+      },
+      {
+        id: 11,
+        name: "滤镜11",
+        url: "11.png"
+      },
+      {
+        id: 12,
+        name: "滤镜12",
+        url: "12.png"
+      },
+      {
+        id: 13,
+        name: "滤镜13",
+        url: "13.png"
+      },
+      {
+        id: 14,
+        name: "滤镜14",
+        url: "14.png"
+      },
+      {
+        id: 15,
+        name: "滤镜15",
+        url: "15.png"
+      }
+    ];
+
+    // 赋值到全局 filters 变量（假设你外部已声明）
+    window.filters = filters;
+    renderFilters();
+  } catch (e) {
+    alert("滤镜加载失败，请检查数据！");
+    console.error(e);
+  }
+}
+
+function renderFilters() {
+  const container = document.getElementById('extra-filters');
+  container.innerHTML = "";
+
+  const start = (currentPage - 1) * filtersPerPage;
+  const end = start + filtersPerPage;
+  const currentFilters = filters.slice(start, end);
+
+  currentFilters.forEach(filter => {
+    const img = document.createElement("img");
+    img.src = filter.url;
+    img.alt = filter.name;
+    img.title = filter.name;
+    
+    if (filter.isBlank) img.classList.add("blank-sticker");
+if (filter.isUpload) img.classList.add("upload-sticker");
+
+    img.onclick = () => selectExtraFilter(img);
+    container.appendChild(img);
+  });
+
+  updatePagination();
+}
+
+function updatePagination() {
+  const pageInfo = document.getElementById('pageInfo');
+  const totalPages = Math.ceil(filters.length / filtersPerPage);
+  pageInfo.textContent = `第 ${currentPage} / ${totalPages} 页`;
+
+  document.getElementById("prevPage").disabled = currentPage === 1;
+  document.getElementById("nextPage").disabled = currentPage === totalPages;
+}
+
+document.getElementById("prevPage").onclick = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderFilters();
+  }
+};
+
+document.getElementById("nextPage").onclick = () => {
+  const totalPages = Math.ceil(filters.length / filtersPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderFilters();
+  }
+};
+
+function openFilterModal() {
+    document.getElementById("filterModal").style.display = "block";
+    keyboardSound.play();
+
+    // 如果第一次打开才加载
+    if (filters.length === 0) {
+        loadFilters();
+    } else {
+        renderFilters();
+    }
+}
+
+function closeFilterModal() {
+    document.getElementById("filterModal").style.display = "none";
+}
+
+// 选择 modal 中的滤镜
+    function selectExtraFilter(img) {
+  const alt = img.alt;
+
+  if (alt === "上传贴纸") {
+    document.getElementById("uploadInput").click();
+    return;
+  }
+
+  // 默认：设置滤镜预览图
+  selectedFilter = img.src;
+  filterPreview.src = selectedFilter;
+  filterPreview.style.display = "block";
+  closeFilterModal();
+}
+
+
+    function handleUploadSticker() {
+  const input = document.getElementById("uploadInput");
+  const file = input.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const img = new Image();
+    img.src = e.target.result;
+    img.alt = "自定义贴纸";
+    img.title = "自定义贴纸";
+    img.onclick = () => selectExtraFilter(img);
+    img.style.border = "2px dashed green";
+    img.style.maxWidth = "100px";
+    img.style.maxHeight = "100px";
+
+    document.getElementById("extra-filters").appendChild(img);
+  };
+  reader.readAsDataURL(file);
+}
+
+      // 选择边框颜色
+function selectColor(color) {
+  selectedColor = color;
+  document.querySelectorAll('.color-box').forEach(box => {
+    box.classList.remove('selected');
+  });
+  event.target.classList.add('selected');
+  updateBorderPreview();
+}
+
+// 改变边框厚度
+function changeBorderThickness() {
+  borderThickness = document.getElementById("border-thickness").value;
+  updateBorderPreview();
+}
+      // 更新预览照片的边框
+function updateBorderPreview() {
+  const frames = document.querySelectorAll(".photo-frame");
+  frames.forEach(frame => {
+    frame.style.border = `${borderThickness}px solid ${selectedColor}`;
+  });
+}
+window.addEventListener("load", () => {
+  const loadingScreen = document.getElementById("loading-screen");
+  loadingScreen.style.opacity = 0;
+
+  setTimeout(() => {
+    loadingScreen.style.display = "none";
+  }, 600); // 动画淡出时间
+});
+
+function renderFilters() {
+  const container = document.getElementById('extra-filters');
+  const loader = document.getElementById('filterLoader');
+  container.innerHTML = "";
+
+  const start = (currentPage - 1) * filtersPerPage;
+  const end = start + filtersPerPage;
+  const currentFilters = filters.slice(start, end);
+
+  let loadedCount = 0;
+  const totalToLoad = currentFilters.length;
+
+  loader.style.display = "flex"; // 显示 loading 动画
+
+  currentFilters.forEach(filter => {
+    const img = document.createElement("img");
+    img.src = filter.url;
+    img.alt = filter.name;
+
+    // 成功加载
+    img.onload = img.onerror = () => {
+      loadedCount++;
+      if (loadedCount === totalToLoad) {
+        // 延迟让效果更自然
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 400);
+      }
+    };
+
+    img.onclick = () => selectExtraFilter(img);
+    container.appendChild(img);
+  });
+updatePagination();
+}
+
+</script>
+
+<section style="max-width:800px;margin:20px auto;font-size:14px;line-height:1.6;color:#555;">
+  <p style="font-size:12px;color:#888;margin-top:8px;">
+    This website provides an online abstract-style photo booth tool.
+    All image processing is done locally in the browser, and no photos are uploaded to the server.
+  </p>
+</section>
+
+<footer style="text-align:center; font-size:14px; margin-top:40px;">
+  <p>
+    <a href="about.html">关于我们 / About</a> |
+    <a href="privacy.html">隐私政策 / Privacy</a> |
+    <a href="contact.html">联系我们 / Contact</a>
+  </p>
+  <p style="color:gray;">© 2025 Meme Photo Site</p>
+</footer>
+
 </body>
 </html>
+
