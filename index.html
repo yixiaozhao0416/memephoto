@@ -548,7 +548,57 @@ select {
     flex-direction: column !important; /* 横排改纵排 */
   }
 }
+.guide-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
+.guide-card {
+  background: #fff8dc;
+  border: 4px solid #e5b13a;
+  padding: 25px;
+  width: 300px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.guide-controls {
+  margin-top: 15px;
+}
+
+.guide-controls button {
+  margin: 5px;
+}
+
+.done-btn {
+  margin-top: 10px;
+  background: #f4a261;
+}
   </style>
 </head>
 <body>
@@ -650,7 +700,22 @@ select {
       <button onclick="closeFilterModal()">关闭</button>
     </div>
   </div>
+  
+<div id="guideOverlay" class="guide-overlay">
+  <div class="guide-card">
+    <button class="close-btn" onclick="closeGuide()">✕</button>
 
+    <h2 id="guideTitle"></h2>
+    <p id="guideText"></p>
+
+    <div class="guide-controls">
+      <button onclick="prevStep()">← Back</button>
+      <button onclick="nextStep()">Next →</button>
+    </div>
+
+    <button class="done-btn" onclick="closeGuide()">Got it</button>
+  </div>
+</div>
 
   <!-- canvas 不显示 -->
   <canvas id="canvas" style="display:none;"></canvas>
@@ -1253,6 +1318,69 @@ function renderFilters() {
   });
 updatePagination();
 }
+
+    const guideSteps = [
+  {
+    title: "🎮 Welcome!",
+    text: "This is your retro photo booth. Let's make something fun!"
+  },
+  {
+    title: "📸 Step 1",
+    text: "Choose how many photos you want to take."
+  },
+  {
+    title: "✨ Step 2",
+    text: "Pick a sticker or filter to decorate your photos."
+  },
+  {
+    title: "🎬 Step 3",
+    text: "Start camera and take photos with different poses!"
+  },
+  {
+    title: "💾 Step 4",
+    text: "Download or share your final photo strip!"
+  }
+];
+
+let currentStep = 0;
+
+function showGuide() {
+  document.getElementById("guideOverlay").style.display = "flex";
+  updateGuide();
+}
+
+function updateGuide() {
+  document.getElementById("guideTitle").innerText = guideSteps[currentStep].title;
+  document.getElementById("guideText").innerText = guideSteps[currentStep].text;
+}
+
+function nextStep() {
+  if (currentStep < guideSteps.length - 1) {
+    currentStep++;
+    updateGuide();
+  } else {
+    closeGuide();
+  }
+}
+
+function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    updateGuide();
+  }
+}
+
+function closeGuide() {
+  document.getElementById("guideOverlay").style.display = "none";
+  localStorage.setItem("guideSeen", "true");
+}
+
+// 页面加载后触发（只显示一次）
+window.addEventListener("load", () => {
+  if (!localStorage.getItem("guideSeen")) {
+    setTimeout(showGuide, 800);
+  }
+});
 
 </script>
 
