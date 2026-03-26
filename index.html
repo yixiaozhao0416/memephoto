@@ -627,6 +627,11 @@ select {
   background: #000080;
   color: white;
 }
+    .task-item:first-child {
+  background: linear-gradient(to top, #2e8b57, #3cb371);
+  color: white;
+  font-weight: bold;
+}
   </style>
 </head>
 <body>
@@ -745,7 +750,9 @@ select {
   </div>
 </div>
 <div class="taskbar">
-  <button>Start</button>
+  <div class="task-item" onclick="goTo('index.html')">
+  🟢 Start
+</div>
 
   <div class="task-item" onclick="goTo('index.html')">
     📸 App
