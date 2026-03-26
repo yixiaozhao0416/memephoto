@@ -612,23 +612,49 @@ select {
   z-index: 9999;
 }
 
+
 .task-item {
   margin-left: 5px;
-  padding: 5px 10px;
-  background: #e0e0e0;
-  border: 2px solid #808080;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-family: "Press Start 2P", cursive;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: inset 1px 1px #dfdfdf;
   cursor: pointer;
+  transition: all 0.1s ease;
 }
-
 .task-item:active {
-  border: 2px inset #808080;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset -1px -1px #dfdfdf;
+  transform: translateY(1px);
 }
 .active-task {
   background: #000080;
   color: white;
+  border-top: 2px solid #000040;
+  border-left: 2px solid #000040;
+  border-right: 2px solid #8080ff;
+  border-bottom: 2px solid #8080ff;
 }
-    .task-item:first-child {
+.task-item:hover {
+  background: #d6d6d6;
+}
+
+.task-item:first-child {
   background: linear-gradient(to top, #2e8b57, #3cb371);
+
+  border-top: 2px solid #9fffcf;
+  border-left: 2px solid #9fffcf;
+  border-right: 2px solid #1f5f3c;
+  border-bottom: 2px solid #1f5f3c;
+
   color: white;
   font-weight: bold;
 }
