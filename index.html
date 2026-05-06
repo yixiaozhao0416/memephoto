@@ -14,8 +14,14 @@
   <meta name="google-adsense-account" content="ca-pub-8979740265237967">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>大头贴拍照</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <title>大头贴拍照 - 免费在线大头贴拍照工具</title>
+  <meta name="description" content="免费在线大头贴拍照工具，支持2/4/6/9格拼图，多种贴纸滤镜，拍出属于你的复古风格照片，照片处理全在本地完成。">
+  <meta property="og:title" content="大头贴拍照 - 免费在线拍照工具">
+  <meta property="og:description" content="免费在线大头贴拍照工具，支持多格拼图和贴纸滤镜">
+  <meta property="og:image" content="https://memephoto.com.cn/01.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></noscript>
   <style>
     body {
       font-family: 'Press Start 2P', cursive;
@@ -26,7 +32,7 @@
   background-repeat: no-repeat;
 
       margin: 0;
-      padding: 0;
+      padding: 0 0 48px 0;
     }
     h1 {
       text-align: center;
@@ -716,8 +722,8 @@ select {
     <div class="title-bar">STEP2</div>
       <h2>✦ SELECT STICKER ✦</h2>
       <div id="frame-list">
-<img src="01.png" onclick="selectFilter(this)" />
-<img src="02.png" onclick="selectFilter(this)" />
+<img src="01.png" alt="贴纸样式1" onclick="selectFilter(this)" />
+<img src="02.png" alt="贴纸样式2" onclick="selectFilter(this)" />
         <button class="more-filters-btn" onclick="openFilterModal()">...<span class="tooltip-text">更多滤镜</span></button>
         <!-- 上传贴纸文件 input（隐藏） -->
     <input type="file" id="uploadInput" accept="image/*" style="display: none;" onchange="handleUploadSticker()" />
@@ -902,6 +908,10 @@ function updateBorderPreview() {
 
         // 拍照
 function takePhoto() {
+    if (!video.srcObject || video.readyState < 2) {
+        alert("请先点击「启动摄像头」！");
+        return;
+    }
     if (currentIndex >= mode) {
         alert("已拍完所有照片！");
         return;
