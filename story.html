@@ -1,33 +1,966 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<title>Our Story | 关于我们</title>
-     <style>
-    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6;background-color:#FDBE3B;}
-    h1 { text-align: center; }
-    .lang-block { display: flex; flex-wrap: wrap; gap: 20px; }
-    .lang-block > div { flex: 1 1 45%; }
-    @media (max-width: 600px) {
-      .lang-block { flex-direction: column; }
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-644509R3FZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-644509R3FZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>大头贴的故事 | MemePhoto</title>
+  <meta name="description" content="探索大头贴的起源与历史：从1960年代纽约的第一台自动拍照机，到日本Purikura风潮，再到如今风靡全球的Meme大头贴文化。">
+  <meta property="og:title" content="大头贴的故事 — MemePhoto">
+  <meta property="og:description" content="大头贴从哪里来？Purikura是什么？Meme大头贴为何爆红？一篇讲清楚大头贴60年演变史。">
+  <meta property="og:image" content="https://memephoto.com.cn/01.png">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --pixel: #4b3832;
+      --accent: #5c1133;
+      --gold: #c8860a;
+      --gold-light: #FDD672;
+      --gold-border: #E5B13A;
+      --gold-shadow: #C68A20;
+      --blue-win: #1070B4;
+      --blue-light: #f6f3d4;
+      --cream: #fff8e7;
+      --text-body: #3a2a1e;
+      --win-gray: #c0c0c0;
+      --win-dark: #808080;
+      --win-white: #ffffff;
+      --bg: #d6c9a3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text-body);
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px),
+        repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ── Retro Scrolling Banner ── */
+    .ticker-wrap {
+      background: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+      border-bottom: 3px solid #3a0a20;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 28s linear infinite;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Site Header ── */
+    .site-header {
+      background: var(--gold-light);
+      border-bottom: 5px solid var(--gold-border);
+      box-shadow: 0 8px 0 var(--gold-shadow);
+      padding: 14px 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .site-logo {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      text-shadow: 2px 2px 0 #fff, 3px 3px 0 var(--gold-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .site-logo .cam-icon {
+      font-size: 20px;
+    }
+    .back-btn {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--win-white);
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border: 2px solid #003070;
+      border-radius: 4px;
+      padding: 7px 12px;
+      text-decoration: none;
+      box-shadow: 0 4px #003070, inset 0 -2px rgba(255,255,255,0.2);
+      transition: all 0.1s;
+    }
+    .back-btn:active { transform: translateY(3px); box-shadow: 0 1px #003070; }
+
+    /* ── Main Layout ── */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* ── Window Card Component ── */
+    .win-card {
+      background: var(--blue-light);
+      border: 4px solid var(--blue-win);
+      box-shadow: 6px 6px 0 #4a90cc, 10px 10px 0 #003070;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .win-card.gold {
+      background: var(--cream);
+      border-color: var(--gold-border);
+      box-shadow: 6px 6px 0 var(--gold-shadow), 10px 10px 0 #9a6010;
+    }
+    .win-titlebar {
+      background: var(--blue-win);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 1px;
+    }
+    .win-titlebar.gold-bar {
+      background: linear-gradient(90deg, var(--gold-border), var(--gold-shadow));
+      color: #fff;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+    .win-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+    .win-dot.red { background: #e24; }
+    .win-dot.yellow { background: #fa3; }
+    .win-dot.green { background: #4c4; }
+    .win-body { padding: 24px 28px; }
+
+    /* ── Hero Title Block ── */
+    .hero-block {
+      text-align: center;
+      padding: 36px 28px 28px;
+    }
+    .hero-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--gold);
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(14px, 3vw, 22px);
+      color: var(--accent);
+      line-height: 1.6;
+      text-shadow: 3px 3px 0 #ffe2b0, 5px 5px 0 rgba(0,0,0,0.1);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: #6a4a30;
+      line-height: 1.8;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Timeline ── */
+    .timeline { position: relative; padding-left: 0; }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 90px 24px 1fr;
+      gap: 0 16px;
+      margin-bottom: 0;
+      position: relative;
+    }
+    .tl-year {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--accent);
+      text-align: right;
+      padding-top: 16px;
+      line-height: 1.4;
+    }
+    .tl-spine {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .tl-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 3px;
+      background: var(--gold-border);
+      border: 3px solid var(--accent);
+      box-shadow: 2px 2px 0 var(--gold-shadow);
+      flex-shrink: 0;
+      margin-top: 14px;
+      z-index: 1;
+    }
+    .tl-dot.major {
+      background: var(--accent);
+      border-color: var(--gold-border);
+      width: 22px;
+      height: 22px;
+      margin-top: 12px;
+    }
+    .tl-line {
+      width: 3px;
+      flex: 1;
+      background: repeating-linear-gradient(to bottom, var(--gold-border) 0, var(--gold-border) 5px, transparent 5px, transparent 9px);
+      min-height: 20px;
+    }
+    .tl-content {
+      padding: 12px 0 20px;
+    }
+    .tl-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .tl-body {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text-body);
+    }
+    .tl-body p { margin-bottom: 10px; }
+    .tl-body strong { color: var(--accent); }
+
+    /* ── Section Heading ── */
+    .sec-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold-border);
+      text-shadow: 1px 1px 0 #ffe2b0;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+
+    /* ── Style Cards Grid ── */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .style-card {
+      background: var(--win-white);
+      border: 3px solid var(--gold-border);
+      box-shadow: 4px 4px 0 var(--gold-shadow);
+      padding: 18px 16px;
+      position: relative;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .style-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--gold-shadow);
+    }
+    .style-card-num {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 18px;
+      color: var(--gold-border);
+      line-height: 1;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 0 var(--gold-shadow);
+    }
+    .style-card-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      padding: 3px 7px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .style-card-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .style-card-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #5a3a20;
+    }
+    .style-card-vibe {
+      margin-top: 10px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    /* ── Pixel Divider ── */
+    .pixel-divider {
+      height: 8px;
+      background: repeating-linear-gradient(90deg,
+        var(--accent) 0, var(--accent) 8px,
+        var(--gold-border) 8px, var(--gold-border) 16px,
+        var(--gold-light) 16px, var(--gold-light) 24px,
+        var(--gold-border) 24px, var(--gold-border) 32px
+      );
+      margin: 10px 0;
+      opacity: 0.6;
+    }
+
+    /* ── Fun Fact Box ── */
+    .funfact {
+      background: var(--gold-light);
+      border: 3px solid var(--gold-border);
+      box-shadow: 4px 4px 0 var(--gold-shadow);
+      padding: 16px 20px;
+      margin: 20px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .funfact-icon {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 11px;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+    .funfact-text {
+      font-size: 13px;
+      line-height: 1.75;
+      color: #4a2e10;
+    }
+    .funfact-text strong { color: var(--accent); }
+
+    /* ── Quote Block ── */
+    .quote-block {
+      border-left: 5px solid var(--gold-border);
+      padding: 14px 20px;
+      margin: 20px 0;
+      background: rgba(200,134,10,0.07);
+    }
+    .quote-text {
+      font-size: 16px;
+      font-style: italic;
+      color: var(--accent);
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .quote-source {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    /* ── Meme Section ── */
+    .meme-explain {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .meme-box {
+      background: var(--win-white);
+      border: 3px solid var(--blue-win);
+      box-shadow: 4px 4px 0 #006090;
+      padding: 16px;
+    }
+    .meme-box-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--blue-win);
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .meme-box-body {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+
+    /* ── CTA Section ── */
+    .cta-block {
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .cta-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      line-height: 1.7;
+      text-shadow: 2px 2px 0 #ffe2b0;
+    }
+    .cta-sub {
+      font-size: 14px;
+      color: #6a4a30;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-block;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: #fff;
+      background: linear-gradient(to bottom, var(--gold-border), var(--gold-shadow));
+      border: 3px solid #9a6010;
+      padding: 12px 22px;
+      text-decoration: none;
+      box-shadow: 0 6px #9a6010, inset 0 -3px rgba(255,255,255,0.25);
+      letter-spacing: 1px;
+      transition: all 0.15s;
+    }
+    .cta-btn:hover { filter: brightness(1.08); }
+    .cta-btn:active { transform: translateY(5px); box-shadow: 0 1px #9a6010; }
+
+    /* ── Body text reusable ── */
+    .body-text {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--text-body);
+    }
+    .body-text p { margin-bottom: 14px; }
+    .body-text strong { color: var(--accent); }
+    .body-text em { color: var(--gold); font-style: normal; font-weight: bold; }
+
+    /* ── Taskbar (matches main site) ── */
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 36px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      z-index: 9999;
+      overflow-x: auto;
+    }
+    .task-item {
+      margin-left: 5px;
+      padding: 4px 10px;
+      font-size: 10px;
+      font-family: 'Press Start 2P', cursive;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      border-left: 2px solid var(--win-white);
+      border-right: 2px solid var(--win-dark);
+      border-bottom: 2px solid var(--win-dark);
+      box-shadow: inset 1px 1px #dfdfdf;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 9px;
+      transition: all 0.1s;
+    }
+    .task-item:active {
+      border-top: 2px solid var(--win-dark);
+      border-left: 2px solid var(--win-dark);
+      border-right: 2px solid var(--win-white);
+      border-bottom: 2px solid var(--win-white);
+    }
+    .task-item.active-task {
+      background: #000080;
+      color: white;
+    }
+    .task-item:first-child {
+      background: linear-gradient(to top, #2e8b57, #3cb371);
+      border-top: 2px solid #9fffcf;
+      border-left: 2px solid #9fffcf;
+      border-right: 2px solid #1f5f3c;
+      border-bottom: 2px solid #1f5f3c;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* ── Table of Contents ── */
+    .toc {
+      background: var(--win-white);
+      border: 2px solid var(--blue-win);
+      padding: 16px 20px;
+      margin-bottom: 0;
+    }
+    .toc-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--blue-win);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .toc-list {
+      list-style: none;
+      counter-reset: toc-counter;
+    }
+    .toc-list li {
+      counter-increment: toc-counter;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .toc-list li::before {
+      content: "0" counter(toc-counter);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--blue-win);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--blue-win);
+      line-height: 1.6;
+    }
+    .toc-list a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── Tag Chips ── */
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .chip {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      padding: 4px 8px;
+      border: 2px solid var(--gold-border);
+      background: var(--gold-light);
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .tl-item { grid-template-columns: 64px 20px 1fr; gap: 0 10px; }
+      .tl-year { font-size: 8px; }
+      .meme-explain { grid-template-columns: 1fr; }
+      .style-grid { grid-template-columns: 1fr; }
+      .win-body { padding: 16px; }
+      .hero-title { font-size: 14px; }
     }
   </style>
 </head>
+<body>
 
-<h1>🎞 Our Story</h1>
-<h2>关于这个项目</h2>
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    ★ 大头贴的故事 ★ THE STORY OF PHOTO BOOTH ★ SINCE 1963 ★ PURIKURA CULTURE ★ MEME PHOTO ★ 60年演变史 ★ 大头贴的故事 ★ THE STORY OF PHOTO BOOTH ★ SINCE 1963 ★ PURIKURA CULTURE ★ MEME PHOTO ★ 60年演变史 ★
+  </span>
+</div>
 
-<p>
-This project was inspired by vintage photo booths and pixel aesthetics.<br>
-这个项目灵感来自复古大头贴与像素风格。
-</p>
+<!-- Site Header -->
+<div class="site-header">
+  <a href="index.html" class="site-logo">
+    <span class="cam-icon">📷</span>
+    <span>MEME<br>PHOTO</span>
+  </a>
+  <a href="index.html" class="back-btn">← BACK TO BOOTH</a>
+</div>
 
-<p>
-We wanted to create a playful and nostalgic experience.<br>
-希望创造一种有趣且怀旧的体验。
-</p>
+<div class="page-wrap">
 
-<a href="index.html">⬅ Back to App</a>
+  <!-- ═══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; story.html — 大头贴的历史与文化
+    </div>
+    <div class="hero-block">
+      <div class="hero-label">★ ORIGIN STORY ★</div>
+      <div class="hero-title">大头贴从哪里来？<br>60年演变的故事</div>
+      <div class="pixel-divider"></div>
+      <p class="hero-sub" style="margin-top:16px">
+        从1963年纽约的一台硬币机器，到1990年代席卷亚洲的 Purikura 热潮，再到今天你手机里那张夸张搞笑的 Meme 大头贴——这60年里，人类始终需要用一张照片记录最真实、最快乐的自己。
+      </p>
+      <div class="tag-row" style="justify-content:center;margin-top:18px">
+        <span class="chip">📖 阅读约8分钟</span>
+        <span class="chip">🌏 跨越5个时代</span>
+        <span class="chip">📸 4种流行风格</span>
+      </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div style="padding:0 28px 24px">
+      <div class="toc">
+        <div class="toc-title">▸ TABLE OF CONTENTS</div>
+        <ul class="toc-list">
+          <li><a href="#chapter1">起源：1963年，一枚硬币改变了自拍</a></li>
+          <li><a href="#chapter2">进化：Purikura 风靡亚洲（1990年代）</a></li>
+          <li><a href="#chapter3">扩散：大头贴文化走向全球</a></li>
+          <li><a href="#chapter4">今天：Meme 大头贴的诞生</a></li>
+          <li><a href="#chapter5">流行种类：2024-2025年你应该知道的风格</a></li>
+          <li><a href="#chapter6">为什么我们这么爱拍大头贴？</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 1: Origin
+  ══════════════════════════════════════════ -->
+  <div class="win-card gold" id="chapter1">
+    <div class="win-titlebar gold-bar">
+      ★ CHAPTER 01 &nbsp;|&nbsp; 起源篇
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">1963年：一枚硬币改变了自拍</div>
+
+      <div class="body-text">
+        <p>故事要从1963年的美国说起。那一年，一位名叫 <strong>Anatol Josepho</strong> 的俄裔发明家在纽约时代广场附近安装了世界上第一台真正意义上的<strong>全自动照相亭（Photomaton）</strong>。只需投入几枚硬币，坐在幕布前，机器就会自动完成拍摄、冲洗、打印——整个过程不需要任何摄影师。</p>
+        <p>在那个年代，请人拍照是一件昂贵且正式的事。这台机器的出现，第一次让普通人能够随时、低成本地记录自己的样貌——不用摆 pose，不用等摄影师，甚至可以做鬼脸、大笑、跳起来。这种自由感，正是大头贴文化最初的种子。</p>
+      </div>
+
+      <div class="funfact">
+        <span class="funfact-icon">★ FUN<br>FACT</span>
+        <div class="funfact-text">
+          Josepho 第一台机器在纽约安装后，<strong>排队等候拍照的人龙绵延了整个街区</strong>。仅第一年，他就靠这台机器赚到了当时价值超过100万美元的收益，这在1920年代是一笔惊人的财富。是的——自动照相亭比你想象的更古老，它的前身其实早在1925年就出现了，1963年是亚洲流行风格大头贴机的雏形诞生节点。
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">1920s</div>
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">世界上第一台自动照相亭诞生</div>
+            <div class="tl-body"><p>Anatol Josepho 在纽约百老汇大街安装了 Photomaton，开创了自动拍照的时代。黑白照片，8张连拍，10分钟交付。</p></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1940s<br>—<br>1960s</div>
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">照相亭进入日常生活</div>
+            <div class="tl-body"><p>美国各地购物中心、火车站、游乐场开始大规模部署照相亭。它成为年轻人约会、朋友聚会时的固定项目，也是证件照的廉价替代品。</p></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1970s</div>
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">传入亚洲，开始本土化</div>
+            <div class="tl-body"><p>照相亭概念传入日本、台湾、香港。日本企业开始研究如何在照片上叠加文字和简单图案——这正是 Purikura 的技术前身。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 2: Purikura
+  ══════════════════════════════════════════ -->
+  <div class="win-card" id="chapter2">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; CHAPTER 02 | Purikura 篇
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">1995年：Purikura 席卷亚洲</div>
+
+      <div class="body-text">
+        <p>1995年，日本游戏公司 <strong>Atlas 和 Sega</strong> 联合推出了一款叫做 <strong>Print Club（プリントクラブ）</strong> 的机器，简称 <em>Purikura（プリクラ）</em>。这是真正改变大头贴史的发明。</p>
+        <p>Purikura 不只是拍照——它让你可以在照片上<strong>画卡通图案、贴可爱贴纸、写彩色文字</strong>，然后打印成一张张指甲盖大小的小贴纸。这些小贴纸可以贴在手机壳、日记本、书包上，成为年轻人表达个性的一种语言。</p>
+      </div>
+
+      <div class="quote-block">
+        <div class="quote-text">"Purikura 不是照片，是你和朋友之间的一种仪式。每次出去玩，拍一张 Purikura，就是这段记忆的印章。"</div>
+        <div class="quote-source">— 日本1990年代流行文化记录</div>
+      </div>
+
+      <div class="body-text">
+        <p>Purikura 的爆红速度惊人。仅在1996年，日本全国就安装了超过<strong>40万台</strong> Purikura 机器。女高中生们放学后直奔游戏中心，为的就是拍上一组放学后的 Purikura，然后互相交换贴纸——这在日本叫做"交换普利卡"，是那个年代最流行的社交活动之一。</p>
+        <p>随后，Purikura 文化迅速蔓延至<strong>台湾、香港、韩国、新加坡</strong>，并在整个亚洲形成了独特的少女文化符号。</p>
+      </div>
+
+      <div class="funfact">
+        <span class="funfact-icon">★ FUN<br>FACT</span>
+        <div class="funfact-text">
+          早期 Purikura 机器有一个争议性功能：<strong>"美白滤镜"</strong>（自动提亮肤色、放大眼睛）。这个功能后来成为 Purikura 的标志，但也引发了关于审美标准的广泛讨论。时至今日，这种"大眼白皮"的美颜逻辑仍然影响着许多美颜 App 的默认设置。
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">1995</div>
+          <div class="tl-spine"><div class="tl-dot major"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">Print Club 正式发售</div>
+            <div class="tl-body"><p>Atlas × Sega 联合推出世界第一台可打印贴纸的大头贴机。首月销量超出预期300%，引发全日本抢购热潮。</p></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1996<br>—<br>1999</div>
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">亚洲 Purikura 黄金时代</div>
+            <div class="tl-body"><p>台湾、香港、韩国的游戏中心纷纷引进 Purikura 机。游戏公司开始加入手写装饰功能，用触控笔直接在照片上画图——这是触控交互最早的大众化应用之一。</p></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2000s</div>
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-title">技术升级，滤镜时代来临</div>
+            <div class="tl-body"><p>新一代 Purikura 机加入了自动美颜、背景合成、AR 贴纸等功能，和今天的手机相机功能已经十分相似。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 3: Global Spread
+  ══════════════════════════════════════════ -->
+  <div class="win-card gold" id="chapter3">
+    <div class="win-titlebar gold-bar">
+      ★ CHAPTER 03 &nbsp;|&nbsp; 全球扩散篇
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">2010年代：大头贴走向全世界</div>
+
+      <div class="body-text">
+        <p>进入2010年代，智能手机普及，Instagram 和 Snapchat 的崛起让每个人都随时可以"给自己拍照"。但大头贴文化并没有因此消亡——它反而找到了新的生存方式。</p>
+        <p>韩国的 <strong>24时间拍照馆</strong> 模式兴起，即不需要工作人员、24小时营业的自助拍照店。这种模式在首尔弘大、明洞遍地开花，随后传入中国大陆，成为一二线城市商场里的标配打卡项目。</p>
+        <p>与此同时，线上平台的内容属性让大头贴从"实体贴纸"变成了<strong>可分享的社交内容</strong>。拍完照片直接发微博、发 TikTok、发 Instagram，多格拼图本身就是天然的社交媒体内容格式。</p>
+      </div>
+
+      <div class="funfact">
+        <span class="funfact-icon">★ FUN<br>FACT</span>
+        <div class="funfact-text">
+          中国大陆第一批大头贴机出现在<strong>1998年前后的上海</strong>。最初一次拍摄要价20-30元，相当于当时普通工人近一天的工资。即便如此，商场门口的大头贴机前依然每天排起长龙，足见这种"把自己变成贴纸"的魔力。
+        </div>
+      </div>
+
+      <div class="body-text">
+        <p>2016年前后，<strong>"胶片感"大头贴</strong>在全球年轻人中引发复古热潮。Instagram 上以 <em>#filmphoto</em>、<em>#analog</em> 为标签的照片累计超过数亿张，年轻人开始主动追求"不完美"的颗粒感和色调偏移——恰好与 Purikura 的过度美颜形成反差，成为另一种美学极端。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 4: Meme Photo
+  ══════════════════════════════════════════ -->
+  <div class="win-card" id="chapter4">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; CHAPTER 04 | Meme 大头贴篇
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">Meme 文化 × 大头贴 = 新物种诞生</div>
+
+      <div class="body-text">
+        <p>什么是 <strong>Meme（梗图）</strong>？这个词最早由英国生物学家 Richard Dawkins 在1976年创造，用来指代像基因一样在文化中"自我复制和传播"的想法。在互联网时代，Meme 演变成了那些被反复转发、二次创作的搞笑图片、视频和表情包。</p>
+      </div>
+
+      <div class="meme-explain">
+        <div class="meme-box">
+          <div class="meme-box-title">▸ 传统大头贴</div>
+          <div class="meme-box-body">
+            美颜 → 精致<br>
+            可爱贴纸装饰<br>
+            注重"好看"<br>
+            珍藏/交换<br>
+            <br>
+            <strong>核心：让自己看起来更美</strong>
+          </div>
+        </div>
+        <div class="meme-box">
+          <div class="meme-box-title">▸ Meme 大头贴</div>
+          <div class="meme-box-body">
+            夸张滤镜 → 搞笑<br>
+            表情包贴纸<br>
+            注重"有梗"<br>
+            分享/病毒传播<br>
+            <br>
+            <strong>核心：让自己变成一个梗</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="body-text">
+        <p>Meme 大头贴的兴起，是<strong>反美颜浪潮</strong>与<strong>社交媒体表达需求</strong>两种力量共同作用的结果。Z世代的年轻人不再满足于把自己拍得"好看"——他们更想把自己拍得"好玩"、"有记忆点"、"值得截图转发"。</p>
+        <p>于是，魔镜滤镜、大头效果、错位拼图、表情包边框开始大量出现在各类拍照软件和网站中。<strong>一张让人忍不住笑出声的大头贴，比一张精致的美照更容易在社交媒体上获得转发。</strong></p>
+        <p>这也正是 <em>MemePhoto.com.cn</em> 这个网站名字的由来——我们相信，大头贴不只是记录美丽的工具，它更应该是记录快乐、制造笑声的创作空间。</p>
+      </div>
+
+      <div class="quote-block">
+        <div class="quote-text">"自拍不是自恋，是自我叙事。而当你把自己变成一个梗，你就在用最酷的方式说：我不怕被人看见真实的我。"</div>
+        <div class="quote-source">— 关于网络文化与身份认同的现代观察</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 5: Popular Styles
+  ══════════════════════════════════════════ -->
+  <div class="win-card gold" id="chapter5">
+    <div class="win-titlebar gold-bar">
+      ★ CHAPTER 05 &nbsp;|&nbsp; 风格指南
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">2024—2025年最流行的大头贴风格</div>
+
+      <div class="style-grid">
+
+        <div class="style-card">
+          <div class="style-card-num">01</div>
+          <div class="style-card-tag">韩系热门</div>
+          <div class="style-card-title">胶片复古风</div>
+          <div class="style-card-desc">模拟35mm胶卷底片的成像质感：轻微颗粒感、复古黄绿色调、边缘暗角，有时叠加手写日期时间戳。和朋友拍的时候，4格竖条格式最经典。</div>
+          <div class="style-card-vibe">VIBE → 文艺 / 怀旧 / 真实感</div>
+        </div>
+
+        <div class="style-card">
+          <div class="style-card-num">02</div>
+          <div class="style-card-tag">Y2K回潮</div>
+          <div class="style-card-title">像素朋克风</div>
+          <div class="style-card-desc">2000年代初的网络美学重出江湖：像素字体、霓虹色块、彩虹渐变边框、Windows XP 风格的对话框装饰。这正是 MemePhoto 网站的审美核心。</div>
+          <div class="style-card-vibe">VIBE → 叛逆 / 游戏感 / 复古未来</div>
+        </div>
+
+        <div class="style-card">
+          <div class="style-card-num">03</div>
+          <div class="style-card-tag">Ins热传</div>
+          <div class="style-card-title">高对比黑白风</div>
+          <div class="style-card-desc">极高对比度的黑白滤镜，硬朗光影，接近杂志大片质感。适合单独一张特写，不需要贴纸，靠光影本身说话。</div>
+          <div class="style-card-vibe">VIBE → 高冷 / 时尚 / 艺术感</div>
+        </div>
+
+        <div class="style-card">
+          <div class="style-card-num">04</div>
+          <div class="style-card-tag">搞笑必备</div>
+          <div class="style-card-title">Meme 表情包风</div>
+          <div class="style-card-desc">叠加网络流行表情贴纸（石乐志、惊讶猫、哭笑人），或使用夸张变形滤镜（大头、鱼眼镜头）。目的不是好看，是好笑。9格多图让每一格都拍不同的鬼脸。</div>
+          <div class="style-card-vibe">VIBE → 搞怪 / 社交货币 / 病毒传播</div>
+        </div>
+
+        <div class="style-card">
+          <div class="style-card-num">05</div>
+          <div class="style-card-tag">日系少女</div>
+          <div class="style-card-title">梦幻粉嫩风</div>
+          <div class="style-card-desc">Purikura 经典美学的现代版本：皮肤超白、眼睛超大、叠加蕾丝蝴蝶结花朵贴纸，粉色或薰衣草色边框。可爱感最大化。</div>
+          <div class="style-card-vibe">VIBE → 甜蜜 / 少女心 / 可爱</div>
+        </div>
+
+        <div class="style-card">
+          <div class="style-card-num">06</div>
+          <div class="style-card-tag">2025新兴</div>
+          <div class="style-card-title">AI 混搭风</div>
+          <div class="style-card-desc">把真实自拍和 AI 生成的艺术风格边框结合，形成真实与虚构的混合质感。水彩画风格、油画笔触边框、动漫风格滤镜是目前最受关注的方向。</div>
+          <div class="style-card-vibe">VIBE → 前卫 / 科技感 / 跨界</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER 6: Why We Love It
+  ══════════════════════════════════════════ -->
+  <div class="win-card" id="chapter6">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; CHAPTER 06 | 为什么我们这么爱拍大头贴？
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">心理学视角：大头贴为何让人上瘾</div>
+
+      <div class="body-text">
+        <p>心理学研究表明，人类有一种根深蒂固的需求：<strong>被看见，并且被记住</strong>。大头贴满足的，正是这个最基本的欲望。</p>
+
+        <p><strong>1. 即时满足感</strong><br>
+        等待是反人类的。大头贴机（无论实体还是线上）都提供几秒内完成的即时反馈——按下快门，照片马上出现。这种即时满足感和多巴胺奖励机制高度契合，让人忍不住"再来一张"。</p>
+
+        <p><strong>2. 关系锚定功能</strong><br>
+        "我们一起拍过大头贴"是一种强有力的关系证明。每一张大头贴照片，都是一次友情或爱情的物化——它把某个共同瞬间永久保存下来，成为记忆的实体锚点。</p>
+
+        <p><strong>3. 安全的自我呈现</strong><br>
+        大头贴提供了一个低风险的自我展示场合。在滤镜和贴纸的保护下，你可以比日常生活中更夸张、更大胆、更搞笑，同时不必承担"这就是真实的我"的社交压力。面具让人更自由。</p>
+
+        <p><strong>4. 集体仪式感</strong><br>
+        从交换 Purikura 到发拼图合照，大头贴在不同时代都承载着"集体仪式"的功能——它是团队出游的纪念品、情侣约会的记录、朋友聚会的闹着玩，也是一个人对自我形象的短暂探索。</p>
+      </div>
+
+      <div class="funfact">
+        <span class="funfact-icon">★ FUN<br>FACT</span>
+        <div class="funfact-text">
+          根据 2023 年的调查数据，<strong>Z 世代（1997-2012年出生）</strong>是有史以来拍照最多的一代人，平均每人每年拍摄超过 <strong>5000 张照片</strong>。但有意思的是，他们同时也是最少打印照片的一代——这使得可以即时打印的大头贴机在全球范围内迎来了新的复古热潮。
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CTA
+  ══════════════════════════════════════════ -->
+  <div class="win-card gold">
+    <div class="win-titlebar gold-bar">
+      ★ 现在就去拍一张吧
+    </div>
+    <div class="cta-block">
+      <div class="cta-title">历史讲完了<br>轮到你创造自己的那一张</div>
+      <div class="pixel-divider"></div>
+      <p class="cta-sub" style="margin-top:16px">
+        不需要下载 App，不需要注册账号。<br>
+        选择格数 → 选一个贴纸 → 拍照 → 下载。<br>
+        60年的大头贴文化，现在在你的浏览器里。
+      </p>
+      <a href="index.html" class="cta-btn">★ 开始拍大头贴 ★</a>
+      <div style="margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
+        <a href="how-to-use.html" style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">使用教程 →</a>
+        <a href="tips.html" style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">拍照技巧 →</a>
+        <a href="photo-booth-ideas.html" style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">创意灵感 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center;font-size:13px;margin-top:20px;color:#6a4a30;line-height:2">
+    <p>
+      <a href="about.html" style="color:var(--blue-win)">关于我们</a> |
+      <a href="privacy.html" style="color:var(--blue-win)">隐私政策</a> |
+      <a href="contact.html" style="color:var(--blue-win)">联系我们</a> |
+      <a href="how-to-use.html" style="color:var(--blue-win)">How to Use</a> |
+      <a href="tips.html" style="color:var(--blue-win)">Tips</a>
+    </p>
+    <p style="color:#9a7a50;font-size:12px;margin-top:6px">© 2025 MemePhoto.com.cn — All photos are processed locally. No upload, no server.</p>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<!-- Taskbar -->
+<div class="taskbar">
+  <div class="task-item" onclick="location.href='index.html'">🟢 Start</div>
+  <div class="task-item" onclick="location.href='about.html'">About</div>
+  <div class="task-item" onclick="location.href='privacy.html'">Privacy</div>
+  <div class="task-item" onclick="location.href='contact.html'">Contact</div>
+  <div class="task-item" onclick="location.href='photo-booth-ideas.html'">Ideas</div>
+  <div class="task-item" onclick="location.href='how-to-use.html'">Guide</div>
+  <div class="task-item" onclick="location.href='tips.html'">Tips</div>
+  <div class="task-item active-task" onclick="location.href='story.html'">Story</div>
+</div>
 
 </body>
 </html>
