@@ -1,193 +1,1477 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-644509R3FZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-644509R3FZ');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>How to Use an Online Photo Booth | Meme Photo</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Learn how to use an online photo booth step by step. Create retro photo strips, add stickers, and download instantly. No signup required.">
-
-  <!-- 字体 -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-
+  <title>使用教程 How to Use | MemePhoto</title>
+  <meta name="description" content="MemePhoto 完整使用教程：如何启动摄像头、选择拍照格数、使用贴纸滤镜、调节亮度对比度、下载大头贴。手把手图文教程，3分钟学会。">
+  <meta property="og:title" content="使用教程 How to Use — MemePhoto">
+  <meta property="og:description" content="三步完成你的第一张大头贴：选格数 → 选贴纸 → 拍照下载。超详细图文教程。">
+  <meta property="og:image" content="https://memephoto.com.cn/01.png">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></noscript>
   <style>
+    :root {
+      --accent:      #5c1133;
+      --gold:        #c8860a;
+      --gold-light:  #FDD672;
+      --gold-border: #E5B13A;
+      --gold-shadow: #C68A20;
+      --blue-win:    #1070B4;
+      --blue-dark:   #003070;
+      --blue-light:  #f6f3d4;
+      --cream:       #fff8e7;
+      --text-body:   #3a2a1e;
+      --win-gray:    #c0c0c0;
+      --win-dark:    #808080;
+      --win-white:   #ffffff;
+      --green-win:   #2e8b57;
+      --pink:        #c0306a;
+      --bg:          #d6c9a3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
+      font-family: 'Georgia', serif;
+      color: var(--text-body);
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(0deg,  transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px),
+        repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ── Ticker ── */
+    .ticker-wrap {
+      background: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+      border-bottom: 3px solid #3a0a20;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
       font-family: 'Press Start 2P', cursive;
-      background: #f6f3d4;
-      color: #333;
-      margin: 0;
-      padding: 0;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff8dc;
-      border: 5px solid #1070B4;
-      box-shadow: 8px 8px #9bbfd9;
+    /* ── Site Header ── */
+    .site-header {
+      background: var(--gold-light);
+      border-bottom: 5px solid var(--gold-border);
+      box-shadow: 0 8px 0 var(--gold-shadow);
+      padding: 14px 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-
-    h1 {
-      font-size: 22px;
-      text-align: center;
-      margin-bottom: 30px;
-      color: #5c1133;
-    }
-
-    h2 {
-      font-size: 14px;
-      margin-top: 30px;
-      color: #723c1e;
-    }
-
-    p {
-      font-size: 12px;
-      line-height: 1.8;
-      margin-top: 10px;
-    }
-
-    ul {
-      font-size: 12px;
-      line-height: 1.8;
-      padding-left: 20px;
-    }
-
-    a {
-      color: #1070B4;
+    .site-logo {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 13px;
+      color: var(--accent);
       text-decoration: none;
+      text-shadow: 2px 2px 0 #fff, 3px 3px 0 var(--gold-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .back-btn {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--win-white);
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border: 2px solid var(--blue-dark);
+      border-radius: 4px;
+      padding: 7px 12px;
+      text-decoration: none;
+      box-shadow: 0 4px var(--blue-dark), inset 0 -2px rgba(255,255,255,0.2);
+      transition: all 0.1s;
+      display: inline-block;
+    }
+    .back-btn:active { transform: translateY(3px); box-shadow: 0 1px var(--blue-dark); }
+
+    /* ── Page Wrap ── */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    /* ── Window Card ── */
+    .win-card {
+      background: var(--blue-light);
+      border: 4px solid var(--blue-win);
+      box-shadow: 6px 6px 0 #4a90cc, 10px 10px 0 var(--blue-dark);
+      margin-bottom: 28px;
+      animation: fadeUp 0.4s ease both;
+    }
+    .win-card.gold  { background: var(--cream);  border-color: var(--gold-border); box-shadow: 6px 6px 0 var(--gold-shadow), 10px 10px 0 #9a6010; }
+    .win-card.green { background: #edfaf3; border-color: var(--green-win); box-shadow: 6px 6px 0 #1e6040, 10px 10px 0 #0d3020; }
+    .win-card.pink  { background: #fef0f5; border-color: var(--pink);      box-shadow: 6px 6px 0 #8a1040, 10px 10px 0 #4a0820; }
+
+    .win-card:nth-child(1)  { animation-delay: 0.04s; }
+    .win-card:nth-child(2)  { animation-delay: 0.09s; }
+    .win-card:nth-child(3)  { animation-delay: 0.14s; }
+    .win-card:nth-child(4)  { animation-delay: 0.19s; }
+    .win-card:nth-child(5)  { animation-delay: 0.24s; }
+    .win-card:nth-child(6)  { animation-delay: 0.29s; }
+    .win-card:nth-child(7)  { animation-delay: 0.34s; }
+    .win-card:nth-child(8)  { animation-delay: 0.39s; }
+    .win-card:nth-child(9)  { animation-delay: 0.44s; }
+    .win-card:nth-child(10) { animation-delay: 0.49s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    .nav {
-      text-align: center;
+    .win-titlebar {
+      background: var(--blue-win);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    .win-titlebar.gold-bar  { background: linear-gradient(90deg, var(--gold-border), var(--gold-shadow)); text-shadow: 1px 1px 0 rgba(0,0,0,0.3); }
+    .win-titlebar.green-bar { background: linear-gradient(90deg, var(--green-win), #1e6040); }
+    .win-titlebar.pink-bar  { background: linear-gradient(90deg, var(--pink), #8a1040); }
+
+    .win-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+    .win-dot.red    { background: #e24; }
+    .win-dot.yellow { background: #fa3; }
+    .win-dot.green  { background: #4c4; }
+    .win-body { padding: 24px 28px; }
+
+    /* ── Section Heading ── */
+    .sec-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--accent);
       margin-bottom: 20px;
-      font-size: 12px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold-border);
+      text-shadow: 1px 1px 0 #ffe2b0;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+    .sec-heading.green-head { color: var(--green-win); border-color: var(--green-win); text-shadow: none; }
+    .sec-heading.pink-head  { color: var(--pink);      border-color: var(--pink);      text-shadow: none; }
+    .sec-heading.blue-head  { color: var(--blue-win);  border-color: var(--blue-win);  text-shadow: none; }
+
+    /* ── Hero ── */
+    .hero-block { text-align: center; padding: 32px 28px 24px; }
+    .hero-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px; color: var(--gold);
+      letter-spacing: 4px; margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(13px, 2.8vw, 20px);
+      color: var(--accent); line-height: 1.7;
+      text-shadow: 3px 3px 0 #ffe2b0, 5px 5px 0 rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 14px; color: #6a4a30;
+      line-height: 1.85; max-width: 560px; margin: 0 auto;
     }
 
-    .nav a {
-      margin: 0 8px;
+    /* ── Pixel Divider ── */
+    .pixel-divider {
+      height: 8px;
+      background: repeating-linear-gradient(90deg,
+        var(--accent) 0, var(--accent) 8px,
+        var(--gold-border) 8px, var(--gold-border) 16px,
+        var(--gold-light) 16px, var(--gold-light) 24px,
+        var(--gold-border) 24px, var(--gold-border) 32px);
+      margin: 10px 0; opacity: 0.6;
     }
 
-    footer {
+    /* ── Quick-start 3-step banner ── */
+    .quick3 {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 0;
+      margin-bottom: 4px;
+    }
+    .q3-step {
+      background: var(--win-white);
+      border: 3px solid var(--gold-border);
+      padding: 18px 14px;
       text-align: center;
-      font-size: 12px;
-      margin-top: 40px;
-      color: #666;
+    }
+    .q3-num {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 20px;
+      color: var(--gold-border);
+      text-shadow: 2px 2px 0 var(--gold-shadow);
+      margin-bottom: 8px;
+    }
+    .q3-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+    .q3-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--accent);
+      line-height: 1.7;
+      letter-spacing: 0.5px;
+    }
+    .q3-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      font-size: 20px;
+      color: var(--gold-border);
+      font-family: 'Press Start 2P', cursive;
     }
 
+    /* ── TOC ── */
+    .toc {
+      background: var(--win-white);
+      border: 2px solid var(--blue-win);
+      padding: 16px 20px;
+    }
+    .toc-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px; color: var(--blue-win);
+      margin-bottom: 12px; letter-spacing: 1px;
+    }
+    .toc-list { list-style: none; counter-reset: toc; }
+    .toc-list li {
+      counter-increment: toc;
+      display: flex; align-items: baseline;
+      gap: 10px; margin-bottom: 8px;
+    }
+    .toc-list li::before {
+      content: "0" counter(toc);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px; color: var(--gold); flex-shrink: 0;
+    }
+    .toc-list a {
+      font-size: 13px; color: var(--blue-win);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--blue-win); line-height: 1.6;
+    }
+    .toc-list a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── Step blocks (main guide) ── */
+    .step-block {
+      position: relative;
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 0 20px;
+      margin-bottom: 20px;
+    }
+    .step-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-circle {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      border: 4px solid var(--gold-border);
+      box-shadow: 3px 3px 0 var(--gold-shadow);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .step-circle.blue-circle  { background: #d8eaf8; border-color: var(--blue-win);  box-shadow: 3px 3px 0 var(--blue-dark); }
+    .step-circle.green-circle { background: #d0f0e0; border-color: var(--green-win); box-shadow: 3px 3px 0 #1e6040; }
+    .step-circle.pink-circle  { background: #fce0ee; border-color: var(--pink);      box-shadow: 3px 3px 0 #8a1040; }
+
+    .step-num {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 11px; color: var(--accent); line-height: 1;
+    }
+    .step-num.blue-n  { color: var(--blue-win); }
+    .step-num.green-n { color: var(--green-win); }
+    .step-num.pink-n  { color: var(--pink); }
+    .step-emoji-sm { font-size: 14px; margin-top: 3px; }
+
+    .step-vline {
+      width: 3px;
+      flex: 1;
+      min-height: 20px;
+      margin-top: 4px;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--gold-border) 0, var(--gold-border) 5px,
+        transparent 5px, transparent 9px);
+    }
+    .step-vline.blue-line  { background: repeating-linear-gradient(to bottom, var(--blue-win) 0, var(--blue-win) 5px, transparent 5px, transparent 9px); }
+    .step-vline.green-line { background: repeating-linear-gradient(to bottom, var(--green-win) 0, var(--green-win) 5px, transparent 5px, transparent 9px); }
+    .step-vline.pink-line  { background: repeating-linear-gradient(to bottom, var(--pink) 0, var(--pink) 5px, transparent 5px, transparent 9px); }
+    .step-vline.last { display: none; }
+
+    .step-right { padding: 6px 0 24px; }
+    .step-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px; color: var(--accent);
+      margin-bottom: 12px; line-height: 1.6; letter-spacing: 0.5px;
+    }
+    .step-title.blue-title  { color: var(--blue-win); }
+    .step-title.green-title { color: var(--green-win); }
+    .step-title.pink-title  { color: var(--pink); }
+    .step-body {
+      font-size: 13px; line-height: 1.85; color: var(--text-body);
+    }
+    .step-body p  { margin-bottom: 10px; }
+    .step-body p:last-child { margin-bottom: 0; }
+    .step-body strong { color: var(--accent); }
+
+    /* ── UI Mock (CSS-drawn interface previews) ── */
+    .ui-mock {
+      background: var(--win-white);
+      border: 3px solid var(--win-dark);
+      box-shadow: inset 1px 1px #fff, 3px 3px 0 rgba(0,0,0,0.15);
+      margin: 14px 0;
+      overflow: hidden;
+    }
+    .ui-mock-bar {
+      background: var(--blue-win);
+      height: 22px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      gap: 5px;
+    }
+    .ui-mock-dot {
+      width: 8px; height: 8px;
+      border-radius: 1px;
+    }
+    .ui-mock-dot.r { background: #e24; }
+    .ui-mock-dot.y { background: #fa3; }
+    .ui-mock-dot.g { background: #4c4; }
+    .ui-mock-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px; color: #fff;
+      margin-left: 6px; letter-spacing: 1px;
+    }
+    .ui-mock-body { padding: 14px; }
+
+    /* ── Mode selector mock ── */
+    .mode-btns {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+    }
+    .mode-btn {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px; color: #fff;
+      background: linear-gradient(to top, #a0522d, #cd853f);
+      border: 3px solid #5c4033;
+      border-radius: 8px;
+      padding: 7px 12px;
+      box-shadow: 0 4px #5c4033;
+      cursor: default;
+    }
+    .mode-btn.active {
+      background: linear-gradient(to top, var(--accent), var(--pink));
+      border-color: #3a0a20;
+      box-shadow: 0 4px #3a0a20;
+      transform: translateY(2px);
+    }
+
+    /* ── Color palette mock ── */
+    .color-swatch-row {
+      display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0;
+    }
+    .color-swatch {
+      width: 22px; height: 22px;
+      border: 2px solid #5c4033;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+    .color-swatch.selected {
+      border: 3px solid #ff4500;
+      box-shadow: 0 0 6px rgba(255,69,0,0.5);
+    }
+
+    /* ── Camera view mock ── */
+    .camera-mock {
+      background: #1a1a2e;
+      border: 3px solid #444;
+      border-radius: 6px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      text-align: center;
+      margin: 10px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .camera-mock::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent, transparent 2px,
+        rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+    }
+    .camera-mock .cam-face {
+      position: relative; z-index: 1;
+      font-size: 36px; display: block;
+    }
+    .camera-mock .cam-label {
+      position: relative; z-index: 1;
+      font-size: 7px; color: #5af;
+      margin-top: 6px;
+    }
+    .cam-countdown {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 48px;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+      z-index: 10;
+      animation: countPulse 1s ease-in-out infinite;
+    }
+    @keyframes countPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      50%       { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+    }
+
+    /* ── Preview grid mock ── */
+    .preview-grid-mock {
+      display: grid; gap: 4px; margin: 10px 0;
+    }
+    .preview-cell {
+      background: #c8b8a0;
+      border: 2px solid var(--gold-border);
+      display: flex;
+      align-items: center; justify-content: center;
+      font-size: 22px;
+      height: 60px;
+    }
+    .preview-cell.empty {
+      background: repeating-linear-gradient(
+        45deg, #e0d0b8, #e0d0b8 4px, #d0c0a8 4px, #d0c0a8 8px);
+    }
+
+    /* ── Sticker grid mock ── */
+    .sticker-mock-grid {
+      display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0;
+    }
+    .sticker-mock-item {
+      width: 50px; height: 50px;
+      background: var(--gold-light);
+      border: 2px solid var(--gold-border);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      cursor: default;
+    }
+    .sticker-mock-item.selected-sticker {
+      border: 3px solid var(--blue-win);
+      box-shadow: 0 0 6px rgba(16,112,180,0.4);
+    }
+
+    /* ── Info highlight ── */
+    .info-block {
+      display: flex; gap: 14px;
+      align-items: flex-start;
+      padding: 13px 15px; margin: 14px 0;
+    }
+    .info-block.gold  { background: #fdf4da; border-left: 4px solid var(--gold-border); }
+    .info-block.blue  { background: #e6f1fb; border-left: 4px solid var(--blue-win); }
+    .info-block.green { background: #edfaf3; border-left: 4px solid var(--green-win); }
+    .info-block.red   { background: #fdf0ee; border-left: 4px solid #c03020; }
+    .info-block.pink  { background: #fef0f5; border-left: 4px solid var(--pink); }
+    .info-icon-lg { font-size: 20px; flex-shrink: 0; padding-top: 1px; }
+    .info-block-body { font-size: 13px; line-height: 1.75; color: var(--text-body); }
+    .info-block-body strong { color: var(--accent); }
+
+    /* ── Troubleshoot accordion ── */
+    .trouble-item {
+      border: 2px solid var(--gold-border);
+      margin-bottom: 10px;
+      background: var(--win-white);
+      overflow: hidden;
+    }
+    .trouble-q {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px; color: var(--accent);
+      padding: 12px 14px;
+      cursor: pointer;
+      display: flex; justify-content: space-between;
+      align-items: center; gap: 12px;
+      line-height: 1.6; user-select: none;
+      background: var(--cream);
+      transition: background 0.15s;
+    }
+    .trouble-q:hover { background: var(--gold-light); }
+    .trouble-arr {
+      flex-shrink: 0; font-size: 10px;
+      color: var(--gold); transition: transform 0.2s;
+    }
+    .trouble-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.2s;
+      font-size: 13px; line-height: 1.8;
+      color: var(--text-body); padding: 0 14px;
+    }
+    .trouble-a.open { max-height: 400px; padding: 14px; }
+    .trouble-arr.open { transform: rotate(90deg); }
+
+    /* ── Feature grid ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .feature-card {
+      background: var(--win-white);
+      border: 3px solid var(--gold-border);
+      box-shadow: 3px 3px 0 var(--gold-shadow);
+      padding: 16px 14px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .feature-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--gold-shadow);
+    }
+    .feat-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+    .feat-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px; color: var(--accent);
+      margin-bottom: 8px; line-height: 1.6; letter-spacing: 0.5px;
+    }
+    .feat-desc { font-size: 12px; line-height: 1.65; color: #5a3a20; }
+
+    /* ── Browser compat table ── */
+    .compat-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .compat-table th {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      background: var(--blue-win);
+      color: #fff; padding: 8px 10px;
+      text-align: left; letter-spacing: 1px;
+    }
+    .compat-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--gold-border);
+      vertical-align: middle;
+    }
+    .compat-table tr:last-child td { border-bottom: none; }
+    .compat-table tr:nth-child(even) td { background: rgba(200,134,10,0.05); }
+    .compat-badge {
+      display: inline-block;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 6px; padding: 2px 7px; border-radius: 2px;
+    }
+    .compat-badge.full    { background: #edfaf3; color: var(--green-win); }
+    .compat-badge.partial { background: #fdf4da; color: var(--gold); }
+    .compat-badge.no      { background: #fdf0ee; color: #c03020; }
+
+    /* ── CTA ── */
+    .cta-block { text-align: center; padding: 28px 20px; }
+    .cta-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px; color: var(--accent);
+      margin-bottom: 14px; line-height: 1.7;
+      text-shadow: 2px 2px 0 #ffe2b0;
+    }
+    .cta-btn {
+      display: inline-block;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px; color: #fff;
+      background: linear-gradient(to bottom, var(--gold-border), var(--gold-shadow));
+      border: 3px solid #9a6010;
+      padding: 12px 22px;
+      text-decoration: none;
+      box-shadow: 0 6px #9a6010, inset 0 -3px rgba(255,255,255,0.25);
+      letter-spacing: 1px;
+      transition: all 0.1s;
+      margin: 6px;
+    }
+    .cta-btn:active { transform: translateY(5px); box-shadow: 0 1px #9a6010; }
+    .cta-btn.blue-btn {
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border-color: var(--blue-dark);
+      box-shadow: 0 6px var(--blue-dark), inset 0 -3px rgba(255,255,255,0.25);
+    }
+    .cta-btn.blue-btn:active { box-shadow: 0 1px var(--blue-dark); }
+
+    /* ── Taskbar ── */
+    .taskbar {
+      position: fixed; bottom: 0; width: 100%;
+      height: 36px; background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      display: flex; align-items: center;
+      padding: 4px; z-index: 9999; overflow-x: auto;
+    }
+    .task-item {
+      margin-left: 5px; padding: 4px 10px;
+      font-family: 'Press Start 2P', cursive; font-size: 9px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      border-left: 2px solid var(--win-white);
+      border-right: 2px solid var(--win-dark);
+      border-bottom: 2px solid var(--win-dark);
+      box-shadow: inset 1px 1px #dfdfdf;
+      cursor: pointer; white-space: nowrap; transition: all 0.1s;
+    }
+    .task-item:active {
+      border-top: 2px solid var(--win-dark);
+      border-left: 2px solid var(--win-dark);
+      border-right: 2px solid var(--win-white);
+      border-bottom: 2px solid var(--win-white);
+    }
+    .task-item.active-task { background: #000080; color: white; }
+    .task-item:first-child {
+      background: linear-gradient(to top, #2e8b57, #3cb371);
+      border-top: 2px solid #9fffcf; border-left: 2px solid #9fffcf;
+      border-right: 2px solid #1f5f3c; border-bottom: 2px solid #1f5f3c;
+      color: white; font-weight: bold;
+    }
+
+    /* ── Progress bar ── */
+    .progress-bar-wrap {
+      background: var(--win-white);
+      border: 2px solid var(--win-dark);
+      box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1);
+      height: 18px; position: relative; overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--blue-win) 0, var(--blue-win) 10px,
+        #4a90cc 10px, #4a90cc 20px);
+      transition: width 0.5s ease;
+    }
+    .progress-label {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px; color: #fff;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+      mix-blend-mode: difference;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .win-body { padding: 16px; }
+      .hero-title { font-size: 13px; }
+      .quick3 { grid-template-columns: 1fr; }
+      .q3-arrow { transform: rotate(90deg); padding: 6px 0; justify-content: center; }
+      .step-block { grid-template-columns: 44px 1fr; gap: 0 12px; }
+      .step-circle { width: 44px; height: 44px; }
+      .step-num { font-size: 9px; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    ★ 使用教程 HOW TO USE ★ 3分钟学会 ★ STEP BY STEP GUIDE ★ 摄像头 贴纸 拍照 下载 ★ 手把手教程 ★ 使用教程 HOW TO USE ★ 3分钟学会 ★ STEP BY STEP GUIDE ★ 摄像头 贴纸 拍照 下载 ★ 手把手教程 ★&nbsp;
+  </span>
+</div>
 
-  <!-- 顶部导航 -->
-  <div class="nav">
-    <a href="index.html">Home</a> |
-    <a href="how-to-use.html">How to Use</a> |
-    <a href="photo-booth-ideas.html">Photo Ideas</a> |
-    <a href="about.html">About</a> |
-    <a href="privacy.html">Privacy</a> |
-    <a href="contact.html">Contact</a>
+<!-- Header -->
+<div class="site-header">
+  <a href="index.html" class="site-logo">
+    <span style="font-size:20px">📷</span>
+    <span>MEME<br>PHOTO</span>
+  </a>
+  <a href="index.html" class="back-btn">← BACK TO BOOTH</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; how-to-use.html — 使用教程 / User Guide
+    </div>
+    <div class="hero-block">
+      <div class="hero-label">★ STEP BY STEP GUIDE ★</div>
+      <div class="hero-title">三步完成<br>你的第一张大头贴</div>
+      <div class="pixel-divider"></div>
+      <p class="hero-sub" style="margin-top:16px">
+        不需要下载 App，不需要注册账号，不需要任何摄影基础。打开浏览器，允许摄像头，三步完成——从第一次打开到拍好下载，整个过程不超过三分钟。
+      </p>
+    </div>
+
+    <!-- Quick 3-step banner -->
+    <div style="padding: 0 28px 24px">
+      <div class="quick3">
+        <div class="q3-step">
+          <div class="q3-num">01</div>
+          <span class="q3-icon">🖼️</span>
+          <div class="q3-label">选格数<br>+ 贴纸</div>
+        </div>
+        <div class="q3-arrow">▶</div>
+        <div class="q3-step">
+          <div class="q3-num">02</div>
+          <span class="q3-icon">📸</span>
+          <div class="q3-label">开摄像头<br>倒计时拍照</div>
+        </div>
+        <div class="q3-arrow">▶</div>
+        <div class="q3-step">
+          <div class="q3-num">03</div>
+          <span class="q3-icon">💾</span>
+          <div class="q3-label">预览满意<br>下载保存</div>
+        </div>
+      </div>
+
+      <!-- TOC -->
+      <div class="toc" style="margin-top:16px">
+        <div class="toc-title">▸ 目录 TABLE OF CONTENTS</div>
+        <ul class="toc-list">
+          <li><a href="#sec-before">开始之前：环境准备</a></li>
+          <li><a href="#sec-step1">STEP 1 — 选择格数与边框</a></li>
+          <li><a href="#sec-step2">STEP 2 — 选择贴纸与调节画面</a></li>
+          <li><a href="#sec-step3">STEP 3 — 启动摄像头与拍照</a></li>
+          <li><a href="#sec-step4">STEP 4 — 预览、重拍与下载</a></li>
+          <li><a href="#sec-features">全部功能详解</a></li>
+          <li><a href="#sec-browser">浏览器兼容性</a></li>
+          <li><a href="#sec-trouble">常见问题排查</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <h1>How to Use an Online Photo Booth</h1>
+  <!-- ═══════════ BEFORE YOU START ═══════════ -->
+  <div class="win-card gold" id="sec-before">
+    <div class="win-titlebar gold-bar">★ 开始之前 | Before You Start</div>
+    <div class="win-body">
+      <div class="sec-heading">确认你的环境已准备好</div>
 
-  <p>
-    Online photo booths have become a popular way to create fun, creative, and shareable images without needing to download any software.
-    Meme Photo is designed to be simple, fast, and privacy-friendly, allowing users to take retro-style photo strips directly in their browser.
-  </p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feat-icon">🌐</span>
+          <div class="feat-title">现代浏览器</div>
+          <div class="feat-desc">推荐 Chrome 90+、Edge 90+、Firefox 88+、Safari 14+。不支持 IE。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">📷</span>
+          <div class="feat-title">摄像头设备</div>
+          <div class="feat-desc">笔记本内置摄像头、USB 外接摄像头均可。手机前置摄像头也支持。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">🔆</span>
+          <div class="feat-title">良好光线环境</div>
+          <div class="feat-desc">面朝窗户或台灯。避免逆光和顶光。光线是影响照片质量最关键的因素。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">🔒</span>
+          <div class="feat-title">摄像头权限</div>
+          <div class="feat-desc">首次使用时浏览器会弹出授权请求，点"允许"即可。照片不会上传到服务器。</div>
+        </div>
+      </div>
 
-  <h2>Step 1: Open the Photo Booth</h2>
-  <p>
-    Go to the homepage and click the “Start Camera” button. Your browser will ask for permission to access your camera.
-    Make sure to allow camera access so the tool can display your live video.
-  </p>
+      <div class="info-block blue" style="margin-top:4px">
+        <div class="info-icon-lg">💡</div>
+        <div class="info-block-body">
+          <strong>隐私保障：</strong>MemePhoto 是纯前端应用，所有图像处理均在你的浏览器本地完成。点击"启动摄像头"后，摄像头画面只在你的屏幕上显示，不会传输到任何服务器。
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <h2>Step 2: Choose a Photo Layout</h2>
-  <p>
-    Select how many photos you want to take. You can choose from:
-  </p>
+  <!-- ═══════════ STEP 1 ═══════════ -->
+  <div class="win-card" id="sec-step1">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; STEP 1 — 选择格数与边框样式
+    </div>
+    <div class="win-body">
+      <div class="sec-heading blue-head">左侧面板：STEP 1 区域</div>
 
-  <ul>
-    <li>2-photo strip (quick shots)</li>
-    <li>4-photo strip (classic photo booth)</li>
-    <li>6 or 9-photo grid (creative layouts)</li>
-  </ul>
+      <!-- Steps with spine -->
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle blue-circle"><span class="step-num blue-n">1</span><span class="step-emoji-sm">🔢</span></div>
+          <div class="step-vline blue-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title blue-title">选择拍照格数（2 / 4 / 6 / 9）</div>
+          <div class="step-body">
+            <p>页面左侧"SELECT MODE"区域有四个按钮，分别对应不同的拍照格数。点击后右侧预览区会出现对应数量的空格占位。</p>
+          </div>
+          <!-- Mode button mock -->
+          <div class="ui-mock">
+            <div class="ui-mock-bar">
+              <div class="ui-mock-dot r"></div><div class="ui-mock-dot y"></div><div class="ui-mock-dot g"></div>
+              <span class="ui-mock-title">SELECT MODE</span>
+            </div>
+            <div class="ui-mock-body">
+              <div class="mode-btns">
+                <div class="mode-btn">2 格</div>
+                <div class="mode-btn active">4 格</div>
+                <div class="mode-btn">6 格</div>
+                <div class="mode-btn">9 格</div>
+              </div>
+              <div style="font-size:11px;color:var(--win-dark)">↑ 当前选择：4格（已按下）</div>
+            </div>
+          </div>
+          <div class="info-block blue">
+            <div class="info-icon-lg">📐</div>
+            <div class="info-block-body">
+              <strong>格数选择建议：</strong><br>
+              · 2格 — 一张正经一张搞笑，对比感强<br>
+              · 4格 — 最经典的大头贴条，竖版打印感<br>
+              · 6格 — 适合和朋友一起拍，每人有更多格<br>
+              · 9格 — 最多表情变化，做表情包首选
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <p>
-    Each layout creates a different storytelling style. A 4-photo strip is perfect for expressions, while a 9-grid works well for documenting moments.
-  </p>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle blue-circle"><span class="step-num blue-n">2</span><span class="step-emoji-sm">🎨</span></div>
+          <div class="step-vline blue-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title blue-title">选择边框颜色</div>
+          <div class="step-body">
+            <p>点击色块选择边框颜色。选中的色块会出现橙色高亮边框。颜色会实时更新到右侧预览区的相框边框上。</p>
+          </div>
+          <div class="ui-mock">
+            <div class="ui-mock-bar">
+              <div class="ui-mock-dot r"></div><div class="ui-mock-dot y"></div><div class="ui-mock-dot g"></div>
+              <span class="ui-mock-title">选择边框颜色</span>
+            </div>
+            <div class="ui-mock-body">
+              <div class="color-swatch-row">
+                <div class="color-swatch selected" style="background:#ffffff"></div>
+                <div class="color-swatch" style="background:#f0e68c"></div>
+                <div class="color-swatch" style="background:#d2b48c"></div>
+                <div class="color-swatch" style="background:#A8E6CF"></div>
+                <div class="color-swatch" style="background:#c8a69d"></div>
+                <div class="color-swatch" style="background:#708090"></div>
+                <div class="color-swatch" style="background:#FFB7C5"></div>
+                <div class="color-swatch" style="background:#AEEEEE"></div>
+                <div class="color-swatch" style="background:#0A0A0A"></div>
+              </div>
+              <div style="font-size:11px;color:var(--win-dark);margin-top:6px">↑ 白色已选中（橙色高亮）</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <h2>Step 3: Add Filters and Stickers</h2>
-  <p>
-    Before taking photos, you can choose visual filters or decorative stickers. These overlays help enhance the mood of your photos.
-  </p>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle blue-circle"><span class="step-num blue-n">3</span><span class="step-emoji-sm">📏</span></div>
+          <div class="step-vline last"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title blue-title">选择边框厚度</div>
+          <div class="step-body">
+            <p>下拉菜单有两个选项：<strong>细边框</strong>（简约感）和<strong>厚边框</strong>（日系大头贴感）。厚边框在下载后的图片中效果更明显。</p>
+          </div>
+          <div class="info-block gold">
+            <div class="info-icon-lg">💡</div>
+            <div class="info-block-body">厚边框 + 白色 是最接近真实日本 Purikura 大头贴机效果的组合，推荐第一次尝试。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    You can also upload your own stickers to personalize your images. This is especially useful for creating themed content such as birthdays, travel memories, or couple photos.
-  </p>
+  <!-- ═══════════ STEP 2 ═══════════ -->
+  <div class="win-card gold" id="sec-step2">
+    <div class="win-titlebar gold-bar">★ STEP 2 — 选择贴纸与调节画面</div>
+    <div class="win-body">
+      <div class="sec-heading">中间面板：STEP 2 区域</div>
 
-  <h2>Step 4: Adjust Brightness and Contrast</h2>
-  <p>
-    Use the sliders to fine-tune brightness and contrast. This helps improve lighting conditions and ensures your photos look clear and balanced.
-  </p>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle"><span class="step-num">1</span><span class="step-emoji-sm">🎭</span></div>
+          <div class="step-vline"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title">快速选择贴纸</div>
+          <div class="step-body">
+            <p>中间面板顶部"SELECT STICKER"区域显示两个快速贴纸缩略图。点击任意一个即可选中，摄像头画面上方会实时叠加预览效果。</p>
+          </div>
+          <div class="ui-mock">
+            <div class="ui-mock-bar">
+              <div class="ui-mock-dot r"></div><div class="ui-mock-dot y"></div><div class="ui-mock-dot g"></div>
+              <span class="ui-mock-title">SELECT STICKER</span>
+            </div>
+            <div class="ui-mock-body">
+              <div class="sticker-mock-grid">
+                <div class="sticker-mock-item">🌸</div>
+                <div class="sticker-mock-item selected-sticker">⭐</div>
+                <div class="sticker-mock-item" style="font-family:'Press Start 2P',cursive;font-size:11px;color:var(--win-dark)">...</div>
+              </div>
+              <div style="font-size:11px;color:var(--win-dark);margin-top:4px">↑ 第2个已选中（蓝色边框）；点"..."打开更多贴纸</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <h2>Step 5: Take Photos</h2>
-  <p>
-    Click the “Take Photo” button. A countdown will begin before each shot, giving you time to pose.
-  </p>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle"><span class="step-num">2</span><span class="step-emoji-sm">✨</span></div>
+          <div class="step-vline"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title">打开更多贴纸库</div>
+          <div class="step-body">
+            <p>点击快速贴纸旁边的 <strong>"..."</strong> 按钮，弹出完整贴纸库弹窗，里面包含 15+ 种贴纸，支持翻页浏览。</p>
+            <p>贴纸库还有两个特殊选项：<strong>"空白贴纸"</strong>（清除当前贴纸）和 <strong>"上传贴纸"</strong>（上传你自己的 PNG 图片作为贴纸）。</p>
+          </div>
+          <div class="info-block gold">
+            <div class="info-icon-lg">🎨</div>
+            <div class="info-block-body">
+              <strong>自定义贴纸上传要求：</strong>PNG 格式，透明背景效果最好。上传后贴纸会覆盖整个拍摄区域，建议图片比例接近 5:4（横向）。
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <p>
-    Repeat the process until all frames in your selected layout are filled.
-  </p>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle"><span class="step-num">3</span><span class="step-emoji-sm">🎛️</span></div>
+          <div class="step-vline last"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title">调节亮度与对比度</div>
+          <div class="step-body">
+            <p>摄像头画面下方有两个拖动滑块：</p>
+            <p><strong>亮度（Brightness）：</strong>范围 0.7–1.3。默认值 1.0。拉到 1.1–1.2 可以让肤色更通透，超过 1.3 会过曝。</p>
+            <p><strong>对比度（Contrast）：</strong>范围 0.7–1.3。默认值 1.0。轻微提升到 1.1 让五官更立体，不建议超过 1.2。</p>
+            <p>调整后实时预览，拍摄时这些参数会被应用到照片上。</p>
+          </div>
+          <!-- Slider mock -->
+          <div class="ui-mock">
+            <div class="ui-mock-bar">
+              <div class="ui-mock-dot r"></div><div class="ui-mock-dot y"></div><div class="ui-mock-dot g"></div>
+              <span class="ui-mock-title">画面调节</span>
+            </div>
+            <div class="ui-mock-body" style="display:flex;flex-direction:column;gap:10px">
+              <div>
+                <div style="font-size:11px;color:var(--win-dark);margin-bottom:4px">亮度 Brightness</div>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" style="width:55%" id="demo-brightness"></div>
+                  <div class="progress-label">1.1</div>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:11px;color:var(--win-dark);margin-bottom:4px">对比度 Contrast</div>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" style="width:50%"></div>
+                  <div class="progress-label">1.0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <h2>Step 6: Preview and Retake</h2>
-  <p>
-    After capturing your photos, you can preview them on the right side of the screen.
-    If you're not satisfied with a photo, simply click it to retake that specific frame.
-  </p>
+  <!-- ═══════════ STEP 3 ═══════════ -->
+  <div class="win-card green" id="sec-step3">
+    <div class="win-titlebar green-bar">★ STEP 3 — 启动摄像头与拍照</div>
+    <div class="win-body">
+      <div class="sec-heading green-head">中间面板底部：操作按钮区</div>
 
-  <h2>Step 7: Download Your Photo Strip</h2>
-  <p>
-    Once all photos are completed, click “Download” to save your final image.
-    The tool will automatically combine your photos into a single image with borders and layout applied.
-  </p>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle green-circle"><span class="step-num green-n">1</span><span class="step-emoji-sm">📡</span></div>
+          <div class="step-vline green-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title green-title">点击"启动摄像头"</div>
+          <div class="step-body">
+            <p>点击中间面板底部的<strong>"启动摄像头"</strong>按钮。浏览器会弹出权限询问弹窗，选择"允许"。</p>
+            <p>权限允许后，摄像头画面会出现在中间的像素电脑框架内。画面是<strong>镜像显示</strong>的（和对着镜子一样），这是正常现象——拍出来的照片也是镜像，视觉上最自然。</p>
+          </div>
+          <div class="info-block green">
+            <div class="info-icon-lg">🔒</div>
+            <div class="info-block-body">
+              <strong>如果权限弹窗没有出现：</strong>点击浏览器地址栏左边的锁形图标 🔒，找到"摄像头"权限，手动设置为"允许"，然后刷新页面。
+            </div>
+          </div>
+          <!-- Camera mock -->
+          <div class="camera-mock">
+            <span class="cam-face">😊</span>
+            <span class="cam-label">▶ 摄像头已启动</span>
+          </div>
+        </div>
+      </div>
 
-  <h2>Tips for Better Results</h2>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle green-circle"><span class="step-num green-n">2</span><span class="step-emoji-sm">⏱️</span></div>
+          <div class="step-vline green-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title green-title">点击"拍照"— 3秒倒计时</div>
+          <div class="step-body">
+            <p>点击<strong>"拍照"</strong>按钮后，摄像头画面上会出现 <strong>3 → 2 → 1 → 0</strong> 的倒计时数字，同时屏幕会短暂闪白光（模拟闪光灯效果），然后自动拍下当前画面。</p>
+            <p>每次点击"拍照"只拍一格。需要拍几格就点几次——比如选了4格模式，需要点4次"拍照"按钮，每次可以换不同的表情或姿势。</p>
+          </div>
+          <!-- Countdown mock -->
+          <div class="camera-mock">
+            <div class="cam-countdown">3</div>
+          </div>
+          <div class="info-block green">
+            <div class="info-icon-lg">⏱️</div>
+            <div class="info-block-body">
+              <strong>3秒用来做什么：</strong>深吸一口气 → 摆好姿势 → 准备表情 → 闪光。利用这3秒预热，比"咔嚓"即时拍的表情自然很多。
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <ul>
-    <li>Use natural lighting for clearer images</li>
-    <li>Keep your camera stable</li>
-    <li>Try different expressions for each frame</li>
-    <li>Use filters consistently for a cohesive look</li>
-  </ul>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle green-circle"><span class="step-num green-n">3</span><span class="step-emoji-sm">🔁</span></div>
+          <div class="step-vline last"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title green-title">重复拍摄，直到拍满所有格子</div>
+          <div class="step-body">
+            <p>拍完一格后，照片会自动出现在右侧预览区的对应格子中。继续点击"拍照"拍下一格，每格可以换不同的表情、姿势，或者移动位置。</p>
+            <p>当所有格子都拍满后，再点击"拍照"会提示"已拍完所有照片！"，这时候可以去预览区查看效果了。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <h2>Privacy and Security</h2>
-  <p>
-    All photos are processed locally in your browser. This means your images are never uploaded or stored on any server.
-    You have full control over your data at all times.
-  </p>
+  <!-- ═══════════ STEP 4 ═══════════ -->
+  <div class="win-card pink" id="sec-step4">
+    <div class="win-titlebar pink-bar">★ STEP 4 — 预览、重拍与下载</div>
+    <div class="win-body">
+      <div class="sec-heading pink-head">右侧面板：STEP 3 PREVIEW 区域</div>
 
-  <h2>Conclusion</h2>
-  <p>
-    Meme Photo makes it easy to create fun and personalized photo strips in just a few clicks.
-    Whether you're capturing memories with friends or creating content for social media, this tool offers a simple and enjoyable experience.
-  </p>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle pink-circle"><span class="step-num pink-n">1</span><span class="step-emoji-sm">👁️</span></div>
+          <div class="step-vline pink-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title pink-title">查看右侧预览区</div>
+          <div class="step-body">
+            <p>每拍完一张，照片就会出现在右侧"PREVIEW"面板的对应格子里。你可以实时看到大头贴拼图的整体效果，包括边框颜色和贴纸叠加后的样子。</p>
+          </div>
+          <!-- Preview mock -->
+          <div class="ui-mock">
+            <div class="ui-mock-bar">
+              <div class="ui-mock-dot r"></div><div class="ui-mock-dot y"></div><div class="ui-mock-dot g"></div>
+              <span class="ui-mock-title">STEP 3 — PREVIEW</span>
+            </div>
+            <div class="ui-mock-body">
+              <div class="preview-grid-mock" style="grid-template-columns:1fr 1fr">
+                <div class="preview-cell">😁</div>
+                <div class="preview-cell">😎</div>
+                <div class="preview-cell">🤪</div>
+                <div class="preview-cell empty"></div>
+              </div>
+              <div style="font-size:11px;color:var(--win-dark);margin-top:6px">↑ 4格模式：已拍3格，第4格待拍（斜纹表示空格）</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- 底部 -->
-  <footer>
-    <p>© 2025 Meme Photo</p>
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle pink-circle"><span class="step-num pink-n">2</span><span class="step-emoji-sm">🔄</span></div>
+          <div class="step-vline pink-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title pink-title">点击某一格重拍</div>
+          <div class="step-body">
+            <p>对预览区中的某张照片不满意？直接<strong>点击那一格</strong>，会弹出"确定要重拍这个照片吗？"的确认框。</p>
+            <p>确认后，只有这一格会被清空，其他格子的照片保留不变。不需要重新拍所有格子——这是 MemePhoto 最实用的功能之一。</p>
+          </div>
+          <div class="info-block pink">
+            <div class="info-icon-lg">🔄</div>
+            <div class="info-block-body">
+              <strong>重拍流程：</strong>点击预览格 → 确认弹窗 → 摄像头恢复待机 → 重新点"拍照"按钮 → 补拍这一格。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-left">
+          <div class="step-circle pink-circle"><span class="step-num pink-n">3</span><span class="step-emoji-sm">💾</span></div>
+          <div class="step-vline last"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title pink-title">点击"下载组合照片"</div>
+          <div class="step-body">
+            <p>全部格子拍满并满意后，点击中间面板底部的<strong>"下载组合照片"</strong>按钮。</p>
+            <p>网站会将所有格子的照片合并成一张带边框的大头贴拼图，自动下载到你的设备。文件名为 <strong>memephoto.png</strong>，保存在浏览器默认的下载文件夹中。</p>
+            <p>下载成功后会播放一声拍立得相机的快门声 🎵</p>
+          </div>
+          <div class="info-block green">
+            <div class="info-icon-lg">✅</div>
+            <div class="info-block-body">
+              <strong>下载后的图片格式：</strong>PNG 格式，高清无损。照片边缘带有 <code style="font-family:monospace;font-size:11px;background:rgba(0,0,0,0.06);padding:1px 4px">@memephoto.com.cn</code> 水印小字（位于边框内侧），不影响整体观感。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ ALL FEATURES ═══════════ -->
+  <div class="win-card" id="sec-features">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 全部功能详解 | All Features
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">MemePhoto 的完整功能列表</div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feat-icon">🔢</span>
+          <div class="feat-title">多格模式</div>
+          <div class="feat-desc">支持 2、4、6、9 格拼图。2/4格竖排，6格双列，9格三列。每次切换格数会重置当前照片。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">🎨</span>
+          <div class="feat-title">14色边框</div>
+          <div class="feat-desc">从白色到黑色、粉色到深红，14种边框颜色可选。点击即生效，实时预览。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">📏</span>
+          <div class="feat-title">边框厚度</div>
+          <div class="feat-desc">细边框（现代感）和厚边框（Purikura感）两种选项。厚度影响下载图片的边框比例。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">🖼️</span>
+          <div class="feat-title">15+ 内置贴纸</div>
+          <div class="feat-desc">分页显示，支持翻页浏览。定期更新新贴纸，节假日会有主题限定贴纸。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">📁</span>
+          <div class="feat-title">自定义贴纸上传</div>
+          <div class="feat-desc">支持上传本地 PNG 图片作为贴纸，打造独一无二的大头贴风格。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">☀️</span>
+          <div class="feat-title">亮度 / 对比度调节</div>
+          <div class="feat-desc">两个滑块实时调节摄像头画面参数，拍摄时同步应用到照片上。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">⏱️</span>
+          <div class="feat-title">3秒倒计时</div>
+          <div class="feat-desc">自动3秒倒计时 + 闪光灯效果。给你足够时间准备表情，让照片更自然。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">🔄</span>
+          <div class="feat-title">单格重拍</div>
+          <div class="feat-desc">点击预览区中的任意格子即可单独重拍，不影响其他已拍格子的照片。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">🔊</span>
+          <div class="feat-title">音效反馈</div>
+          <div class="feat-desc">键盘音（按钮点击）、快门声（拍摄）、拍立得声（下载），增加仪式感。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">🪟</span>
+          <div class="feat-title">新手引导</div>
+          <div class="feat-desc">首次访问自动弹出步骤引导卡片，帮助新用户快速了解操作流程。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">📱</span>
+          <div class="feat-title">移动端支持</div>
+          <div class="feat-desc">响应式布局，支持手机和平板访问。推荐横屏使用以获得更好体验。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feat-icon">🔒</span>
+          <div class="feat-title">纯本地处理</div>
+          <div class="feat-desc">无需登录，照片不上传服务器，无广告追踪照片行为。完全本地运行。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ BROWSER COMPAT ═══════════ -->
+  <div class="win-card gold" id="sec-browser">
+    <div class="win-titlebar gold-bar">★ 浏览器兼容性 | Browser Compatibility</div>
+    <div class="win-body">
+      <div class="sec-heading">哪些浏览器可以正常使用</div>
+      <table class="compat-table">
+        <thead>
+          <tr>
+            <th>浏览器</th>
+            <th>摄像头</th>
+            <th>拍照下载</th>
+            <th>贴纸功能</th>
+            <th>推荐度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🟢 Chrome 90+（电脑）</td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td>⭐⭐⭐⭐⭐ 首选</td>
+          </tr>
+          <tr>
+            <td>🟢 Edge 90+（电脑）</td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td>⭐⭐⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>🟢 Firefox 88+（电脑）</td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td>⭐⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>🟡 Safari 14+（Mac）</td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge partial">基本支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td>⭐⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>🟢 Chrome（Android）</td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td>⭐⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>🟡 Safari（iPhone / iPad）</td>
+            <td><span class="compat-badge partial">需授权</span></td>
+            <td><span class="compat-badge partial">基本支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td>⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>🔴 微信内置浏览器</td>
+            <td><span class="compat-badge no">受限</span></td>
+            <td><span class="compat-badge partial">部分支持</span></td>
+            <td><span class="compat-badge full">完整支持</span></td>
+            <td>⭐⭐ 不推荐</td>
+          </tr>
+          <tr>
+            <td>🔴 Internet Explorer</td>
+            <td><span class="compat-badge no">不支持</span></td>
+            <td><span class="compat-badge no">不支持</span></td>
+            <td><span class="compat-badge no">不支持</span></td>
+            <td>❌ 不支持</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="info-block blue" style="margin-top:8px">
+        <div class="info-icon-lg">📱</div>
+        <div class="info-block-body">
+          <strong>iPhone 用户注意：</strong>需要在"设置 → Safari → 摄像头"中允许网站访问摄像头。在微信内访问时，请点击右上角"…"→"在浏览器中打开"，再使用 Safari 访问以获得完整功能。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ TROUBLESHOOT ═══════════ -->
+  <div class="win-card" id="sec-trouble">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 常见问题排查 | Troubleshooting
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">遇到问题？先看这里</div>
+
+      <div class="trouble-item">
+        <div class="trouble-q" onclick="toggleT(this)">
+          点了"启动摄像头"没有反应，或者摄像头显示黑屏
+          <span class="trouble-arr">▶</span>
+        </div>
+        <div class="trouble-a">
+          <strong>最常见原因：浏览器摄像头权限被阻止。</strong><br>
+          解决步骤：① 点击浏览器地址栏左侧的锁形图标（🔒）→ 找到"摄像头"→ 改为"允许" → 刷新页面。<br>
+          ② iPhone 用户：设置 App → Safari → 摄像头 → 选择"允许"。<br>
+          ③ 如果摄像头正在被其他应用使用（如视频会议软件），请先关闭那个应用再尝试。<br>
+          ④ 换用 Chrome 浏览器重试，Chrome 对摄像头 API 的支持最稳定。
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-q" onclick="toggleT(this)">
+          拍照后预览区显示空白，或者下载的图片是空的
+          <span class="trouble-arr">▶</span>
+        </div>
+        <div class="trouble-a">
+          <strong>原因：摄像头画面还没有完全加载就点击了"拍照"。</strong><br>
+          解决方法：点"启动摄像头"后，等待摄像头画面完整显示在中间框架内（通常1–3秒），确认看到自己的脸后再点"拍照"。如果仍然空白，刷新页面重试，并确保摄像头权限已允许。
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-q" onclick="toggleT(this)">
+          贴纸或边框图片一直加载中，转圈不显示
+          <span class="trouble-arr">▶</span>
+        </div>
+        <div class="trouble-a">
+          部分图片资源通过 CDN 加载，在某些网络环境下可能较慢。<br>
+          解决方法：① 等待 5–10 秒，通常会完成加载。② 刷新页面重试。③ 如果你在使用企业/学校网络或代理，可能存在访问限制，建议切换到手机热点试试。如果问题持续，请通过<a href="contact.html">联系页面</a>告知我们，帮助改善加载方案。
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-q" onclick="toggleT(this)">
+          手机上打开网站布局混乱，或者摄像头画面很小
+          <span class="trouble-arr">▶</span>
+        </div>
+        <div class="trouble-a">
+          MemePhoto 对桌面端优化更好。手机使用建议：<br>
+          ① <strong>横屏使用</strong>——转为横屏后布局会更宽敞，摄像头区域更大。<br>
+          ② 使用 Chrome 而非系统默认浏览器。<br>
+          ③ 在微信中打开时，点右上角"…"→"在浏览器中打开"。<br>
+          手机端体验优化是我们正在持续改进的工作，感谢你的耐心。
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-q" onclick="toggleT(this)">
+          下载按钮点击后没有任何反应
+          <span class="trouble-arr">▶</span>
+        </div>
+        <div class="trouble-a">
+          <strong>最常见原因：还没有拍满所有格子。</strong><br>
+          检查右侧预览区，确认所有格子都有照片（没有斜纹空格）。如果仍无反应，检查浏览器是否阻止了文件下载（浏览器右上角可能有下载权限提示），点击允许即可。Safari 用户如果无法下载，可以尝试长按下载链接选择"存储图像"。
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-q" onclick="toggleT(this)">
+          拍出来的照片方向反了（文字是镜像的）
+          <span class="trouble-arr">▶</span>
+        </div>
+        <div class="trouble-a">
+          这是正常的设计——MemePhoto 使用镜像模式拍摄（和自拍一样），拍出来的照片是左右镜像的。这是因为大多数人觉得看镜像的自己更自然，更接近日常习惯。<br>
+          如果你的贴纸上有文字，该文字在照片中会是反向的。建议使用无文字贴纸或透明贴纸来避免这个问题。
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-q" onclick="toggleT(this)">
+          如何把照片添加到主屏幕，像 App 一样使用？
+          <span class="trouble-arr">▶</span>
+        </div>
+        <div class="trouble-a">
+          <strong>iPhone / iPad（Safari）：</strong>打开 memephoto.com.cn → 点击底部分享图标 → "添加到主屏幕" → 点"添加"。<br>
+          <strong>Android（Chrome）：</strong>打开网站 → 点右上角"…"菜单 → "添加到主屏幕"。<br>
+          添加后图标会出现在桌面，点击即可像 App 一样打开，无需重新在浏览器输入网址。
+        </div>
+      </div>
+
+      <div class="info-block gold" style="margin-top:4px">
+        <div class="info-icon-lg">📧</div>
+        <div class="info-block-body">
+          <strong>问题没有解决？</strong>发邮件到 <a href="mailto:1370881341@qq.com?subject=MemePhoto使用问题">1370881341@qq.com</a>，请在邮件中说明你使用的浏览器、设备型号，以及问题的具体表现。我们会尽快回复并修复。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <div class="win-card gold">
+    <div class="win-titlebar gold-bar">★ 教程看完了，去拍吧！</div>
+    <div class="cta-block">
+      <div class="cta-title">一切都清楚了吗？<br>现在去拍你的第一张大头贴</div>
+      <div class="pixel-divider"></div>
+      <p style="font-size:14px;color:#6a4a30;margin:16px 0 20px;line-height:1.8">
+        不需要准备任何东西，打开摄像头就能开始。<br>
+        第一次拍可能需要1–2分钟熟悉流程，之后每次不超过30秒。
+      </p>
+      <div>
+        <a href="index.html" class="cta-btn">★ 开始拍大头贴 ★</a>
+        <a href="tips.html" class="cta-btn blue-btn">📷 拍照技巧</a>
+      </div>
+      <div style="margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+        <a href="story.html"             style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">大头贴历史 →</a>
+        <a href="photo-booth-ideas.html" style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">创意灵感 →</a>
+        <a href="contact.html"           style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">联系我们 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center;font-size:13px;margin-top:10px;color:#6a4a30;line-height:2">
+    <p>
+      <a href="about.html"   style="color:var(--blue-win)">关于我们</a> |
+      <a href="privacy.html" style="color:var(--blue-win)">隐私政策</a> |
+      <a href="contact.html" style="color:var(--blue-win)">联系我们</a> |
+      <a href="tips.html"    style="color:var(--blue-win)">拍照技巧</a> |
+      <a href="story.html"   style="color:var(--blue-win)">Story</a>
+    </p>
+    <p style="color:#9a7a50;font-size:12px;margin-top:6px">© 2025 MemePhoto.com.cn — All photos processed locally. No upload, no server.</p>
   </footer>
 
+</div><!-- /page-wrap -->
+
+<!-- Taskbar -->
+<div class="taskbar">
+  <div class="task-item" onclick="location.href='index.html'">🟢 Start</div>
+  <div class="task-item" onclick="location.href='about.html'">About</div>
+  <div class="task-item" onclick="location.href='privacy.html'">Privacy</div>
+  <div class="task-item" onclick="location.href='contact.html'">Contact</div>
+  <div class="task-item" onclick="location.href='photo-booth-ideas.html'">Ideas</div>
+  <div class="task-item active-task">Guide</div>
+  <div class="task-item" onclick="location.href='tips.html'">Tips</div>
+  <div class="task-item" onclick="location.href='story.html'">Story</div>
 </div>
+
+<script>
+  function toggleT(qEl) {
+    const aEl  = qEl.nextElementSibling;
+    const arrEl = qEl.querySelector('.trouble-arr');
+    const isOpen = aEl.classList.contains('open');
+    document.querySelectorAll('.trouble-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.trouble-arr').forEach(a => a.classList.remove('open'));
+    if (!isOpen) { aEl.classList.add('open'); arrEl.classList.add('open'); }
+  }
+</script>
 
 </body>
 </html>
