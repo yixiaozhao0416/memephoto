@@ -1,29 +1,787 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>联系我们 / Contact Us</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-644509R3FZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-644509R3FZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>联系我们 Contact | MemePhoto</title>
+  <meta name="description" content="联系 MemePhoto 团队：反馈问题、建议新功能、商务合作、贴纸投稿，我们期待听到你的声音。">
+  <meta property="og:title" content="联系我们 — MemePhoto">
+  <meta property="og:description" content="遇到问题？有好想法？想合作？来找我们吧。">
+  <meta property="og:image" content="https://memephoto.com.cn/01.png">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></noscript>
   <style>
-    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; background-color:#FDBE3B; }
-    h1 { text-align: center; }
-    .lang-block { display: flex; flex-wrap: wrap; gap: 20px; }
-    .lang-block > div { flex: 1 1 45%; }
+    :root {
+      --pixel: #4b3832;
+      --accent: #5c1133;
+      --gold: #c8860a;
+      --gold-light: #FDD672;
+      --gold-border: #E5B13A;
+      --gold-shadow: #C68A20;
+      --blue-win: #1070B4;
+      --blue-dark: #003070;
+      --blue-light: #f6f3d4;
+      --cream: #fff8e7;
+      --text-body: #3a2a1e;
+      --win-gray: #c0c0c0;
+      --win-dark: #808080;
+      --win-white: #ffffff;
+      --green-win: #2e8b57;
+      --bg: #d6c9a3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text-body);
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px),
+        repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ── Ticker ── */
+    .ticker-wrap {
+      background: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+      border-bottom: 3px solid #3a0a20;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 32s linear infinite;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Site Header ── */
+    .site-header {
+      background: var(--gold-light);
+      border-bottom: 5px solid var(--gold-border);
+      box-shadow: 0 8px 0 var(--gold-shadow);
+      padding: 14px 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .site-logo {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      text-shadow: 2px 2px 0 #fff, 3px 3px 0 var(--gold-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .back-btn {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--win-white);
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border: 2px solid var(--blue-dark);
+      border-radius: 4px;
+      padding: 7px 12px;
+      text-decoration: none;
+      box-shadow: 0 4px var(--blue-dark), inset 0 -2px rgba(255,255,255,0.2);
+      transition: all 0.1s;
+      display: inline-block;
+    }
+    .back-btn:active { transform: translateY(3px); box-shadow: 0 1px var(--blue-dark); }
+
+    /* ── Page Wrap ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* ── Window Card ── */
+    .win-card {
+      background: var(--blue-light);
+      border: 4px solid var(--blue-win);
+      box-shadow: 6px 6px 0 #4a90cc, 10px 10px 0 var(--blue-dark);
+      margin-bottom: 28px;
+      animation: fadeUp 0.4s ease both;
+    }
+    .win-card.gold {
+      background: var(--cream);
+      border-color: var(--gold-border);
+      box-shadow: 6px 6px 0 var(--gold-shadow), 10px 10px 0 #9a6010;
+    }
+    .win-card:nth-child(1) { animation-delay: 0.05s; }
+    .win-card:nth-child(2) { animation-delay: 0.12s; }
+    .win-card:nth-child(3) { animation-delay: 0.19s; }
+    .win-card:nth-child(4) { animation-delay: 0.26s; }
+    .win-card:nth-child(5) { animation-delay: 0.33s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .win-titlebar {
+      background: var(--blue-win);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    .win-titlebar.gold-bar {
+      background: linear-gradient(90deg, var(--gold-border), var(--gold-shadow));
+      color: #fff;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+    .win-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+    .win-dot.red    { background: #e24; }
+    .win-dot.yellow { background: #fa3; }
+    .win-dot.green  { background: #4c4; }
+    .win-body { padding: 24px 28px; }
+
+    /* ── Section heading ── */
+    .sec-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold-border);
+      text-shadow: 1px 1px 0 #ffe2b0;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+
+    /* ── Hero ── */
+    .hero-block {
+      text-align: center;
+      padding: 32px 28px 24px;
+    }
+    .hero-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--gold);
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(13px, 2.8vw, 20px);
+      color: var(--accent);
+      line-height: 1.7;
+      text-shadow: 3px 3px 0 #ffe2b0, 5px 5px 0 rgba(0,0,0,0.08);
+      margin-bottom: 14px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: #6a4a30;
+      line-height: 1.85;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── Pixel Divider ── */
+    .pixel-divider {
+      height: 8px;
+      background: repeating-linear-gradient(90deg,
+        var(--accent) 0, var(--accent) 8px,
+        var(--gold-border) 8px, var(--gold-border) 16px,
+        var(--gold-light) 16px, var(--gold-light) 24px,
+        var(--gold-border) 24px, var(--gold-border) 32px
+      );
+      margin: 10px 0;
+      opacity: 0.6;
+    }
+
+    /* ── Contact Channel Cards ── */
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .channel-card {
+      background: var(--win-white);
+      border: 3px solid var(--blue-win);
+      box-shadow: 4px 4px 0 var(--blue-dark);
+      padding: 20px 18px;
+      position: relative;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      cursor: default;
+    }
+    .channel-card.clickable {
+      cursor: pointer;
+    }
+    .channel-card.clickable:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--blue-dark);
+    }
+    .channel-card.gold-card {
+      border-color: var(--gold-border);
+      box-shadow: 4px 4px 0 var(--gold-shadow);
+    }
+    .channel-card.gold-card:hover {
+      box-shadow: 6px 6px 0 var(--gold-shadow);
+    }
+    .ch-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .ch-tag {
+      display: inline-block;
+      background: var(--blue-win);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      padding: 3px 7px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .ch-tag.gold { background: var(--gold-shadow); }
+    .ch-tag.green { background: var(--green-win); }
+    .ch-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .ch-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #5a3a20;
+      margin-bottom: 10px;
+    }
+    .ch-value {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--blue-win);
+      word-break: break-all;
+      line-height: 1.6;
+    }
+    .ch-value.gold { color: var(--gold); }
+    .ch-resp {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--win-dark);
+      font-style: italic;
+    }
+
+    /* ── FAQ Section ── */
+    .faq-item {
+      border: 2px solid var(--gold-border);
+      margin-bottom: 10px;
+      background: var(--win-white);
+      overflow: hidden;
+    }
+    .faq-q {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--accent);
+      padding: 12px 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      line-height: 1.6;
+      user-select: none;
+      background: var(--cream);
+      transition: background 0.15s;
+    }
+    .faq-q:hover { background: var(--gold-light); }
+    .faq-arrow {
+      flex-shrink: 0;
+      font-size: 10px;
+      transition: transform 0.2s;
+      color: var(--gold);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.2s;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-body);
+      padding: 0 14px;
+    }
+    .faq-a.open {
+      max-height: 400px;
+      padding: 14px;
+    }
+    .faq-arrow.open { transform: rotate(90deg); }
+
+    /* ── Info rows ── */
+    .info-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--gold-border);
+      font-size: 13px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-icon { font-size: 18px; flex-shrink: 0; }
+    .info-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--win-dark);
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+    }
+    .info-val { color: var(--text-body); line-height: 1.7; }
+    .info-val a { color: var(--blue-win); }
+
+    /* ── Response time chips ── */
+    .resp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .resp-card {
+      background: var(--win-white);
+      border: 2px solid var(--gold-border);
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .resp-type {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .resp-time {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 11px;
+      color: var(--blue-win);
+      margin-bottom: 6px;
+    }
+    .resp-note { font-size: 11px; color: var(--win-dark); }
+
+    /* ── Sticker submission note ── */
+    .sticker-box {
+      background: var(--cream);
+      border: 3px dashed var(--gold-border);
+      padding: 20px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .sticker-emoji { font-size: 36px; flex-shrink: 0; }
+    .sticker-body h3 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .sticker-body p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-body);
+      margin-bottom: 8px;
+    }
+    .sticker-spec {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--win-dark);
+      line-height: 2;
+    }
+    .sticker-spec span { color: var(--blue-win); }
+
+    /* ── Taskbar ── */
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 36px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      z-index: 9999;
+      overflow-x: auto;
+    }
+    .task-item {
+      margin-left: 5px;
+      padding: 4px 10px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      border-left: 2px solid var(--win-white);
+      border-right: 2px solid var(--win-dark);
+      border-bottom: 2px solid var(--win-dark);
+      box-shadow: inset 1px 1px #dfdfdf;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.1s;
+    }
+    .task-item:active {
+      border-top: 2px solid var(--win-dark);
+      border-left: 2px solid var(--win-dark);
+      border-right: 2px solid var(--win-white);
+      border-bottom: 2px solid var(--win-white);
+    }
+    .task-item.active-task {
+      background: #000080;
+      color: white;
+    }
+    .task-item:first-child {
+      background: linear-gradient(to top, #2e8b57, #3cb371);
+      border-top: 2px solid #9fffcf;
+      border-left: 2px solid #9fffcf;
+      border-right: 2px solid #1f5f3c;
+      border-bottom: 2px solid #1f5f3c;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* ── Responsive ── */
     @media (max-width: 600px) {
-      .lang-block { flex-direction: column; }
+      .channel-grid { grid-template-columns: 1fr; }
+      .win-body { padding: 16px; }
+      .hero-title { font-size: 13px; }
+      .sticker-box { flex-direction: column; }
+      .resp-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
-  <h1>联系我们 / Contact Us</h1>
-  <div class="lang-block">
-    <div>
-      <p>欢迎联系本站，提出意见或合作意向。</p>
-      <p>电子邮箱：<a href="mailto:1370881341@qq.com">1370881341@qq.com</a></p>
+
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    ★ 联系我们 CONTACT US ★ 我们期待你的声音 ★ FEEDBACK WELCOME ★ 贴纸投稿开放中 ★ STICKER SUBMISSION OPEN ★ 联系我们 CONTACT US ★ 我们期待你的声音 ★ FEEDBACK WELCOME ★ 贴纸投稿开放中 ★ STICKER SUBMISSION OPEN ★
+  </span>
+</div>
+
+<!-- Header -->
+<div class="site-header">
+  <a href="index.html" class="site-logo">
+    <span style="font-size:20px">📷</span>
+    <span>MEME<br>PHOTO</span>
+  </a>
+  <a href="index.html" class="back-btn">← BACK TO BOOTH</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; contact.html — 联系我们
     </div>
-    <div>
-      <p>You’re welcome to reach out to us with suggestions or collaboration ideas.</p>
-      <p>Email: <a href="mailto:1370881341@qq.com">1370881341@qq.com</a></p>
+    <div class="hero-block">
+      <div class="hero-label">★ GET IN TOUCH ★</div>
+      <div class="hero-title">有话要说？<br>我们在这里</div>
+      <div class="pixel-divider"></div>
+      <p class="hero-sub" style="margin-top:16px">
+        无论是遇到了 bug、有新功能的想法、想投稿贴纸，还是单纯想说声"网站很好玩"——我们都想听。一个人做网站不容易，每一条反馈都认真阅读。
+      </p>
     </div>
   </div>
+
+  <!-- ═══════════ CONTACT CHANNELS ═══════════ -->
+  <div class="win-card gold">
+    <div class="win-titlebar gold-bar">★ CONTACT CHANNELS | 联系方式</div>
+    <div class="win-body">
+      <div class="sec-heading">选择你喜欢的方式联系我们</div>
+
+      <div class="channel-grid">
+
+        <div class="channel-card clickable gold-card" onclick="window.location.href='mailto:1370881341@qq.com?subject=MemePhoto反馈'">
+          <span class="ch-icon">✉️</span>
+          <div class="ch-tag gold">推荐</div>
+          <div class="ch-title">发送邮件</div>
+          <div class="ch-desc">点击直接发邮件给我们，适合所有类型的反馈。可以附上截图或文件，方便我们更快理解你的问题。</div>
+          <div class="ch-value gold">1370881341@qq.com</div>
+          <div class="ch-resp">通常 1–3 个工作日回复</div>
+        </div>
+
+        <div class="channel-card clickable" onclick="window.location.href='mailto:1370881341@qq.com?subject=MemePhoto反馈'">
+          <span class="ch-icon">📧</span>
+          <div class="ch-tag">邮件</div>
+          <div class="ch-title">电子邮件</div>
+          <div class="ch-desc">适合发送截图、文件，或者有较长内容需要描述的问题。点击直接打开你的邮件客户端。</div>
+          <div class="ch-value">1370881341@qq.com</div>
+          <div class="ch-resp">通常 2–5 个工作日回复</div>
+        </div>
+
+        <div class="channel-card gold-card">
+          <span class="ch-icon">🎨</span>
+          <div class="ch-tag gold">创作者</div>
+          <div class="ch-title">贴纸投稿</div>
+          <div class="ch-desc">你设计了好看的贴纸边框？投稿审核通过后会出现在网站滤镜库中，并在贴纸旁标注你的名字。</div>
+          <div class="ch-value gold">邮件主题注明"贴纸投稿"</div>
+          <div class="ch-resp">审核周期约 7 个工作日</div>
+        </div>
+
+        <div class="channel-card">
+          <span class="ch-icon">🐛</span>
+          <div class="ch-tag green">技术</div>
+          <div class="ch-title">Bug 报告</div>
+          <div class="ch-desc">摄像头无法启动、照片下载失败、某个浏览器显示异常？告诉我们你的设备型号和浏览器版本，帮助我们修复。</div>
+          <div class="ch-value">发邮件，主题注明"Bug报告"</div>
+          <div class="ch-resp">高优先级，48h 内响应</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ RESPONSE TIME ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; 预计回复时间
+    </div>
+    <div class="win-body">
+      <div class="resp-grid">
+        <div class="resp-card">
+          <div class="resp-type">🐛 BUG 报告</div>
+          <div class="resp-time">48H</div>
+          <div class="resp-note">高优先级处理</div>
+        </div>
+        <div class="resp-card">
+          <div class="resp-type">💡 功能建议</div>
+          <div class="resp-time">1–3天</div>
+          <div class="resp-note">认真评估每一条</div>
+        </div>
+        <div class="resp-card">
+          <div class="resp-type">🎨 贴纸投稿</div>
+          <div class="resp-time">7天</div>
+          <div class="resp-note">人工审核设计稿</div>
+        </div>
+        <div class="resp-card">
+          <div class="resp-type">🤝 商务合作</div>
+          <div class="resp-time">3–5天</div>
+          <div class="resp-note">邮件详细说明</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--win-dark);margin-top:14px;font-style:italic">
+        ★ 网站由个人维护，非商业团队。节假日回复可能稍有延迟，感谢理解。
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════ STICKER SUBMISSION ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; 🎨 贴纸 / 边框设计投稿指南
+    </div>
+    <div class="win-body">
+      <div class="sticker-box">
+        <div class="sticker-emoji">🖼️</div>
+        <div class="sticker-body">
+          <h3>你设计的贴纸，可以出现在网站里</h3>
+          <p>
+            MemePhoto 欢迎来自社区的贴纸和边框设计投稿。如果审核通过，你的作品会出现在滤镜库，并在贴纸旁标注"设计：你的名字/ID"。
+          </p>
+          <p>
+            <strong>投稿方式：</strong>发送邮件至 <a href="mailto:1370881341@qq.com?subject=贴纸投稿" style="color:var(--blue-win)">1370881341@qq.com</a>，邮件主题注明"贴纸投稿"。
+          </p>
+          <div class="sticker-spec">
+            FILE FORMAT&nbsp;&nbsp;<span>PNG（透明背景）</span><br>
+            SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>建议 1200×960px 或同比例</span><br>
+            STYLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>可爱 / 复古 / Meme / 节日 / 抽象均可</span><br>
+            ORIGINAL&nbsp;&nbsp;&nbsp;&nbsp;<span>必须是原创作品，不含版权素材</span><br>
+            REVIEW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>人工审核，约 7 个工作日</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ FAQ ═══════════ -->
+  <div class="win-card gold">
+    <div class="win-titlebar gold-bar">★ FAQ | 常见问题</div>
+    <div class="win-body">
+      <div class="sec-heading">联系我们之前，先看看这里</div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          摄像头启动后黑屏，或者拍出来是空白的 <span class="faq-arrow">▶</span>
+        </div>
+        <div class="faq-a">
+          这通常是浏览器摄像头权限问题。请检查：①点击浏览器地址栏左边的锁形图标，确认摄像头权限是"允许"而非"阻止"；②尝试换用 Chrome 浏览器；③如果是 iPhone，请在"设置→Safari→摄像头"中允许访问。如果以上都没效果，请通过表单反馈你的设备型号和浏览器版本，我们会尽快修复。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          下载的照片是空白或全黑 <span class="faq-arrow">▶</span>
+        </div>
+        <div class="faq-a">
+          可能原因：①摄像头还没启动就点了"拍照"——请先点"启动摄像头"等到看到自己的画面再拍；②贴纸图片加载失败导致 Canvas 报错——请刷新页面重试；③某些浏览器对 Canvas 导出有限制，建议使用 Chrome 最新版本。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          网站会保存我的照片吗？ <span class="faq-arrow">▶</span>
+        </div>
+        <div class="faq-a">
+          不会。MemePhoto 所有图像处理都在你的浏览器本地完成，照片数据不会上传到任何服务器。关闭标签页后所有数据自动清除。我们没有能力也不会储存任何用户照片，这是我们最核心的承诺。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          手机上使用效果不好 / 布局混乱 <span class="faq-arrow">▶</span>
+        </div>
+        <div class="faq-a">
+          网站目前对桌面端优化更好。手机端建议：①横屏使用体验会更好；②使用 Chrome 浏览器而非系统内置浏览器；③如果摄像头调用异常，检查手机系统权限设置。手机端优化是我们接下来重点改进的方向，感谢耐心等待。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          贴纸 / 边框加载失败，一直转圈 <span class="faq-arrow">▶</span>
+        </div>
+        <div class="faq-a">
+          部分贴纸图片通过 CDN 加载，在某些网络环境下可能较慢。建议：①等待5-10秒；②刷新页面重试；③如果问题持续，可能是你所在网络对特定域名有限制，欢迎通过表单告知，帮助我们改善资源加载方案。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          可以商业使用用 MemePhoto 拍的照片吗？ <span class="fqa-arrow">▶</span>
+        </div>
+        <div class="faq-a">
+          你拍摄的照片版权属于你自己，可以自由使用。但请注意：①如果叠加了 MemePhoto 内置的贴纸，这些贴纸图案仅供个人非商业使用；②如果是投稿创作者的贴纸，商业使用请先联系原作者授权；③用于商业宣传时，建议使用"空白贴纸"或上传你自己的贴纸文件。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          有没有 App 版本？ <span class="faq-arrow">▶</span>
+        </div>
+        <div class="faq-a">
+          目前没有独立 App，也暂时没有开发计划。原因是网页版本身就可以在手机浏览器中使用，不需要额外安装。你可以在 Chrome/Safari 中把网站"添加到主屏幕"，使用体验接近 App。
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ SITE INFO ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; 关于这个网站
+    </div>
+    <div class="win-body">
+      <div class="info-row">
+        <span class="info-icon">🌐</span>
+        <div>
+          <div class="info-label">WEBSITE</div>
+          <div class="info-val"><a href="https://memephoto.com.cn">memephoto.com.cn</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">📧</span>
+        <div>
+          <div class="info-label">EMAIL</div>
+          <div class="info-val"><a href="mailto:1370881341@qq.com">1370881341@qq.com</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">📅</span>
+        <div>
+          <div class="info-label">LAUNCHED</div>
+          <div class="info-val">2025 年 &nbsp;·&nbsp; 个人独立开发项目</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">❤️</span>
+        <div>
+          <div class="info-label">PHILOSOPHY</div>
+          <div class="info-val">免费、无需注册、照片不上传服务器。大头贴应该是纯粹的快乐，不需要任何代价。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center;font-size:13px;margin-top:10px;color:#6a4a30;line-height:2">
+    <p>
+      <a href="about.html"    style="color:var(--blue-win)">关于我们</a> |
+      <a href="privacy.html"  style="color:var(--blue-win)">隐私政策</a> |
+      <a href="story.html"    style="color:var(--blue-win)">Story</a> |
+      <a href="how-to-use.html" style="color:var(--blue-win)">How to Use</a> |
+      <a href="tips.html"     style="color:var(--blue-win)">Tips</a>
+    </p>
+    <p style="color:#9a7a50;font-size:12px;margin-top:6px">© 2025 MemePhoto.com.cn — All photos processed locally. No upload, no server.</p>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<!-- Taskbar -->
+<div class="taskbar">
+  <div class="task-item" onclick="location.href='index.html'">🟢 Start</div>
+  <div class="task-item" onclick="location.href='about.html'">About</div>
+  <div class="task-item" onclick="location.href='privacy.html'">Privacy</div>
+  <div class="task-item active-task">Contact</div>
+  <div class="task-item" onclick="location.href='photo-booth-ideas.html'">Ideas</div>
+  <div class="task-item" onclick="location.href='how-to-use.html'">Guide</div>
+  <div class="task-item" onclick="location.href='tips.html'">Tips</div>
+  <div class="task-item" onclick="location.href='story.html'">Story</div>
+</div>
+
+<script>
+  /* ── FAQ toggle ── */
+  function toggleFaq(qEl) {
+    const aEl   = qEl.nextElementSibling;
+    const arrEl = qEl.querySelector('.faq-arrow');
+    const isOpen = aEl.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-arrow').forEach(a => a.classList.remove('open'));
+    if (!isOpen) {
+      aEl.classList.add('open');
+      arrEl.classList.add('open');
+    }
+  }
+</script>
+
 </body>
 </html>
