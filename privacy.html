@@ -1,34 +1,948 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>隐私政策 / Privacy Policy</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-644509R3FZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-644509R3FZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>隐私政策 Privacy Policy | MemePhoto</title>
+  <meta name="description" content="MemePhoto 隐私政策：我们如何处理你的数据、使用哪些 Cookie、以及我们对用户隐私的承诺。所有照片处理均在本地完成，不上传服务器。">
+  <meta property="og:title" content="隐私政策 — MemePhoto">
+  <meta property="og:description" content="MemePhoto 如何保护你的隐私：本地处理照片、透明的 Cookie 说明、不收集个人数据。">
+  <meta property="og:image" content="https://memephoto.com.cn/01.png">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></noscript>
   <style>
-    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; background-color:#FDBE3B;}
-    h1 { text-align: center; }
-    .lang-block { display: flex; flex-wrap: wrap; gap: 20px; }
-    .lang-block > div { flex: 1 1 45%; }
-    @media (max-width: 600px) {
-      .lang-block { flex-direction: column; }
+    :root {
+      --accent:      #5c1133;
+      --gold:        #c8860a;
+      --gold-light:  #FDD672;
+      --gold-border: #E5B13A;
+      --gold-shadow: #C68A20;
+      --blue-win:    #1070B4;
+      --blue-dark:   #003070;
+      --blue-light:  #f6f3d4;
+      --cream:       #fff8e7;
+      --text-body:   #3a2a1e;
+      --win-gray:    #c0c0c0;
+      --win-dark:    #808080;
+      --win-white:   #ffffff;
+      --green-win:   #2e8b57;
+      --bg:          #d6c9a3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text-body);
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(0deg,   transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px),
+        repeating-linear-gradient(90deg,  transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ── Ticker ── */
+    .ticker-wrap {
+      background: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+      border-bottom: 3px solid #3a0a20;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Site Header ── */
+    .site-header {
+      background: var(--gold-light);
+      border-bottom: 5px solid var(--gold-border);
+      box-shadow: 0 8px 0 var(--gold-shadow);
+      padding: 14px 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .site-logo {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      text-shadow: 2px 2px 0 #fff, 3px 3px 0 var(--gold-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .back-btn {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--win-white);
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border: 2px solid var(--blue-dark);
+      border-radius: 4px;
+      padding: 7px 12px;
+      text-decoration: none;
+      box-shadow: 0 4px var(--blue-dark), inset 0 -2px rgba(255,255,255,0.2);
+      transition: all 0.1s;
+      display: inline-block;
+    }
+    .back-btn:active { transform: translateY(3px); box-shadow: 0 1px var(--blue-dark); }
+
+    /* ── Page Wrap ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* ── Window Card ── */
+    .win-card {
+      background: var(--blue-light);
+      border: 4px solid var(--blue-win);
+      box-shadow: 6px 6px 0 #4a90cc, 10px 10px 0 var(--blue-dark);
+      margin-bottom: 28px;
+      animation: fadeUp 0.4s ease both;
+    }
+    .win-card.gold {
+      background: var(--cream);
+      border-color: var(--gold-border);
+      box-shadow: 6px 6px 0 var(--gold-shadow), 10px 10px 0 #9a6010;
+    }
+    .win-card.green {
+      background: #edfaf3;
+      border-color: var(--green-win);
+      box-shadow: 6px 6px 0 #1e6040, 10px 10px 0 #0d3020;
+    }
+    .win-card:nth-child(1) { animation-delay: 0.04s; }
+    .win-card:nth-child(2) { animation-delay: 0.10s; }
+    .win-card:nth-child(3) { animation-delay: 0.16s; }
+    .win-card:nth-child(4) { animation-delay: 0.22s; }
+    .win-card:nth-child(5) { animation-delay: 0.28s; }
+    .win-card:nth-child(6) { animation-delay: 0.34s; }
+    .win-card:nth-child(7) { animation-delay: 0.40s; }
+    .win-card:nth-child(8) { animation-delay: 0.46s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .win-titlebar {
+      background: var(--blue-win);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    .win-titlebar.gold-bar {
+      background: linear-gradient(90deg, var(--gold-border), var(--gold-shadow));
+      color: #fff;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+    .win-titlebar.green-bar {
+      background: linear-gradient(90deg, var(--green-win), #1e6040);
+    }
+    .win-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+    .win-dot.red    { background: #e24; }
+    .win-dot.yellow { background: #fa3; }
+    .win-dot.green  { background: #4c4; }
+    .win-body { padding: 24px 28px; }
+
+    /* ── Section Heading ── */
+    .sec-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold-border);
+      text-shadow: 1px 1px 0 #ffe2b0;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+    .sec-heading.green-head {
+      color: var(--green-win);
+      border-color: var(--green-win);
+      text-shadow: none;
+    }
+
+    /* ── Hero ── */
+    .hero-block {
+      text-align: center;
+      padding: 32px 28px 24px;
+    }
+    .hero-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--gold);
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(13px, 2.8vw, 20px);
+      color: var(--accent);
+      line-height: 1.7;
+      text-shadow: 3px 3px 0 #ffe2b0, 5px 5px 0 rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: #6a4a30;
+      line-height: 1.85;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ── Pixel Divider ── */
+    .pixel-divider {
+      height: 8px;
+      background: repeating-linear-gradient(90deg,
+        var(--accent) 0, var(--accent) 8px,
+        var(--gold-border) 8px, var(--gold-border) 16px,
+        var(--gold-light) 16px, var(--gold-light) 24px,
+        var(--gold-border) 24px, var(--gold-border) 32px
+      );
+      margin: 10px 0;
+      opacity: 0.6;
+    }
+
+    /* ── Body text ── */
+    .body-text {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--text-body);
+    }
+    .body-text p  { margin-bottom: 14px; }
+    .body-text p:last-child { margin-bottom: 0; }
+    .body-text strong { color: var(--accent); }
+    .body-text a  { color: var(--blue-win); }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--win-white);
+      border: 2px solid var(--blue-win);
+      padding: 16px 20px;
+    }
+    .toc-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--blue-win);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .toc-list { list-style: none; counter-reset: toc; }
+    .toc-list li {
+      counter-increment: toc;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .toc-list li::before {
+      content: "0" counter(toc);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--blue-win);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--blue-win);
+      line-height: 1.6;
+    }
+    .toc-list a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── Promise Cards (top summary) ── */
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+    .promise-card {
+      background: var(--win-white);
+      border: 3px solid var(--green-win);
+      box-shadow: 3px 3px 0 #1e6040;
+      padding: 16px 14px;
+      text-align: center;
+    }
+    .promise-icon { font-size: 26px; margin-bottom: 10px; }
+    .promise-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--green-win);
+      margin-bottom: 8px;
+      line-height: 1.6;
+      letter-spacing: 1px;
+    }
+    .promise-desc { font-size: 12px; color: #3a5a3a; line-height: 1.65; }
+
+    /* ── Cookie Table ── */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 16px 0;
+    }
+    .cookie-table th {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      background: var(--blue-win);
+      color: #fff;
+      padding: 8px 10px;
+      text-align: left;
+      letter-spacing: 1px;
+    }
+    .cookie-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--gold-border);
+      vertical-align: top;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+    .cookie-table tr:nth-child(even) td { background: rgba(200,134,10,0.05); }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .cookie-type {
+      display: inline-block;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 6px;
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+    .cookie-type.analytics { background: #e6f0fb; color: var(--blue-win); }
+    .cookie-type.ads       { background: #faeeda; color: #854F0B; }
+    .cookie-type.func      { background: #edfaf3; color: var(--green-win); }
+
+    /* ── Info Block (highlight box) ── */
+    .info-block {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+    .info-block.blue  { background: #e6f1fb; border-left: 4px solid var(--blue-win); }
+    .info-block.gold  { background: #fdf4da; border-left: 4px solid var(--gold-border); }
+    .info-block.green { background: #edfaf3; border-left: 4px solid var(--green-win); }
+    .info-block.red   { background: #fdf0ee; border-left: 4px solid #c03020; }
+    .info-icon-lg { font-size: 20px; flex-shrink: 0; padding-top: 1px; }
+    .info-block-body { font-size: 13px; line-height: 1.75; color: var(--text-body); }
+    .info-block-body strong { color: var(--accent); }
+    .info-block-body a { color: var(--blue-win); }
+
+    /* ── Rights List ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .right-card {
+      background: var(--win-white);
+      border: 2px solid var(--blue-win);
+      padding: 14px 14px;
+    }
+    .right-icon { font-size: 22px; margin-bottom: 8px; }
+    .right-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--blue-win);
+      margin-bottom: 8px;
+      line-height: 1.6;
+      letter-spacing: 1px;
+    }
+    .right-desc { font-size: 12px; line-height: 1.65; color: #3a3a6a; }
+
+    /* ── Version Badge ── */
+    .version-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 2px dashed var(--gold-border);
+    }
+    .version-chip {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      padding: 4px 9px;
+      border: 2px solid var(--gold-border);
+      background: var(--gold-light);
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+    .version-text { font-size: 12px; color: var(--win-dark); font-style: italic; }
+
+    /* ── Taskbar ── */
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 36px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      z-index: 9999;
+      overflow-x: auto;
+    }
+    .task-item {
+      margin-left: 5px;
+      padding: 4px 10px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      border-left: 2px solid var(--win-white);
+      border-right: 2px solid var(--win-dark);
+      border-bottom: 2px solid var(--win-dark);
+      box-shadow: inset 1px 1px #dfdfdf;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.1s;
+    }
+    .task-item:active {
+      border-top: 2px solid var(--win-dark);
+      border-left: 2px solid var(--win-dark);
+      border-right: 2px solid var(--win-white);
+      border-bottom: 2px solid var(--win-white);
+    }
+    .task-item.active-task { background: #000080; color: white; }
+    .task-item:first-child {
+      background: linear-gradient(to top, #2e8b57, #3cb371);
+      border-top: 2px solid #9fffcf;
+      border-left: 2px solid #9fffcf;
+      border-right: 2px solid #1f5f3c;
+      border-bottom: 2px solid #1f5f3c;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 620px) {
+      .win-body { padding: 16px; }
+      .hero-title { font-size: 13px; }
+      .promise-grid { grid-template-columns: 1fr 1fr; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .cookie-table { font-size: 12px; }
+      .cookie-table th { font-size: 6px; }
+    }
+    @media (max-width: 400px) {
+      .promise-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <h1>隐私政策 / Privacy Policy</h1>
-  <div class="lang-block">
-    <div>
-      <p>我们尊重并保护所有用户的隐私权。本站不会收集、存储或上传任何用户的照片。</p>
-      <p>所有图像处理均在您的浏览器本地完成，不会上传到服务器。</p>
-      <p>本站使用 Google Analytics 进行访问统计，使用 Google AdSense 进行广告展示，这些第三方服务会使用 Cookie。不会收集任何个人身份信息。</p>
-      <p>如有任何隐私相关问题，请通过电子邮件联系我们。</p>
+
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    ★ 隐私政策 PRIVACY POLICY ★ 照片不上传服务器 ★ NO PHOTO UPLOAD ★ 透明 Cookie 说明 ★ TRANSPARENT DATA USE ★ 隐私政策 PRIVACY POLICY ★ 照片不上传服务器 ★ NO PHOTO UPLOAD ★ 透明 Cookie 说明 ★ TRANSPARENT DATA USE ★&nbsp;
+  </span>
+</div>
+
+<!-- Header -->
+<div class="site-header">
+  <a href="index.html" class="site-logo">
+    <span style="font-size:20px">📷</span>
+    <span>MEME<br>PHOTO</span>
+  </a>
+  <a href="index.html" class="back-btn">← BACK TO BOOTH</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; privacy.html — 隐私政策 / Privacy Policy
     </div>
-    <div>
-      <p>We respect and protect the privacy of all users. This website does not collect, store, or upload any user photos.</p>
-      <p>All image processing is done locally in your browser and not uploaded to any server.</p>
-      <p>We do not use cookies and do not collect any personally identifiable information.</p>
-      <p>If you have any privacy-related concerns, please contact us via email.</p>
+    <div class="hero-block">
+      <div class="hero-label">★ YOUR PRIVACY MATTERS ★</div>
+      <div class="hero-title">我们如何处理<br>你的数据</div>
+      <div class="pixel-divider"></div>
+      <p class="hero-sub" style="margin-top:16px">
+        这份文件说明 MemePhoto 收集什么、不收集什么，以及我们使用 Cookie 的方式。
+      </p>
+      <div style="margin-top:16px;font-family:'Press Start 2P',cursive;font-size:7px;color:var(--win-dark);letter-spacing:1px">
+        最后更新：2025年&nbsp;&nbsp;·&nbsp;&nbsp;LAST UPDATED: 2025
+      </div>
+    </div>
+
+    <!-- TOC -->
+    <div style="padding:0 28px 24px">
+      <div class="toc">
+        <div class="toc-title">▸ 目录 TABLE OF CONTENTS</div>
+        <ul class="toc-list">
+          <li><a href="#sec-promise">我们的隐私承诺（TL;DR）</a></li>
+          <li><a href="#sec-collect">我们收集哪些信息</a></li>
+          <li><a href="#sec-photo">照片数据的处理方式</a></li>
+          <li><a href="#sec-cookie">Cookie 与第三方服务说明</a></li>
+          <li><a href="#sec-analytics">Google Analytics 统计分析</a></li>
+          <li><a href="#sec-adsense">Google AdSense 广告服务</a></li>
+          <li><a href="#sec-rights">你的权利</a></li>
+          <li><a href="#sec-children">未成年人保护</a></li>
+          <li><a href="#sec-change">政策变更</a></li>
+          <li><a href="#sec-contact">联系我们</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-  <p style="text-align:center;">📧 Email: <a href="mailto:1370881341@qq.com">1370881341@qq.com</a></p>
+
+  <!-- ═══════════ PROMISE / TL;DR ═══════════ -->
+  <div class="win-card green" id="sec-promise">
+    <div class="win-titlebar green-bar">★ 01 | 我们的隐私承诺</div>
+    <div class="win-body">
+      <div class="sec-heading green-head">如果你只有一分钟，看这里</div>
+      <div class="promise-grid">
+        <div class="promise-card">
+          <div class="promise-icon">📷</div>
+          <div class="promise-title">照片不上传</div>
+          <div class="promise-desc">所有拍照和图像处理都在你的浏览器本地完成。照片数据永远不会离开你的设备。</div>
+        </div>
+        <div class="promise-card">
+          <div class="promise-icon">🪪</div>
+          <div class="promise-title">不收集个人信息</div>
+          <div class="promise-desc">我们不要求注册，不收集姓名、邮件、手机号等任何个人身份信息。</div>
+        </div>
+        <div class="promise-card">
+          <div class="promise-icon">🍪</div>
+          <div class="promise-title">使用 Cookie</div>
+          <div class="promise-desc">我们使用 Google Analytics 和 Google AdSense，这两项服务会写入 Cookie。详见第4–6节。</div>
+        </div>
+        <div class="promise-card">
+          <div class="promise-icon">🚫</div>
+          <div class="promise-title">不出售数据</div>
+          <div class="promise-desc">我们不会出售、租赁或以任何商业形式转让用户数据给第三方。</div>
+        </div>
+      </div>
+      <div class="info-block green" style="margin-top:16px">
+        <div class="info-icon-lg">✅</div>
+        <div class="info-block-body">
+          <strong></strong>你来拍照、我们提供工具、你的照片留在你自己的电脑上。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ WHAT WE COLLECT ═══════════ -->
+  <div class="win-card" id="sec-collect">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 02 | 我们收集哪些信息
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">主动收集 vs 自动收集</div>
+      <div class="body-text">
+        <p><strong>我们不主动收集任何信息。</strong>网站没有注册功能，没有登录系统，没有任何需要你填写个人信息的表单。</p>
+        <p>以下是通过第三方服务<strong>自动收集</strong>的匿名技术信息，我们本身无法识别具体的个人：</p>
+      </div>
+
+      <table class="cookie-table" style="margin-top:16px">
+        <thead>
+          <tr>
+            <th>数据类型</th>
+            <th>收集方</th>
+            <th>用途</th>
+            <th>是否包含个人信息</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>页面访问量、停留时间</td>
+            <td>Google Analytics</td>
+            <td>了解哪些功能最受欢迎</td>
+            <td>否（匿名聚合）</td>
+          </tr>
+          <tr>
+            <td>设备类型、浏览器类型</td>
+            <td>Google Analytics</td>
+            <td>优化不同设备的兼容性</td>
+            <td>否</td>
+          </tr>
+          <tr>
+            <td>大致地理位置（国家/地区级）</td>
+            <td>Google Analytics</td>
+            <td>了解用户分布</td>
+            <td>否（不精确到城市）</td>
+          </tr>
+          <tr>
+            <td>广告互动行为（点击/展示）</td>
+            <td>Google AdSense</td>
+            <td>展示相关广告</td>
+            <td>由 Google 处理，受 Google 隐私政策约束</td>
+          </tr>
+          <tr>
+            <td>用户引导记忆（首次访问）</td>
+            <td>浏览器 localStorage</td>
+            <td>记录是否已看过新手引导</td>
+            <td>否（本地存储，不传输）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-block gold">
+        <div class="info-icon-lg">ℹ️</div>
+        <div class="info-block-body">
+          我们<strong>永远不会</strong>收集：真实姓名、电子邮件地址、手机号码、IP 地址（我们自己无法查看）、用户拍摄的任何照片、摄像头画面、或任何生物识别数据。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PHOTO DATA ═══════════ -->
+  <div class="win-card gold" id="sec-photo">
+    <div class="win-titlebar gold-bar">★ 03 | 照片数据的处理方式</div>
+    <div class="win-body">
+      <div class="sec-heading">本地处理，从不上传</div>
+      <div class="body-text">
+        <p>这是我们最核心的隐私承诺，也是 MemePhoto 的技术架构决定的。</p>
+        <p>当你点击"启动摄像头"时，浏览器会请求你的摄像头权限。这个权限由<strong>你的操作系统和浏览器管理</strong>，MemePhoto 的代码仅在你的浏览器内部处理摄像头画面，视频流不会被录制、不会被传输到任何服务器。</p>
+        <p>当你点击"拍照"时，画面数据写入浏览器内存中的 <code style="font-family:monospace;background:rgba(0,0,0,0.06);padding:1px 5px;border-radius:3px">&lt;canvas&gt;</code> 元素。整个过程完全在你的设备上运行。</p>
+        <p>当你点击"下载"时，浏览器将内容转换为图片文件并保存到你本地。<strong>没有任何数据经过网络传输。</strong></p>
+        <p>关闭浏览器标签页后，所有照片数据随内存释放而消失，我们没有任何技术手段保留或访问这些数据。</p>
+      </div>
+      <div class="info-block green">
+        <div class="info-icon-lg">🔒</div>
+        <div class="info-block-body">
+          <strong>技术验证：</strong>你可以打开浏览器的开发者工具（F12）→ 网络（Network）标签，在拍照和下载过程中观察网络请求。你会发现没有任何照片数据被发送到外部服务器。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ COOKIE OVERVIEW ═══════════ -->
+  <div class="win-card" id="sec-cookie">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 04 | Cookie 与第三方服务说明
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">什么是 Cookie，我们如何使用它</div>
+      <div class="body-text">
+        <p>Cookie 是网站在你浏览器中存储的小型文本文件，用于记住你的偏好或追踪访问行为。MemePhoto 本身的核心功能不依赖 Cookie，但我们接入的两项第三方服务（Google Analytics 和 Google AdSense）会使用 Cookie。</p>
+      </div>
+
+      <table class="cookie-table">
+        <thead>
+          <tr>
+            <th>Cookie 名称</th>
+            <th>类型</th>
+            <th>来源</th>
+            <th>有效期</th>
+            <th>用途</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>_ga</td>
+            <td><span class="cookie-type analytics">统计</span></td>
+            <td>Google Analytics</td>
+            <td>2年</td>
+            <td>区分唯一访客，生成匿名访问统计</td>
+          </tr>
+          <tr>
+            <td>_ga_*</td>
+            <td><span class="cookie-type analytics">统计</span></td>
+            <td>Google Analytics</td>
+            <td>2年</td>
+            <td>记录本次会话状态</td>
+          </tr>
+          <tr>
+            <td>_gid</td>
+            <td><span class="cookie-type analytics">统计</span></td>
+            <td>Google Analytics</td>
+            <td>24小时</td>
+            <td>区分不同用户的短期会话</td>
+          </tr>
+          <tr>
+            <td>NID、DSID 等</td>
+            <td><span class="cookie-type ads">广告</span></td>
+            <td>Google AdSense</td>
+            <td>6个月</td>
+            <td>向你展示相关广告，限制广告重复展示次数</td>
+          </tr>
+          <tr>
+            <td>guideSeen</td>
+            <td><span class="cookie-type func">功能</span></td>
+            <td>MemePhoto（本地）</td>
+            <td>永久（本地）</td>
+            <td>记录是否已查看过新手引导，避免重复弹出</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-block blue" style="margin-top:4px">
+        <div class="info-icon-lg">💡</div>
+        <div class="info-block-body">
+          <strong>如何管理 Cookie：</strong>你可以在浏览器设置中随时清除或禁用 Cookie。禁用后，MemePhoto 的核心拍照功能不受影响，但 Google 的统计和广告功能会停止工作。各浏览器设置路径：<br>
+          Chrome：设置 → 隐私和安全 → Cookie 和其他网站数据&nbsp;·&nbsp;
+          Safari：偏好设置 → 隐私&nbsp;·&nbsp;
+          Firefox：选项 → 隐私与安全
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ GOOGLE ANALYTICS ═══════════ -->
+  <div class="win-card gold" id="sec-analytics">
+    <div class="win-titlebar gold-bar">★ 05 | Google Analytics 统计分析</div>
+    <div class="win-body">
+      <div class="sec-heading">我们如何统计网站访问量</div>
+      <div class="body-text">
+        <p>MemePhoto 使用 <strong>Google Analytics 4（GA4）</strong> 来了解网站的访问情况。这帮助我们知道哪些功能最受欢迎、用户主要来自哪些设备，从而改进网站体验。</p>
+        <p>Google Analytics 收集的是<strong>匿名聚合数据</strong>——我们看到的是"今天有50个用户访问"。我们无法通过 Google Analytics 识别任何具体个人。</p>
+      </div>
+      <div class="info-block blue">
+        <div class="info-icon-lg">📊</div>
+        <div class="info-block-body">
+          <strong>GA4 数据处理位置：</strong>Google 在其全球服务器上处理分析数据，受 Google 的隐私政策约束。<br>
+          如需了解详情，请访问：<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隐私政策</a>&nbsp;·&nbsp;<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">退出 Google Analytics 追踪</a>
+        </div>
+      </div>
+      <div class="body-text" style="margin-top:14px">
+        <p><strong>IP 匿名化：</strong>我们在 GA4 配置中启用了 IP 匿名化功能（IP Anonymization）。这意味着 Google 在处理数据前会截断 IP 地址的最后一段，进一步保护你的位置隐私。</p>
+        <p><strong>数据保留期：</strong>Google Analytics 中的用户级别数据保留期设置为 14 个月，到期后自动删除。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ GOOGLE ADSENSE ═══════════ -->
+  <div class="win-card" id="sec-adsense">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 06 | Google AdSense 广告服务
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">关于网站广告</div>
+      <div class="body-text">
+        <p>MemePhoto 使用 <strong>Google AdSense</strong> 在网站上展示广告，这是维持网站免费运营的方式之一。AdSense 由 Google 提供，Google 可能会根据你过去的浏览行为展示个性化广告。</p>
+        <p>具体来说，Google AdSense 会：</p>
+      </div>
+
+      <div style="margin:14px 0;display:flex;flex-direction:column;gap:8px">
+        <div class="info-block blue" style="margin:0">
+          <div class="info-icon-lg">📌</div>
+          <div class="info-block-body">
+            使用 Cookie（如 NID）记录你的广告偏好，以减少你看到重复广告的次数，并向你展示更相关的广告内容。
+          </div>
+        </div>
+        <div class="info-block gold" style="margin:0">
+          <div class="info-icon-lg">🌐</div>
+          <div class="info-block-body">
+            可能使用网络信标（Web Beacons）和类似技术，追踪广告展示和点击行为，用于广告效果统计。
+          </div>
+        </div>
+        <div class="info-block green" style="margin:0">
+          <div class="info-icon-lg">🛡️</div>
+          <div class="info-block-body">
+            所有广告数据的收集和处理均由 Google 负责，受 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隐私政策</a> 约束。MemePhoto 无法访问广告 Cookie 中的具体数据。
+          </div>
+        </div>
+      </div>
+
+      <div class="body-text">
+        <p><strong>如何关闭个性化广告：</strong>你可以访问 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google 广告设置</a> 来选择退出 Google 的个性化广告。即使选择退出，你仍然会看到广告，但广告内容不会根据你的历史行为进行个性化匹配。</p>
+        <p>此外，<a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">aboutads.info</a> 提供了更广泛的行为广告退出选项（适用于多家广告平台）。</p>
+      </div>
+
+      <div class="info-block red">
+        <div class="info-icon-lg">⚠️</div>
+        <div class="info-block-body">
+          <strong>广告内容免责声明：</strong>MemePhoto 不控制 AdSense 展示的具体广告内容。广告内容由 Google 根据其算法决定。如果你看到不适当的广告，可以点击广告右上角的"为什么显示这条广告"或"报告此广告"进行反馈。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ USER RIGHTS ═══════════ -->
+  <div class="win-card gold" id="sec-rights">
+    <div class="win-titlebar gold-bar">★ 07 | 你的权利</div>
+    <div class="win-body">
+      <div class="sec-heading">作为用户，你有权利做这些</div>
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="right-icon">🔍</div>
+          <div class="right-title">知情权</div>
+          <div class="right-desc">了解我们收集哪些数据、如何使用。这份隐私政策就是我们的完整回答。</div>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">🗑️</div>
+          <div class="right-title">删除权</div>
+          <div class="right-desc">由于我们不存储个人数据，无需向我们申请删除。清除浏览器 Cookie 即可删除所有本地数据。</div>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">🚫</div>
+          <div class="right-title">退出权</div>
+          <div class="right-desc">可通过浏览器设置拒绝所有 Cookie，或通过 Google 设置退出个性化广告追踪。</div>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">📋</div>
+          <div class="right-title">查阅权</div>
+          <div class="right-desc">关于 Google Analytics 和 AdSense 收集的数据，可直接向 Google 提交数据访问请求。</div>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">📢</div>
+          <div class="right-title">投诉权</div>
+          <div class="right-desc">如果你认为我们违反了隐私法规，你有权向相关数据保护机构投诉。</div>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">✉️</div>
+          <div class="right-title">联系权</div>
+          <div class="right-desc">对我们隐私做法有任何疑问，可发邮件至 1370881341@qq.com，我们认真回复每一封邮件。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CHILDREN ═══════════ -->
+  <div class="win-card" id="sec-children">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 08 | 未成年人保护
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">关于儿童隐私</div>
+      <div class="body-text">
+        <p>MemePhoto 的服务面向<strong>所有年龄段的用户</strong>，包括儿童和青少年。鉴于此，我们采取额外措施保护未成年用户的隐私：</p>
+        <p>我们不会故意收集<strong>13岁以下儿童</strong>（或你所在地区法律规定年龄以下）的任何个人信息。由于网站不要求注册，我们也无法识别用户的年龄。</p>
+        <p>如果你是<strong>家长或监护人</strong>，并且发现你的孩子通过本网站以某种方式提供了个人信息，请立即通过 <a href="mailto:1370881341@qq.com">1370881341@qq.com</a> 联系我们，我们将尽快处理。</p>
+      </div>
+      <div class="info-block gold">
+        <div class="info-icon-lg">👨‍👧</div>
+        <div class="info-block-body">
+          <strong>给家长的建议：</strong>MemePhoto 的摄像头功能需要浏览器授权。建议家长在孩子首次使用前查看本隐私政策，了解网站如何处理摄像头权限和数据。如有任何顾虑，欢迎联系我们。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ POLICY CHANGES ═══════════ -->
+  <div class="win-card gold" id="sec-change">
+    <div class="win-titlebar gold-bar">★ 09 | 政策变更</div>
+    <div class="win-body">
+      <div class="sec-heading">当隐私政策发生变化时</div>
+      <div class="body-text">
+        <p>随着网站功能的更新或法律要求的变化，我们可能会不定期更新本隐私政策。发生重大变更时，我们会：</p>
+        <p>① 更新本页面顶部的"最后更新"日期<br>
+           ② 如果变更涉及对用户有显著影响的内容，会在网站首页显示提示<br>
+           ③ 所有历史版本的核心承诺（照片不上传服务器、不收集个人信息）保持不变</p>
+        <p>建议你定期查阅本页面了解最新政策。继续使用网站即表示你接受更新后的隐私政策。</p>
+      </div>
+      <div class="version-row">
+        <span class="version-chip">V 1.0</span>
+        <span class="version-chip">2025年发布</span>
+        <span class="version-text">初始版本：明确照片本地处理机制，新增 Google Analytics 和 AdSense Cookie 说明</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CONTACT ═══════════ -->
+  <div class="win-card" id="sec-contact">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 10 | 联系我们
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">隐私相关问题，请联系我们</div>
+      <div class="body-text">
+        <p>如果你对本隐私政策有任何疑问、意见或担忧，欢迎通过以下方式联系我们：</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
+        <div class="info-block blue" style="margin:0">
+          <div class="info-icon-lg">📧</div>
+          <div class="info-block-body">
+            <strong>电子邮件：</strong><a href="mailto:1370881341@qq.com?subject=隐私政策咨询">1370881341@qq.com</a><br>
+            发送邮件时请在主题中注明"隐私政策"，便于我们优先处理。我们通常在 3–5 个工作日内回复。
+          </div>
+        </div>
+        <div class="info-block green" style="margin:0">
+          <div class="info-icon-lg">🌐</div>
+          <div class="info-block-body">
+            <strong>网站：</strong><a href="https://memephoto.com.cn">memephoto.com.cn</a><br>
+            你也可以通过 <a href="contact.html">联系页面</a> 提交反馈，我们的邮件是唯一的联系方式。
+          </div>
+        </div>
+      </div>
+
+      <div class="info-block gold" style="margin-top:10px">
+        <div class="info-icon-lg">🔗</div>
+        <div class="info-block-body">
+          <strong>相关第三方隐私政策：</strong><br>
+          · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隐私政策</a>（适用于 Analytics 和 AdSense）<br>
+          · <a href="https://www.google.com/policies/technologies/ads/" target="_blank" rel="noopener">Google 广告技术说明</a><br>
+          · <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">退出 Google Analytics 浏览器插件</a><br>
+          · <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google 广告个性化设置</a>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:24px;padding-top:20px;border-top:3px solid var(--gold-border)">
+        <div style="font-family:'Press Start 2P',cursive;font-size:8px;color:var(--accent);margin-bottom:12px;line-height:1.7">
+          你的隐私，我们认真对待
+        </div>
+        <a href="index.html" style="display:inline-block;font-family:'Press Start 2P',cursive;font-size:9px;color:#fff;background:linear-gradient(to bottom,var(--gold-border),var(--gold-shadow));border:3px solid #9a6010;padding:11px 20px;text-decoration:none;box-shadow:0 5px #9a6010,inset 0 -3px rgba(255,255,255,0.25);letter-spacing:1px">
+          ★ 返回拍大头贴 ★
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center;font-size:13px;margin-top:10px;color:#6a4a30;line-height:2">
+    <p>
+      <a href="about.html"      style="color:var(--blue-win)">关于我们</a> |
+      <a href="contact.html"    style="color:var(--blue-win)">联系我们</a> |
+      <a href="story.html"      style="color:var(--blue-win)">Story</a> |
+      <a href="how-to-use.html" style="color:var(--blue-win)">How to Use</a> |
+      <a href="tips.html"       style="color:var(--blue-win)">Tips</a>
+    </p>
+    <p style="color:#9a7a50;font-size:12px;margin-top:6px">© 2025 MemePhoto.com.cn — All photos processed locally. No upload, no server.</p>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<!-- Taskbar -->
+<div class="taskbar">
+  <div class="task-item" onclick="location.href='index.html'">🟢 Start</div>
+  <div class="task-item" onclick="location.href='about.html'">About</div>
+  <div class="task-item active-task">Privacy</div>
+  <div class="task-item" onclick="location.href='contact.html'">Contact</div>
+  <div class="task-item" onclick="location.href='photo-booth-ideas.html'">Ideas</div>
+  <div class="task-item" onclick="location.href='how-to-use.html'">Guide</div>
+  <div class="task-item" onclick="location.href='tips.html'">Tips</div>
+  <div class="task-item" onclick="location.href='story.html'">Story</div>
+</div>
+
 </body>
 </html>
