@@ -1,41 +1,1337 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<title>Photo Tips | 拍照技巧</title>
-   <style>
-    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6;background-color:#FDBE3B;}
-    h1 { text-align: center; }
-    .lang-block { display: flex; flex-wrap: wrap; gap: 20px; }
-    .lang-block > div { flex: 1 1 45%; }
-    @media (max-width: 600px) {
-      .lang-block { flex-direction: column; }
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-644509R3FZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-644509R3FZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>拍照技巧 Photo Tips | MemePhoto</title>
+  <meta name="description" content="15个让大头贴更好看的实用技巧：光线布置、姿势指南、表情训练、贴纸搭配、朋友合拍技巧，从零开始拍出胶片风格大头贴。">
+  <meta property="og:title" content="拍照技巧 Photo Tips — MemePhoto">
+  <meta property="og:description" content="光线、姿势、表情、贴纸选择……15个让你的大头贴从普通变精彩的实用技巧。">
+  <meta property="og:image" content="https://memephoto.com.cn/01.png">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --accent:      #5c1133;
+      --gold:        #c8860a;
+      --gold-light:  #FDD672;
+      --gold-border: #E5B13A;
+      --gold-shadow: #C68A20;
+      --blue-win:    #1070B4;
+      --blue-dark:   #003070;
+      --blue-light:  #f6f3d4;
+      --cream:       #fff8e7;
+      --text-body:   #3a2a1e;
+      --win-gray:    #c0c0c0;
+      --win-dark:    #808080;
+      --win-white:   #ffffff;
+      --green-win:   #2e8b57;
+      --pink:        #c0306a;
+      --bg:          #d6c9a3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text-body);
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(0deg,  transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px),
+        repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ── Ticker ── */
+    .ticker-wrap {
+      background: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+      border-bottom: 3px solid #3a0a20;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 28s linear infinite;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Site Header ── */
+    .site-header {
+      background: var(--gold-light);
+      border-bottom: 5px solid var(--gold-border);
+      box-shadow: 0 8px 0 var(--gold-shadow);
+      padding: 14px 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .site-logo {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      text-shadow: 2px 2px 0 #fff, 3px 3px 0 var(--gold-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .back-btn {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--win-white);
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border: 2px solid var(--blue-dark);
+      border-radius: 4px;
+      padding: 7px 12px;
+      text-decoration: none;
+      box-shadow: 0 4px var(--blue-dark), inset 0 -2px rgba(255,255,255,0.2);
+      transition: all 0.1s;
+      display: inline-block;
+    }
+    .back-btn:active { transform: translateY(3px); box-shadow: 0 1px var(--blue-dark); }
+
+    /* ── Page Wrap ── */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* ── Window Card ── */
+    .win-card {
+      background: var(--blue-light);
+      border: 4px solid var(--blue-win);
+      box-shadow: 6px 6px 0 #4a90cc, 10px 10px 0 var(--blue-dark);
+      margin-bottom: 28px;
+      animation: fadeUp 0.4s ease both;
+    }
+    .win-card.gold {
+      background: var(--cream);
+      border-color: var(--gold-border);
+      box-shadow: 6px 6px 0 var(--gold-shadow), 10px 10px 0 #9a6010;
+    }
+    .win-card.green {
+      background: #edfaf3;
+      border-color: var(--green-win);
+      box-shadow: 6px 6px 0 #1e6040, 10px 10px 0 #0d3020;
+    }
+    .win-card.pink {
+      background: #fef0f5;
+      border-color: var(--pink);
+      box-shadow: 6px 6px 0 #8a1040, 10px 10px 0 #4a0820;
+    }
+    .win-card:nth-child(1)  { animation-delay: 0.04s; }
+    .win-card:nth-child(2)  { animation-delay: 0.09s; }
+    .win-card:nth-child(3)  { animation-delay: 0.14s; }
+    .win-card:nth-child(4)  { animation-delay: 0.19s; }
+    .win-card:nth-child(5)  { animation-delay: 0.24s; }
+    .win-card:nth-child(6)  { animation-delay: 0.29s; }
+    .win-card:nth-child(7)  { animation-delay: 0.34s; }
+    .win-card:nth-child(8)  { animation-delay: 0.39s; }
+    .win-card:nth-child(9)  { animation-delay: 0.44s; }
+    .win-card:nth-child(10) { animation-delay: 0.49s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .win-titlebar {
+      background: var(--blue-win);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    .win-titlebar.gold-bar  { background: linear-gradient(90deg, var(--gold-border), var(--gold-shadow)); text-shadow: 1px 1px 0 rgba(0,0,0,0.3); }
+    .win-titlebar.green-bar { background: linear-gradient(90deg, var(--green-win), #1e6040); }
+    .win-titlebar.pink-bar  { background: linear-gradient(90deg, var(--pink), #8a1040); }
+
+    .win-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+    .win-dot.red    { background: #e24; }
+    .win-dot.yellow { background: #fa3; }
+    .win-dot.green  { background: #4c4; }
+    .win-body { padding: 24px 28px; }
+
+    /* ── Section Heading ── */
+    .sec-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold-border);
+      text-shadow: 1px 1px 0 #ffe2b0;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+    .sec-heading.green-head { color: var(--green-win); border-color: var(--green-win); text-shadow: none; }
+    .sec-heading.pink-head  { color: var(--pink);      border-color: var(--pink);      text-shadow: none; }
+
+    /* ── Hero ── */
+    .hero-block {
+      text-align: center;
+      padding: 32px 28px 24px;
+    }
+    .hero-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--gold);
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(13px, 2.8vw, 20px);
+      color: var(--accent);
+      line-height: 1.7;
+      text-shadow: 3px 3px 0 #ffe2b0, 5px 5px 0 rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: #6a4a30;
+      line-height: 1.85;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Pixel Divider ── */
+    .pixel-divider {
+      height: 8px;
+      background: repeating-linear-gradient(90deg,
+        var(--accent) 0,      var(--accent) 8px,
+        var(--gold-border) 8px,  var(--gold-border) 16px,
+        var(--gold-light) 16px,  var(--gold-light) 24px,
+        var(--gold-border) 24px, var(--gold-border) 32px
+      );
+      margin: 10px 0;
+      opacity: 0.6;
+    }
+
+    /* ── Level badge ── */
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      padding: 3px 9px;
+      border-radius: 2px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .level-badge.beginner { background: #edfaf3; color: var(--green-win); border: 2px solid var(--green-win); }
+    .level-badge.mid      { background: #fdf4da; color: var(--gold);      border: 2px solid var(--gold-border); }
+    .level-badge.pro      { background: #fef0f5; color: var(--pink);      border: 2px solid var(--pink); }
+
+    /* ── Tip Cards (numbered big tips) ── */
+    .tip-card {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 0 18px;
+      background: var(--win-white);
+      border: 3px solid var(--gold-border);
+      box-shadow: 4px 4px 0 var(--gold-shadow);
+      margin-bottom: 16px;
+      position: relative;
+      transition: transform 0.15s, box-shadow 0.15s;
+      overflow: hidden;
+    }
+    .tip-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--gold-shadow);
+    }
+    .tip-card.blue-card  { border-color: var(--blue-win); box-shadow: 4px 4px 0 var(--blue-dark); }
+    .tip-card.blue-card:hover  { box-shadow: 6px 6px 0 var(--blue-dark); }
+    .tip-card.green-card { border-color: var(--green-win); box-shadow: 4px 4px 0 #1e6040; }
+    .tip-card.green-card:hover { box-shadow: 6px 6px 0 #1e6040; }
+    .tip-card.pink-card  { border-color: var(--pink); box-shadow: 4px 4px 0 #8a1040; }
+    .tip-card.pink-card:hover  { box-shadow: 6px 6px 0 #8a1040; }
+
+    .tip-num {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 16px 0 16px 0;
+      background: var(--gold-light);
+      border-right: 3px solid var(--gold-border);
+    }
+    .tip-num.blue-num  { background: #deeaf8; border-color: var(--blue-win); }
+    .tip-num.green-num { background: #d5f5e3; border-color: var(--green-win); }
+    .tip-num.pink-num  { background: #fce4ee; border-color: var(--pink); }
+
+    .tip-n {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 16px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .tip-n.blue-n  { color: var(--blue-win); }
+    .tip-n.green-n { color: var(--green-win); }
+    .tip-n.pink-n  { color: var(--pink); }
+    .tip-icon-sm { font-size: 18px; margin-top: 6px; }
+
+    .tip-content { padding: 16px 18px 16px 0; }
+    .tip-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: var(--accent);
+      margin-bottom: 10px;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
+    }
+    .tip-title.blue-title  { color: var(--blue-win); }
+    .tip-title.green-title { color: var(--green-win); }
+    .tip-title.pink-title  { color: var(--pink); }
+    .tip-body {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-body);
+    }
+    .tip-body p { margin-bottom: 8px; }
+    .tip-body p:last-child { margin-bottom: 0; }
+    .tip-body strong { color: var(--accent); }
+    .tip-body em { font-style: normal; color: var(--gold); font-weight: bold; }
+
+    /* ── Do / Don't grid ── */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .do-box, .dont-box {
+      padding: 12px 14px;
+      border-radius: 2px;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .do-box {
+      background: #edfaf3;
+      border: 2px solid var(--green-win);
+    }
+    .dont-box {
+      background: #fdf0ee;
+      border: 2px solid #c03020;
+    }
+    .do-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--green-win);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .dont-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: #c03020;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .do-list, .dont-list { list-style: none; }
+    .do-list li::before   { content: "✓ "; color: var(--green-win); font-weight: bold; }
+    .dont-list li::before { content: "✗ "; color: #c03020; font-weight: bold; }
+    .do-list li, .dont-list li { margin-bottom: 6px; }
+
+    /* ── Info Highlight ── */
+    .info-block {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 13px 15px;
+      margin: 14px 0;
+    }
+    .info-block.gold  { background: #fdf4da; border-left: 4px solid var(--gold-border); }
+    .info-block.blue  { background: #e6f1fb; border-left: 4px solid var(--blue-win); }
+    .info-block.green { background: #edfaf3; border-left: 4px solid var(--green-win); }
+    .info-block.pink  { background: #fef0f5; border-left: 4px solid var(--pink); }
+    .info-icon-lg { font-size: 20px; flex-shrink: 0; padding-top: 1px; }
+    .info-block-body { font-size: 13px; line-height: 1.75; color: var(--text-body); }
+    .info-block-body strong { color: var(--accent); }
+
+    /* ── Quick tips compact list ── */
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .quick-card {
+      background: var(--win-white);
+      border: 2px solid var(--gold-border);
+      padding: 14px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .quick-icon { font-size: 22px; flex-shrink: 0; }
+    .quick-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
+    }
+    .quick-desc { font-size: 12px; line-height: 1.65; color: #5a3a20; }
+
+    /* ── Pose reference table ── */
+    .pose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .pose-card {
+      background: var(--win-white);
+      border: 3px solid var(--blue-win);
+      box-shadow: 3px 3px 0 var(--blue-dark);
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+    }
+    .pose-header {
+      background: var(--blue-win);
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      padding: 5px 8px;
+      letter-spacing: 1px;
+    }
+    .pose-emoji { font-size: 32px; padding: 14px 0 6px; display: block; }
+    .pose-name {
+      font-size: 13px;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .pose-desc {
+      font-size: 11px;
+      color: var(--win-dark);
+      padding: 0 10px 14px;
+      line-height: 1.6;
+    }
+
+    /* ── Light direction diagram (CSS art) ── */
+    .light-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+    .light-scenario {
+      text-align: center;
+      width: 110px;
+    }
+    .light-face {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+      position: relative;
+      border: 3px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+    .light-face.good {
+      background: radial-gradient(circle at 35% 35%, #fffbe6 30%, #fceabb 70%, #e8c060 100%);
+      box-shadow: 0 0 14px rgba(252,210,100,0.5);
+    }
+    .light-face.ok {
+      background: radial-gradient(circle at 50% 30%, #ffe8b0 20%, #d4a040 80%);
+    }
+    .light-face.bad {
+      background: radial-gradient(circle at 50% 80%, #fff 10%, #999 50%, #444 100%);
+      box-shadow: inset 0 -10px 20px rgba(0,0,0,0.4);
+    }
+    .light-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 6px;
+      color: var(--accent);
+      line-height: 1.6;
+      letter-spacing: 0.5px;
+    }
+    .light-score {
+      font-size: 11px;
+      margin-top: 4px;
+    }
+    .light-arrow {
+      font-size: 22px;
+      color: var(--gold);
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    /* ── Expression training ── */
+    .expr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    .expr-card {
+      background: var(--win-white);
+      border: 2px solid var(--gold-border);
+      padding: 12px 10px;
+      text-align: center;
+    }
+    .expr-emoji { font-size: 30px; display: block; margin-bottom: 8px; }
+    .expr-name {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 6px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+    }
+    .expr-tip {
+      font-size: 11px;
+      color: var(--win-dark);
+      line-height: 1.55;
+    }
+
+    /* ── Progress checklist ── */
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--gold-border);
+      font-size: 13px;
+      line-height: 1.7;
+      cursor: pointer;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gold-border);
+      background: var(--win-white);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--green-win);
+      margin-top: 2px;
+      transition: background 0.15s;
+    }
+    .checklist li.done .check-box {
+      background: var(--green-win);
+      color: #fff;
+      border-color: var(--green-win);
+    }
+    .checklist li.done .check-text {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    .check-text { flex: 1; color: var(--text-body); }
+    .check-text strong { color: var(--accent); font-size: 13px; }
+    .check-sub { font-size: 11px; color: var(--win-dark); margin-top: 2px; }
+
+    /* ── CTA ── */
+    .cta-block {
+      text-align: center;
+      padding: 28px 20px;
+    }
+    .cta-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--accent);
+      margin-bottom: 14px;
+      line-height: 1.7;
+      text-shadow: 2px 2px 0 #ffe2b0;
+    }
+    .cta-btn {
+      display: inline-block;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: #fff;
+      background: linear-gradient(to bottom, var(--gold-border), var(--gold-shadow));
+      border: 3px solid #9a6010;
+      padding: 12px 22px;
+      text-decoration: none;
+      box-shadow: 0 6px #9a6010, inset 0 -3px rgba(255,255,255,0.25);
+      letter-spacing: 1px;
+      transition: all 0.1s;
+      margin: 6px;
+    }
+    .cta-btn:active { transform: translateY(5px); box-shadow: 0 1px #9a6010; }
+    .cta-btn.blue-btn {
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border-color: var(--blue-dark);
+      box-shadow: 0 6px var(--blue-dark), inset 0 -3px rgba(255,255,255,0.25);
+    }
+    .cta-btn.blue-btn:active { box-shadow: 0 1px var(--blue-dark); }
+
+    /* ── Taskbar ── */
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 36px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      z-index: 9999;
+      overflow-x: auto;
+    }
+    .task-item {
+      margin-left: 5px;
+      padding: 4px 10px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      border-left: 2px solid var(--win-white);
+      border-right: 2px solid var(--win-dark);
+      border-bottom: 2px solid var(--win-dark);
+      box-shadow: inset 1px 1px #dfdfdf;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.1s;
+    }
+    .task-item:active {
+      border-top: 2px solid var(--win-dark);
+      border-left: 2px solid var(--win-dark);
+      border-right: 2px solid var(--win-white);
+      border-bottom: 2px solid var(--win-white);
+    }
+    .task-item.active-task { background: #000080; color: white; }
+    .task-item:first-child {
+      background: linear-gradient(to top, #2e8b57, #3cb371);
+      border-top: 2px solid #9fffcf;
+      border-left: 2px solid #9fffcf;
+      border-right: 2px solid #1f5f3c;
+      border-bottom: 2px solid #1f5f3c;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .win-body { padding: 16px; }
+      .hero-title { font-size: 13px; }
+      .tip-card { grid-template-columns: 44px 1fr; gap: 0 12px; }
+      .tip-n { font-size: 13px; }
+      .do-dont { grid-template-columns: 1fr; }
+      .pose-grid { grid-template-columns: repeat(3, 1fr); }
+      .expr-grid { grid-template-columns: repeat(3, 1fr); }
+      .quick-grid { grid-template-columns: 1fr 1fr; }
+      .light-diagram { gap: 16px; }
+    }
+    @media (max-width: 400px) {
+      .pose-grid { grid-template-columns: repeat(2, 1fr); }
+      .expr-grid { grid-template-columns: repeat(2, 1fr); }
+      .quick-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+<body>
 
-<h1>📖 Photo Tips</h1>
-<h2>拍照技巧</h2>
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    ★ 拍照技巧 PHOTO TIPS ★ 光线决定一切 ★ LIGHTING IS EVERYTHING ★ 15个实用技巧 ★ 姿势 · 表情 · 贴纸 ★ 拍照技巧 PHOTO TIPS ★ 光线决定一切 ★ LIGHTING IS EVERYTHING ★ 15个实用技巧 ★ 姿势 · 表情 · 贴纸 ★&nbsp;
+  </span>
+</div>
 
-<h3>💡 Lighting 光线</h3>
-<p>
-Use soft front lighting for best results.<br>
-使用柔和的正面光线。
-</p>
+<!-- Header -->
+<div class="site-header">
+  <a href="index.html" class="site-logo">
+    <span style="font-size:20px">📷</span>
+    <span>MEME<br>PHOTO</span>
+  </a>
+  <a href="index.html" class="back-btn">← BACK TO BOOTH</a>
+</div>
 
-<h3>📐 Composition 构图</h3>
-<p>
-Keep your face centered.<br>
-保持人物在画面中央。
-</p>
+<div class="page-wrap">
 
-<h3>😊 Expression 表情</h3>
-<p>
-Try different emotions.<br>
-尝试多种表情。
-</p>
+  <!-- ═══════════ HERO ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; tips.html — 拍照技巧 Photo Tips
+    </div>
+    <div class="hero-block">
+      <div class="hero-label">★ LEVEL UP YOUR SHOTS ★</div>
+      <div class="hero-title">从"随便拍拍"<br>到"每张都好看"</div>
+      <div class="pixel-divider"></div>
+      <p class="hero-sub" style="margin-top:16px">
+        光线、角度、表情、贴纸选择……大头贴好看不是运气，是有规律可循的。这里是 15 个经过验证的实用技巧，从入门到进阶，帮你把每一张拍得值得下载。
+      </p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px">
+        <span class="level-badge beginner">★ 入门 BEGINNER</span>
+        <span class="level-badge mid">★ 进阶 INTERMEDIATE</span>
+        <span class="level-badge pro">★ 高阶 PRO</span>
+      </div>
+    </div>
+  </div>
 
-<a href="index.html">⬅ Back</a>
+  <!-- ═══════════ CHAPTER 1: LIGHTING ═══════════ -->
+  <div class="win-card gold" id="ch-light">
+    <div class="win-titlebar gold-bar">★ 第一章 | 光线篇 — 最重要的一章</div>
+    <div class="win-body">
+      <div class="sec-heading">TIP 01–04：光线是大头贴好看的决定性因素</div>
+
+      <!-- TIP 01 -->
+      <div class="tip-card">
+        <div class="tip-num">
+          <span class="tip-n">01</span>
+          <span class="tip-icon-sm">☀️</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title">面朝窗户，不要背对窗户</div>
+          <div class="tip-body">
+            <p>自然光是最好的光源，但方向错了会毁掉一切。<strong>面朝窗户坐</strong>，让光线从你的正面或斜前方照来——你的脸会均匀明亮，立体感自然出现。</p>
+            <p>背对窗户会形成逆光，脸部变成剪影，即使是最好的贴纸也救不了一张黑脸的大头贴。</p>
+          </div>
+          <div class="info-block gold" style="margin-top:10px">
+            <div class="info-icon-lg">💡</div>
+            <div class="info-block-body">晚上没有自然光？台灯放在屏幕正前方稍高处，效果接近自然光。不要把灯放在头顶正上方，会产生难看的阴影。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light diagram -->
+      <div class="light-diagram">
+        <div class="light-scenario">
+          <div class="light-face good">😊</div>
+          <div class="light-label">正面光</div>
+          <div class="light-score">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="light-arrow">→</div>
+        <div class="light-scenario">
+          <div class="light-face ok">😐</div>
+          <div class="light-label">侧面光</div>
+          <div class="light-score">⭐⭐⭐</div>
+        </div>
+        <div class="light-arrow">→</div>
+        <div class="light-scenario">
+          <div class="light-face bad">😵</div>
+          <div class="light-label">逆光 / 顶光</div>
+          <div class="light-score">⭐</div>
+        </div>
+      </div>
+
+      <!-- TIP 02 -->
+      <div class="tip-card">
+        <div class="tip-num">
+          <span class="tip-n">02</span>
+          <span class="tip-icon-sm">🌤️</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title">阴天比晴天更适合拍照</div>
+          <div class="tip-body">
+            <p>晴天的直射阳光会在脸上制造强烈阴影，让鼻子和眼窝显得很重。<strong>阴天或薄云遮日时</strong>，天空变成一块巨大的柔光板，光线均匀柔和，皮肤更显白皙。</p>
+            <p>室内对着窗户拍时，在窗外贴一层薄的半透明塑料袋或白纸，也能模拟这种效果。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIP 03 -->
+      <div class="tip-card">
+        <div class="tip-num">
+          <span class="tip-n">03</span>
+          <span class="tip-icon-sm">💻</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title">用白色页面补光</div>
+          <div class="tip-body">
+            <p>这是一个几乎没人知道的零成本技巧：在拍照时，在摄像头正前方打开一个<strong>全白的浏览器页面</strong>（或白色文档），屏幕的白色亮度会补亮你脸部的阴影面，效果相当于一块小型补光板。</p>
+            <p>如果你有两块屏幕，一块用来拍照，一块显示全白页面斜放在旁边，效果会更明显。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIP 04 -->
+      <div class="tip-card">
+        <div class="tip-num">
+          <span class="tip-n">04</span>
+          <span class="tip-icon-sm">🎛️</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title">用亮度滑块微调，不要过曝</div>
+          <div class="tip-body">
+            <p>MemePhoto 提供亮度和对比度滑块。<strong>亮度调到 1.1–1.2</strong> 通常能让肤色更通透，超过 1.3 皮肤会显得发白没有质感。</p>
+            <p><strong>对比度轻微提升（1.1）</strong>让五官更立体；调太高会让脸部阴影变重，适得其反。建议每次拍之前先用滑块微调到满意的预览状态再按快门。</p>
+          </div>
+          <div class="info-block blue">
+            <div class="info-icon-lg">⚙️</div>
+            <div class="info-block-body"><strong>推荐参数：</strong>亮度 1.1 + 对比度 1.1，适合大多数室内场景。光线很好时可以都保持 1.0。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CHAPTER 2: ANGLE ═══════════ -->
+  <div class="win-card" id="ch-angle">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 第二章 | 角度与距离篇
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">TIP 05–07：找到你的最佳镜头角度</div>
+
+      <!-- TIP 05 -->
+      <div class="tip-card blue-card">
+        <div class="tip-num blue-num">
+          <span class="tip-n blue-n">05</span>
+          <span class="tip-icon-sm">📐</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title blue-title">摄像头略高于眼睛水平</div>
+          <div class="tip-body">
+            <p>摄像头的高度影响脸型的呈现。<strong>略高于眼睛水平</strong>（大约5–10厘米）是绝大多数人最上镜的角度：下巴自然收紧、颈部线条清晰、眼睛显大。</p>
+            <p>摄像头低于脸部会形成"仰拍"效果：鼻孔和下巴占满画面，是公认最不友好的拍摄角度。把笔记本电脑垫高，或调整椅子高度，是最简单的解决方法。</p>
+          </div>
+          <div class="do-dont">
+            <div class="do-box">
+              <div class="do-label">✓ DO</div>
+              <ul class="do-list">
+                <li>摄像头稍高于眼睛</li>
+                <li>头部自然微倾</li>
+                <li>下巴稍微前伸</li>
+              </ul>
+            </div>
+            <div class="dont-box">
+              <div class="dont-label">✗ DON'T</div>
+              <ul class="dont-list">
+                <li>摄像头低于下巴</li>
+                <li>头部完全正对</li>
+                <li>下巴往后缩</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIP 06 -->
+      <div class="tip-card blue-card">
+        <div class="tip-num blue-num">
+          <span class="tip-n blue-n">06</span>
+          <span class="tip-icon-sm">📏</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title blue-title">保持合适的距离感</div>
+          <div class="tip-body">
+            <p>大头贴不等于把脸凑上去占满整个画面。<strong>合适的距离</strong>是让头部占画面的60–75%，上方留一点空气感，两侧不要被裁切到耳朵。</p>
+            <p>离得太近会让脸部产生透视变形，鼻子显得很大；离太远脸太小，贴纸就变得很难看到。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIP 07 -->
+      <div class="tip-card blue-card">
+        <div class="tip-num blue-num">
+          <span class="tip-n blue-n">07</span>
+          <span class="tip-icon-sm">🎭</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title blue-title">头部轻微倾斜，避免"证件照僵硬感"</div>
+          <div class="tip-body">
+            <p>完全正对镜头的照片会显得生硬，像是在拍护照照片。头部向一侧<strong>轻微倾斜5–10度</strong>，会让整张照片产生动感和亲切感。</p>
+            <p>日系大头贴常见的"头靠头"构图（两个人头各向对方方向倾斜）也是这个原理的最佳应用。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CHAPTER 3: POSE ═══════════ -->
+  <div class="win-card gold" id="ch-pose">
+    <div class="win-titlebar gold-bar">★ 第三章 | 姿势与表情篇</div>
+    <div class="win-body">
+      <div class="sec-heading">TIP 08–10：经典 pose 参考 + 表情训练</div>
+
+      <!-- TIP 08 -->
+      <div class="tip-card" style="margin-bottom:20px">
+        <div class="tip-num">
+          <span class="tip-n">08</span>
+          <span class="tip-icon-sm">🙌</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title">8个经典大头贴 Pose</div>
+          <div class="tip-body" style="margin-bottom:14px">
+            <p>每次拍多格大头贴时，提前想好每格的 pose 变化，避免全部拍出一样的表情。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pose-grid" style="margin-bottom:20px">
+        <div class="pose-card">
+          <div class="pose-header">CLASSIC</div>
+          <span class="pose-emoji">😊</span>
+          <div class="pose-name">标准笑容</div>
+          <div class="pose-desc">嘴角上扬，眼睛微眯，是安全牌首选</div>
+        </div>
+        <div class="pose-card">
+          <div class="pose-header">PEACE</div>
+          <span class="pose-emoji">✌️</span>
+          <div class="pose-name">剪刀手</div>
+          <div class="pose-desc">永恒经典，放在脸旁或眼睛旁都好看</div>
+        </div>
+        <div class="pose-card">
+          <div class="pose-header">MEME</div>
+          <span class="pose-emoji">😂</span>
+          <div class="pose-name">夸张大笑</div>
+          <div class="pose-desc">嘴张大，眼睛闭上，Meme感爆棚</div>
+        </div>
+        <div class="pose-card">
+          <div class="pose-header">COOL</div>
+          <span class="pose-emoji">😎</span>
+          <div class="pose-name">冷酷无表情</div>
+          <div class="pose-desc">不笑，眼神直视，高冷人设</div>
+        </div>
+        <div class="pose-card">
+          <div class="pose-header">SURPRISE</div>
+          <span class="pose-emoji">😱</span>
+          <div class="pose-name">惊讶/石乐志</div>
+          <div class="pose-desc">嘴张大，眼睛睁大，经典梗图脸</div>
+        </div>
+        <div class="pose-card">
+          <div class="pose-header">CUTE</div>
+          <span class="pose-emoji">🥺</span>
+          <div class="pose-name">委屈/可爱</div>
+          <div class="pose-desc">嘴角微撇，眼睛向上看，少女感强</div>
+        </div>
+        <div class="pose-card">
+          <div class="pose-header">WINK</div>
+          <span class="pose-emoji">😉</span>
+          <div class="pose-name">单眼眨眼</div>
+          <div class="pose-desc">一眼睁一眼眨，需要多练几次</div>
+        </div>
+        <div class="pose-card">
+          <div class="pose-header">WILD</div>
+          <span class="pose-emoji">🤪</span>
+          <div class="pose-name">鬼脸乱拍</div>
+          <div class="pose-desc">完全放飞，为了好笑而存在</div>
+        </div>
+      </div>
+
+      <!-- TIP 09 -->
+      <div class="tip-card">
+        <div class="tip-num">
+          <span class="tip-n">09</span>
+          <span class="tip-icon-sm">😄</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title">表情训练：让笑容更自然</div>
+          <div class="tip-body">
+            <p>很多人对镜头会"社恐"——脸僵、笑容假、眼睛没神。这里有几个办法：</p>
+            <p><strong>① 说"茄子"之前先说"一"</strong>：嘴型停在"一"的状态，嘴角自然上扬，比"茄子"笑容真实很多。</p>
+            <p><strong>② 眯眼笑法</strong>：笑的时候轻轻用下眼睑向上推，眼睛就会自然眯起来（日文叫"涙袋"效果），让眼睛有神且显大。</p>
+            <p><strong>③ 拍前做鬼脸预热</strong>：在倒计时前夸张地动动脸部肌肉，打破僵硬感，之后的笑容会更自然。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expression reference -->
+      <div class="expr-grid" style="margin:16px 0">
+        <div class="expr-card">
+          <span class="expr-emoji">😁</span>
+          <div class="expr-name">真实微笑</div>
+          <div class="expr-tip">嘴角+眼角同时动</div>
+        </div>
+        <div class="expr-card">
+          <span class="expr-emoji">😏</span>
+          <div class="expr-name">单边嘴角</div>
+          <div class="expr-tip">练习单侧嘴角上扬</div>
+        </div>
+        <div class="expr-card">
+          <span class="expr-emoji">🥳</span>
+          <div class="expr-name">搞笑脸</div>
+          <div class="expr-tip">双眉挑高+嘴张大</div>
+        </div>
+        <div class="expr-card">
+          <span class="expr-emoji">😒</span>
+          <div class="expr-name">无语脸</div>
+          <div class="expr-tip">微眯眼+嘴角平</div>
+        </div>
+        <div class="expr-card">
+          <span class="expr-emoji">😤</span>
+          <div class="expr-name">傲娇脸</div>
+          <div class="expr-tip">眉头稍皱+嘴微噘</div>
+        </div>
+        <div class="expr-card">
+          <span class="expr-emoji">🤩</span>
+          <div class="expr-name">惊喜脸</div>
+          <div class="expr-tip">眼睛睁大+嘴型"哦"</div>
+        </div>
+      </div>
+
+      <!-- TIP 10 -->
+      <div class="tip-card">
+        <div class="tip-num">
+          <span class="tip-n">10</span>
+          <span class="tip-icon-sm">👫</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title">两个人一起拍的构图技巧</div>
+          <div class="tip-body">
+            <p>两人同拍大头贴时，最好看的构图是<strong>"头靠头"</strong>——两人向彼此方向各倾斜约15度，头部自然贴近，脸部面积相近，这样画面比两人直立更有亲密感。</p>
+            <p>建议选择 <strong>4格或6格模式</strong>：每格用不同的互动方式，比如"正脸→互看→做鬼脸→笑到眼睛闭上"，最后的组图会非常有故事感。</p>
+          </div>
+          <div class="info-block gold">
+            <div class="info-icon-lg">💑</div>
+            <div class="info-block-body"><strong>朋友多于2人时：</strong>每人轮流出现在不同格子里，或者挤在一起让画面显得"太多人"的喜剧感也是一种风格。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CHAPTER 4: STICKER ═══════════ -->
+  <div class="win-card green" id="ch-sticker">
+    <div class="win-titlebar green-bar">★ 第四章 | 贴纸与边框选择篇</div>
+    <div class="win-body">
+      <div class="sec-heading green-head">TIP 11–13：让贴纸加分而不是减分</div>
+
+      <!-- TIP 11 -->
+      <div class="tip-card green-card">
+        <div class="tip-num green-num">
+          <span class="tip-n green-n">11</span>
+          <span class="tip-icon-sm">🎨</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title green-title">根据心情选择贴纸风格</div>
+          <div class="tip-body">
+            <p>贴纸不是越花哨越好，选错风格比不用贴纸更糟糕。这是简单的风格配对逻辑：</p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;font-size:12px">
+            <div style="background:var(--win-white);border:2px solid var(--green-win);padding:10px">
+              <div style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--green-win);margin-bottom:6px">日常 / 轻松</div>
+              可爱卡通贴纸<br>花朵蝴蝶边框<br>粉色系装饰
+            </div>
+            <div style="background:var(--win-white);border:2px solid var(--blue-win);padding:10px">
+              <div style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);margin-bottom:6px">Y2K / 复古</div>
+              像素风边框<br>闪光星星贴纸<br>彩虹渐变装饰
+            </div>
+            <div style="background:var(--win-white);border:2px solid var(--accent);padding:10px">
+              <div style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--accent);margin-bottom:6px">胶片 / 文艺</div>
+              暗角框架<br>日期时间水印<br>简约细边框
+            </div>
+            <div style="background:var(--win-white);border:2px solid var(--gold-shadow);padding:10px">
+              <div style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--gold-shadow);margin-bottom:6px">Meme / 搞笑</div>
+              表情包贴纸<br>夸张文字框<br>鱼眼/扭曲效果
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIP 12 -->
+      <div class="tip-card green-card">
+        <div class="tip-num green-num">
+          <span class="tip-n green-n">12</span>
+          <span class="tip-icon-sm">🖼️</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title green-title">边框颜色与你的穿着配套</div>
+          <div class="tip-body">
+            <p>大头贴的边框颜色会和你的照片整体色调产生互动。几个原则：</p>
+            <p><strong>白色边框：</strong>万能，适合任何场景，有扩大画面空间感的效果，是日系大头贴最经典的选择。</p>
+            <p><strong>黑色边框：</strong>高冷感，适合黑白滤镜组合，有强烈的时尚杂志质感。</p>
+            <p><strong>浅粉/浅蓝边框：</strong>提升整体甜度，适合可爱风格，但注意如果你的衣服也是这个颜色，可能会让照片显得"消失"。</p>
+            <p><strong>深色边框（深红、墨绿）：</strong>增加复古感，适合胶片风格配色。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIP 13 -->
+      <div class="tip-card green-card">
+        <div class="tip-num green-num">
+          <span class="tip-n green-n">13</span>
+          <span class="tip-icon-sm">✨</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title green-title">上传自己的贴纸：让大头贴唯一</div>
+          <div class="tip-body">
+            <p>MemePhoto 支持上传自定义贴纸（点击"更多滤镜"→"上传贴纸"）。这个功能让你的大头贴真正独一无二。几个创意方向：</p>
+            <p>① <strong>宠物照</strong>：把你家猫狗的 PNG 图片上传作为贴纸，让宠物"出现"在你的大头贴里。</p>
+            <p>② <strong>手写字</strong>：用手机画一句话，截图去底，上传作为文字贴纸。</p>
+            <p>③ <strong>节日素材</strong>：下载节日 PNG 免抠素材（圣诞树、生日蛋糕等），作为临时主题贴纸。</p>
+          </div>
+          <div class="info-block green">
+            <div class="info-icon-lg">📁</div>
+            <div class="info-block-body"><strong>贴纸文件要求：</strong>PNG 格式、透明背景、建议正方形或接近正方形比例，文件不要超过 5MB。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CHAPTER 5: PRO TIPS ═══════════ -->
+  <div class="win-card pink" id="ch-pro">
+    <div class="win-titlebar pink-bar">★ 第五章 | 进阶技巧篇</div>
+    <div class="win-body">
+      <div class="sec-heading pink-head">TIP 14–15：让你和普通用户拉开差距</div>
+
+      <!-- TIP 14 -->
+      <div class="tip-card pink-card">
+        <div class="tip-num pink-num">
+          <span class="tip-n pink-n">14</span>
+          <span class="tip-icon-sm">🎬</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title pink-title">多格模式的叙事策略</div>
+          <div class="tip-body">
+            <p>大头贴的多格格式天生适合讲故事。不要每格都拍相同的表情——把 4格或 9格当作一个<strong>微型剧情</strong>来设计：</p>
+            <p><strong>「情绪变化」叙事（4格）：</strong>第1格平静→第2格发现什么→第3格反应→第4格结局（如大笑或崩溃）。</p>
+            <p><strong>「角色扮演」叙事（9格）：</strong>每3格是一个角色，分别扮演"可爱版我""冷酷版我""搞笑版我"。</p>
+            <p><strong>「节奏变化」叙事：</strong>前几格同一个表情，最后一格突然做完全不同的鬼脸。这种"突破预期"的结构在社交媒体上最容易获得转发。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIP 15 -->
+      <div class="tip-card pink-card">
+        <div class="tip-num pink-num">
+          <span class="tip-n pink-n">15</span>
+          <span class="tip-icon-sm">🔄</span>
+        </div>
+        <div class="tip-content">
+          <div class="tip-title pink-title">重拍单格，不要全部重来</div>
+          <div class="tip-body">
+            <p>拍完预览时，某一格表情不满意？不需要全部重来——<strong>点击预览区中不满意的格子</strong>，会弹出重拍确认。只重拍那一格，保留其他格子的成果。</p>
+            <p>这个技巧能节省大量时间，特别是多人合拍时，不需要因为某一格笑出猪声而全部重来。</p>
+          </div>
+          <div class="info-block pink">
+            <div class="info-icon-lg">⚡</div>
+            <div class="info-block-body"><strong>效率 Tips：</strong>先定好贴纸和边框颜色，再开始拍——因为重拍后贴纸叠加效果和整体色调需要保持一致。设置好了再拍，不用每次重拍都重新调整。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ QUICK TIPS ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 额外加餐 | 快速小技巧合集
+    </div>
+    <div class="win-body">
+      <div class="sec-heading">值得记下来的快速提示</div>
+      <div class="quick-grid">
+        <div class="quick-card">
+          <div class="quick-icon">🧹</div>
+          <div>
+            <div class="quick-title">整理背景</div>
+            <div class="quick-desc">拍前检查摄像头画面里有没有杂乱的背景。简洁的白墙或书架最理想。</div>
+          </div>
+        </div>
+        <div class="quick-card">
+          <div class="quick-icon">👕</div>
+          <div>
+            <div class="quick-title">穿纯色衣服</div>
+            <div class="quick-desc">花纹复杂的衣服与贴纸叠加后会显得很乱。纯色或简单条纹最安全。</div>
+          </div>
+        </div>
+        <div class="quick-card">
+          <div class="quick-icon">💄</div>
+          <div>
+            <div class="quick-title">口红加分效果显著</div>
+            <div class="quick-desc">摄像头分辨率通常不高，一点口红能大幅提升面部清晰度和存在感。</div>
+          </div>
+        </div>
+        <div class="quick-card">
+          <div class="quick-icon">👓</div>
+          <div>
+            <div class="quick-title">眼镜反光问题</div>
+            <div class="quick-desc">戴眼镜时稍微调整头部角度，避免光源直接在镜片上产生白色反光。</div>
+          </div>
+        </div>
+        <div class="quick-card">
+          <div class="quick-icon">🔇</div>
+          <div>
+            <div class="quick-title">倒计时放松法</div>
+            <div class="quick-desc">3秒倒计时期间深吸一口气，快门响的瞬间自然呼出，表情会更放松。</div>
+          </div>
+        </div>
+        <div class="quick-card">
+          <div class="quick-icon">🌙</div>
+          <div>
+            <div class="quick-title">夜晚拍摄加强版</div>
+            <div class="quick-desc">关掉头顶灯，只开台灯放在屏幕前方，更容易控制光线方向。</div>
+          </div>
+        </div>
+        <div class="quick-card">
+          <div class="quick-icon">🪞</div>
+          <div>
+            <div class="quick-title">拍前对着镜子练</div>
+            <div class="quick-desc">摄像头是镜像的，对着镜子练 pose 和表情，所见即所得。</div>
+          </div>
+        </div>
+        <div class="quick-card">
+          <div class="quick-icon">📐</div>
+          <div>
+            <div class="quick-title">厚边框配简单贴纸</div>
+            <div class="quick-desc">边框越厚，贴纸应越简洁；边框越细，贴纸可以越复杂。避免两者都很抢眼。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CHECKLIST ═══════════ -->
+  <div class="win-card gold">
+    <div class="win-titlebar gold-bar">★ 拍照前检查清单 | Pre-Shoot Checklist</div>
+    <div class="win-body">
+      <div class="sec-heading">每次拍之前，点击打勾确认</div>
+      <ul class="checklist" id="checklist">
+        <li onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <strong>☀️ 光线方向确认</strong>
+            <div class="check-sub">面朝窗户或光源，不要逆光</div>
+          </div>
+        </li>
+        <li onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <strong>📐 摄像头高度确认</strong>
+            <div class="check-sub">摄像头略高于眼睛水平</div>
+          </div>
+        </li>
+        <li onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <strong>🧹 背景整洁确认</strong>
+            <div class="check-sub">检查背景没有杂物或奇怪的东西</div>
+          </div>
+        </li>
+        <li onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <strong>🎨 贴纸已选择</strong>
+            <div class="check-sub">根据心情选好风格，或上传自定义贴纸</div>
+          </div>
+        </li>
+        <li onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <strong>🖼️ 边框颜色已设定</strong>
+            <div class="check-sub">边框颜色与整体风格匹配</div>
+          </div>
+        </li>
+        <li onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <strong>🎛️ 亮度对比度已调整</strong>
+            <div class="check-sub">预览画面中肤色自然不过曝</div>
+          </div>
+        </li>
+        <li onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <strong>📋 格数和 Pose 计划好</strong>
+            <div class="check-sub">多格拍摄时，每格的表情/动作提前想好</div>
+          </div>
+        </li>
+        <li onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <strong>🙂 脸部肌肉已预热</strong>
+            <div class="check-sub">做几个夸张鬼脸，打破僵硬感</div>
+          </div>
+        </li>
+      </ul>
+      <div style="margin-top:14px;text-align:right">
+        <button onclick="resetChecklist()" style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--win-dark);background:var(--win-white);border:2px solid var(--win-dark);padding:5px 10px;cursor:pointer;letter-spacing:1px">↺ 重置清单</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 学完了？去拍吧！
+    </div>
+    <div class="cta-block">
+      <div class="cta-title">技巧学了这么多<br>最好的学习方式是实践</div>
+      <div class="pixel-divider"></div>
+      <p style="font-size:14px;color:#6a4a30;margin:16px 0 20px;line-height:1.8">
+        带着这些技巧，去拍一组大头贴吧。<br>第一张可能还不完美，第五张开始会有感觉。
+      </p>
+      <div>
+        <a href="index.html" class="cta-btn">★ 开始拍大头贴 ★</a>
+        <a href="how-to-use.html" class="cta-btn blue-btn">📖 查看使用教程</a>
+      </div>
+      <div style="margin-top:16px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+        <a href="story.html"            style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">大头贴历史 →</a>
+        <a href="photo-booth-ideas.html" style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">创意灵感 →</a>
+        <a href="contact.html"          style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">联系我们 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center;font-size:13px;margin-top:10px;color:#6a4a30;line-height:2">
+    <p>
+      <a href="about.html"      style="color:var(--blue-win)">关于我们</a> |
+      <a href="privacy.html"    style="color:var(--blue-win)">隐私政策</a> |
+      <a href="contact.html"    style="color:var(--blue-win)">联系我们</a> |
+      <a href="story.html"      style="color:var(--blue-win)">Story</a> |
+      <a href="how-to-use.html" style="color:var(--blue-win)">How to Use</a>
+    </p>
+    <p style="color:#9a7a50;font-size:12px;margin-top:6px">© 2025 MemePhoto.com.cn — All photos processed locally. No upload, no server.</p>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<!-- Taskbar -->
+<div class="taskbar">
+  <div class="task-item" onclick="location.href='index.html'">🟢 Start</div>
+  <div class="task-item" onclick="location.href='about.html'">About</div>
+  <div class="task-item" onclick="location.href='privacy.html'">Privacy</div>
+  <div class="task-item" onclick="location.href='contact.html'">Contact</div>
+  <div class="task-item" onclick="location.href='photo-booth-ideas.html'">Ideas</div>
+  <div class="task-item" onclick="location.href='how-to-use.html'">Guide</div>
+  <div class="task-item active-task">Tips</div>
+  <div class="task-item" onclick="location.href='story.html'">Story</div>
+</div>
+
+<script>
+  function toggleCheck(li) {
+    li.classList.toggle('done');
+  }
+  function resetChecklist() {
+    document.querySelectorAll('#checklist li').forEach(li => li.classList.remove('done'));
+  }
+</script>
 
 </body>
 </html>
