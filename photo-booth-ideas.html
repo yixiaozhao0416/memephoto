@@ -1,152 +1,1324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-644509R3FZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-644509R3FZ');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Photo Booth Ideas | Creative Photo Strip Inspiration</title>
-
-  <meta name="description" content="Discover creative photo booth ideas for couples, friends, and social media. Try fun poses, themes, and layouts with an online photo booth.">
-
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-
+  <title>创意灵感 Photo Booth Ideas | MemePhoto</title>
+  <meta name="description" content="大头贴创意灵感合集：生日聚会、情侣约会、朋友出游、节日主题……30+个大头贴拍摄主题和场景创意，让你每次拍照都有新想法。">
+  <meta property="og:title" content="创意灵感 Photo Booth Ideas — MemePhoto">
+  <meta property="og:description" content="30+个大头贴主题创意：生日、情侣、朋友局、节日、独拍……总有一个适合你今天的心情。">
+  <meta property="og:image" content="https://memephoto.com.cn/01.png">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></noscript>
   <style>
+    :root {
+      --accent:      #5c1133;
+      --gold:        #c8860a;
+      --gold-light:  #FDD672;
+      --gold-border: #E5B13A;
+      --gold-shadow: #C68A20;
+      --blue-win:    #1070B4;
+      --blue-dark:   #003070;
+      --blue-light:  #f6f3d4;
+      --cream:       #fff8e7;
+      --text-body:   #3a2a1e;
+      --win-gray:    #c0c0c0;
+      --win-dark:    #808080;
+      --win-white:   #ffffff;
+      --green-win:   #2e8b57;
+      --pink:        #c0306a;
+      --purple:      #6030a0;
+      --orange:      #c06010;
+      --bg:          #d6c9a3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
+      font-family: 'Georgia', serif;
+      color: var(--text-body);
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(0deg,  transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px),
+        repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(0,0,0,0.04) 31px, rgba(0,0,0,0.04) 32px);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ── Ticker ── */
+    .ticker-wrap {
+      background: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+      border-bottom: 3px solid #3a0a20;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
       font-family: 'Press Start 2P', cursive;
-      background: #f6f3d4;
-      margin: 0;
-      padding: 0;
-      color: #333;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff8dc;
-      border: 5px solid #1070B4;
-      box-shadow: 8px 8px #9bbfd9;
+    /* ── Site Header ── */
+    .site-header {
+      background: var(--gold-light);
+      border-bottom: 5px solid var(--gold-border);
+      box-shadow: 0 8px 0 var(--gold-shadow);
+      padding: 14px 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-
-    h1 {
-      font-size: 22px;
-      text-align: center;
-      margin-bottom: 30px;
-      color: #5c1133;
-    }
-
-    h2 {
-      font-size: 14px;
-      margin-top: 30px;
-      color: #723c1e;
-    }
-
-    p, li {
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .nav {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 12px;
-    }
-
-    .nav a {
-      margin: 0 8px;
+    .site-logo {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 13px;
+      color: var(--accent);
       text-decoration: none;
-      color: #1070B4;
+      text-shadow: 2px 2px 0 #fff, 3px 3px 0 var(--gold-border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .back-btn {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px; color: var(--win-white);
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border: 2px solid var(--blue-dark);
+      border-radius: 4px; padding: 7px 12px;
+      text-decoration: none;
+      box-shadow: 0 4px var(--blue-dark), inset 0 -2px rgba(255,255,255,0.2);
+      transition: all 0.1s; display: inline-block;
+    }
+    .back-btn:active { transform: translateY(3px); box-shadow: 0 1px var(--blue-dark); }
+
+    /* ── Page Wrap ── */
+    .page-wrap { max-width: 940px; margin: 0 auto; padding: 30px 20px; }
+
+    /* ── Window Card ── */
+    .win-card {
+      background: var(--blue-light);
+      border: 4px solid var(--blue-win);
+      box-shadow: 6px 6px 0 #4a90cc, 10px 10px 0 var(--blue-dark);
+      margin-bottom: 28px;
+      animation: fadeUp 0.4s ease both;
+    }
+    .win-card.gold   { background: var(--cream);  border-color: var(--gold-border); box-shadow: 6px 6px 0 var(--gold-shadow), 10px 10px 0 #9a6010; }
+    .win-card.green  { background: #edfaf3; border-color: var(--green-win); box-shadow: 6px 6px 0 #1e6040, 10px 10px 0 #0d3020; }
+    .win-card.pink   { background: #fef0f5; border-color: var(--pink);      box-shadow: 6px 6px 0 #8a1040, 10px 10px 0 #4a0820; }
+    .win-card.purple { background: #f5f0ff; border-color: var(--purple);    box-shadow: 6px 6px 0 #401880, 10px 10px 0 #200840; }
+    .win-card.orange { background: #fff4e8; border-color: var(--orange);    box-shadow: 6px 6px 0 #804010, 10px 10px 0 #402008; }
+
+    .win-card:nth-child(1)  { animation-delay: 0.03s; }
+    .win-card:nth-child(2)  { animation-delay: 0.08s; }
+    .win-card:nth-child(3)  { animation-delay: 0.13s; }
+    .win-card:nth-child(4)  { animation-delay: 0.18s; }
+    .win-card:nth-child(5)  { animation-delay: 0.23s; }
+    .win-card:nth-child(6)  { animation-delay: 0.28s; }
+    .win-card:nth-child(7)  { animation-delay: 0.33s; }
+    .win-card:nth-child(8)  { animation-delay: 0.38s; }
+    .win-card:nth-child(9)  { animation-delay: 0.43s; }
+    .win-card:nth-child(10) { animation-delay: 0.48s; }
+    .win-card:nth-child(11) { animation-delay: 0.53s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    footer {
+    .win-titlebar {
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px; padding: 6px 10px;
+      display: flex; align-items: center; gap: 8px;
+      letter-spacing: 1px; user-select: none;
+    }
+    .win-titlebar          { background: var(--blue-win); }
+    .win-titlebar.gold-bar { background: linear-gradient(90deg, var(--gold-border), var(--gold-shadow)); text-shadow: 1px 1px 0 rgba(0,0,0,0.3); }
+    .win-titlebar.green-bar{ background: linear-gradient(90deg, var(--green-win), #1e6040); }
+    .win-titlebar.pink-bar { background: linear-gradient(90deg, var(--pink), #8a1040); }
+    .win-titlebar.purple-bar{background: linear-gradient(90deg, var(--purple), #401880); }
+    .win-titlebar.orange-bar{background: linear-gradient(90deg, var(--orange), #804010); }
+
+    .win-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+    .win-dot.red    { background: #e24; }
+    .win-dot.yellow { background: #fa3; }
+    .win-dot.green  { background: #4c4; }
+    .win-body { padding: 24px 28px; }
+
+    /* ── Section Heading ── */
+    .sec-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px; color: var(--accent);
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold-border);
+      text-shadow: 1px 1px 0 #ffe2b0; letter-spacing: 1px; line-height: 1.6;
+    }
+    .sec-heading.green-head  { color: var(--green-win);  border-color: var(--green-win);  text-shadow: none; }
+    .sec-heading.pink-head   { color: var(--pink);       border-color: var(--pink);       text-shadow: none; }
+    .sec-heading.purple-head { color: var(--purple);     border-color: var(--purple);     text-shadow: none; }
+    .sec-heading.orange-head { color: var(--orange);     border-color: var(--orange);     text-shadow: none; }
+    .sec-heading.blue-head   { color: var(--blue-win);   border-color: var(--blue-win);   text-shadow: none; }
+
+    /* ── Hero ── */
+    .hero-block { text-align: center; padding: 32px 28px 24px; }
+    .hero-label { font-family: 'Press Start 2P', cursive; font-size: 8px; color: var(--gold); letter-spacing: 4px; margin-bottom: 14px; }
+    .hero-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(13px, 2.8vw, 20px); color: var(--accent);
+      line-height: 1.7; text-shadow: 3px 3px 0 #ffe2b0, 5px 5px 0 rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+    .hero-sub { font-size: 14px; color: #6a4a30; line-height: 1.85; max-width: 560px; margin: 0 auto; }
+
+    /* ── Pixel Divider ── */
+    .pixel-divider {
+      height: 8px;
+      background: repeating-linear-gradient(90deg,
+        var(--accent) 0, var(--accent) 8px,
+        var(--gold-border) 8px, var(--gold-border) 16px,
+        var(--gold-light) 16px, var(--gold-light) 24px,
+        var(--gold-border) 24px, var(--gold-border) 32px);
+      margin: 10px 0; opacity: 0.6;
+    }
+
+    /* ── Idea Cards — main grid ── */
+    .idea-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .idea-card {
+      background: var(--win-white);
+      border: 3px solid var(--gold-border);
+      box-shadow: 4px 4px 0 var(--gold-shadow);
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: default;
+    }
+    .idea-card:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--gold-shadow); }
+    .idea-card.blue-card   { border-color: var(--blue-win);  box-shadow: 4px 4px 0 var(--blue-dark); }
+    .idea-card.blue-card:hover  { box-shadow: 6px 6px 0 var(--blue-dark); }
+    .idea-card.green-card  { border-color: var(--green-win); box-shadow: 4px 4px 0 #1e6040; }
+    .idea-card.green-card:hover { box-shadow: 6px 6px 0 #1e6040; }
+    .idea-card.pink-card   { border-color: var(--pink);      box-shadow: 4px 4px 0 #8a1040; }
+    .idea-card.pink-card:hover  { box-shadow: 6px 6px 0 #8a1040; }
+    .idea-card.purple-card { border-color: var(--purple);    box-shadow: 4px 4px 0 #401880; }
+    .idea-card.purple-card:hover{ box-shadow: 6px 6px 0 #401880; }
+    .idea-card.orange-card { border-color: var(--orange);    box-shadow: 4px 4px 0 #804010; }
+    .idea-card.orange-card:hover{ box-shadow: 6px 6px 0 #804010; }
+
+    .idea-card-head {
+      padding: 14px 14px 10px;
+      display: flex; gap: 10px; align-items: flex-start;
+      border-bottom: 2px solid var(--gold-border);
+      background: linear-gradient(135deg, var(--gold-light) 0%, #fff8e0 100%);
+    }
+    .idea-card.blue-card .idea-card-head   { background: linear-gradient(135deg, #d8eaf8 0%, #eef5fc 100%); border-color: var(--blue-win); }
+    .idea-card.green-card .idea-card-head  { background: linear-gradient(135deg, #d0f0e0 0%, #ecfaf3 100%); border-color: var(--green-win); }
+    .idea-card.pink-card .idea-card-head   { background: linear-gradient(135deg, #fce0ee 0%, #fef5f9 100%); border-color: var(--pink); }
+    .idea-card.purple-card .idea-card-head { background: linear-gradient(135deg, #e8d8f8 0%, #f5f0ff 100%); border-color: var(--purple); }
+    .idea-card.orange-card .idea-card-head { background: linear-gradient(135deg, #ffe0c0 0%, #fff8ee 100%); border-color: var(--orange); }
+
+    .idea-emoji { font-size: 30px; flex-shrink: 0; line-height: 1; }
+    .idea-head-text {}
+    .idea-num {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px; color: var(--win-dark);
+      margin-bottom: 4px; letter-spacing: 1px;
+    }
+    .idea-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px; color: var(--accent);
+      line-height: 1.6; letter-spacing: 0.5px;
+    }
+    .idea-card.blue-card   .idea-title { color: var(--blue-win); }
+    .idea-card.green-card  .idea-title { color: var(--green-win); }
+    .idea-card.pink-card   .idea-title { color: var(--pink); }
+    .idea-card.purple-card .idea-title { color: var(--purple); }
+    .idea-card.orange-card .idea-title { color: var(--orange); }
+
+    .idea-body { padding: 14px; }
+    .idea-desc { font-size: 13px; line-height: 1.75; color: var(--text-body); margin-bottom: 10px; }
+    .idea-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .idea-tag {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 6px; padding: 3px 6px;
+      border: 1.5px solid var(--gold-border);
+      background: var(--gold-light); color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+    .idea-tag.blue   { border-color: var(--blue-win);  background: #e6f1fb; color: var(--blue-win); }
+    .idea-tag.green  { border-color: var(--green-win); background: #edfaf3; color: var(--green-win); }
+    .idea-tag.pink   { border-color: var(--pink);      background: #fef0f5; color: var(--pink); }
+    .idea-tag.purple { border-color: var(--purple);    background: #f5f0ff; color: var(--purple); }
+    .idea-tag.orange { border-color: var(--orange);    background: #fff4e8; color: var(--orange); }
+
+    /* ── Featured Idea (wide card) ── */
+    .idea-featured {
+      background: var(--win-white);
+      border: 3px solid var(--gold-border);
+      box-shadow: 4px 4px 0 var(--gold-shadow);
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      overflow: hidden;
+    }
+    .idea-featured-side {
+      width: 80px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-start;
+      padding: 18px 0;
+      background: var(--gold-light);
+      border-right: 3px solid var(--gold-border);
+      gap: 6px;
+    }
+    .idea-featured-emoji { font-size: 32px; }
+    .idea-featured-num {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px; color: var(--accent); letter-spacing: 1px;
+    }
+    .idea-featured-body { padding: 16px 18px; }
+    .idea-featured-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px; color: var(--accent);
+      margin-bottom: 10px; line-height: 1.6;
+    }
+    .idea-featured-desc { font-size: 13px; line-height: 1.8; color: var(--text-body); margin-bottom: 10px; }
+    .idea-featured-desc strong { color: var(--accent); }
+
+    /* ── Occasion strip ── */
+    .occasion-strip {
+      display: flex; overflow-x: auto; gap: 12px;
+      padding-bottom: 6px; margin-bottom: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold-border) transparent;
+    }
+    .occasion-pill {
+      flex-shrink: 0;
+      background: var(--win-white);
+      border: 2px solid var(--gold-border);
+      padding: 10px 14px;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 6px;
+      min-width: 90px; text-align: center;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .occasion-pill:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .occasion-pill.active { border-color: var(--accent); background: var(--gold-light); }
+    .occasion-icon { font-size: 22px; }
+    .occasion-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 6px; color: var(--accent);
+      letter-spacing: 0.5px; line-height: 1.5;
+    }
+
+    /* ── Scenario detail panels ── */
+    .scenario-panel { display: none; }
+    .scenario-panel.active { display: block; }
+
+    /* ── Prop list ── */
+    .prop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .prop-card {
+      background: var(--win-white);
+      border: 2px solid var(--gold-border);
+      padding: 12px 10px;
       text-align: center;
-      font-size: 12px;
-      margin-top: 40px;
-      color: #666;
+    }
+    .prop-icon { font-size: 26px; margin-bottom: 6px; display: block; }
+    .prop-name {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 6px; color: var(--accent);
+      line-height: 1.5; letter-spacing: 0.5px;
+    }
+    .prop-tip { font-size: 11px; color: var(--win-dark); margin-top: 4px; line-height: 1.5; }
+
+    /* ── Season / holiday calendar ── */
+    .season-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .season-card {
+      border: 3px solid;
+      padding: 0;
+      overflow: hidden;
+    }
+    .season-card.spring { border-color: #d0607a; }
+    .season-card.summer { border-color: #d09010; }
+    .season-card.autumn { border-color: #b05020; }
+    .season-card.winter { border-color: #4080b0; }
+
+    .season-head {
+      padding: 10px 14px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px; color: #fff; letter-spacing: 1px;
+    }
+    .season-card.spring .season-head { background: linear-gradient(90deg, #d0607a, #e890a0); }
+    .season-card.summer .season-head { background: linear-gradient(90deg, #d09010, #e8b830); }
+    .season-card.autumn .season-head { background: linear-gradient(90deg, #b05020, #d07040); }
+    .season-card.winter .season-head { background: linear-gradient(90deg, #4080b0, #60a0d0); }
+
+    .season-body { padding: 12px 14px; background: var(--win-white); }
+    .season-event {
+      display: flex; align-items: baseline;
+      gap: 8px; font-size: 13px;
+      padding: 5px 0; border-bottom: 1px dashed var(--gold-border);
+      color: var(--text-body);
+    }
+    .season-event:last-child { border-bottom: none; }
+    .season-event-icon { font-size: 14px; flex-shrink: 0; }
+    .season-event-text { flex: 1; }
+    .season-event-month {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 6px; color: var(--win-dark);
+      flex-shrink: 0;
+    }
+
+    /* ── Composition guide ── */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .comp-card {
+      background: var(--win-white);
+      border: 3px solid var(--blue-win);
+      box-shadow: 3px 3px 0 var(--blue-dark);
+      overflow: hidden;
+    }
+    .comp-preview {
+      height: 90px;
+      background: #1a1a2e;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .comp-preview::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+    }
+    /* CSS-drawn composition diagrams */
+    .comp-diagram { position: relative; z-index: 1; }
+    .comp-grid-lines {
+      width: 80px; height: 60px;
+      border: 2px solid rgba(100,180,255,0.4);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .comp-grid-lines span {
+      border: 1px solid rgba(100,180,255,0.2);
+    }
+    .comp-face-dot {
+      position: absolute;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      border: 2px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8px;
+    }
+    .comp-label-bar {
+      background: var(--blue-win);
+      padding: 5px 10px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px; color: #fff; letter-spacing: 0.5px;
+    }
+    .comp-desc {
+      padding: 10px 12px;
+      font-size: 12px; line-height: 1.65; color: var(--text-body);
+    }
+
+    /* ── Info block ── */
+    .info-block {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 13px 15px; margin: 14px 0;
+    }
+    .info-block.gold  { background: #fdf4da; border-left: 4px solid var(--gold-border); }
+    .info-block.blue  { background: #e6f1fb; border-left: 4px solid var(--blue-win); }
+    .info-block.green { background: #edfaf3; border-left: 4px solid var(--green-win); }
+    .info-block.pink  { background: #fef0f5; border-left: 4px solid var(--pink); }
+    .info-block.purple{ background: #f5f0ff; border-left: 4px solid var(--purple); }
+    .info-icon-lg { font-size: 20px; flex-shrink: 0; padding-top: 1px; }
+    .info-block-body { font-size: 13px; line-height: 1.75; color: var(--text-body); }
+    .info-block-body strong { color: var(--accent); }
+
+    /* ── Solo photo guide ── */
+    .solo-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+    }
+    .solo-step {
+      background: var(--win-white);
+      border: 2px solid var(--purple);
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .solo-num {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 18px; color: var(--purple);
+      text-shadow: 2px 2px 0 #c0a0f0;
+      margin-bottom: 8px;
+    }
+    .solo-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+    .solo-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px; color: var(--purple);
+      margin-bottom: 8px; line-height: 1.6; letter-spacing: 0.5px;
+    }
+    .solo-desc { font-size: 12px; line-height: 1.65; color: #4a3a6a; }
+
+    /* ── CTA ── */
+    .cta-block { text-align: center; padding: 28px 20px; }
+    .cta-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px; color: var(--accent);
+      margin-bottom: 14px; line-height: 1.7;
+      text-shadow: 2px 2px 0 #ffe2b0;
+    }
+    .cta-btn {
+      display: inline-block;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px; color: #fff;
+      background: linear-gradient(to bottom, var(--gold-border), var(--gold-shadow));
+      border: 3px solid #9a6010; padding: 12px 22px;
+      text-decoration: none;
+      box-shadow: 0 6px #9a6010, inset 0 -3px rgba(255,255,255,0.25);
+      letter-spacing: 1px; transition: all 0.1s; margin: 6px;
+    }
+    .cta-btn:active { transform: translateY(5px); box-shadow: 0 1px #9a6010; }
+    .cta-btn.blue-btn {
+      background: linear-gradient(to bottom, var(--blue-win), #0a5090);
+      border-color: var(--blue-dark);
+      box-shadow: 0 6px var(--blue-dark), inset 0 -3px rgba(255,255,255,0.25);
+    }
+    .cta-btn.blue-btn:active { box-shadow: 0 1px var(--blue-dark); }
+
+    /* ── Taskbar ── */
+    .taskbar {
+      position: fixed; bottom: 0; width: 100%;
+      height: 36px; background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      display: flex; align-items: center;
+      padding: 4px; z-index: 9999; overflow-x: auto;
+    }
+    .task-item {
+      margin-left: 5px; padding: 4px 10px;
+      font-family: 'Press Start 2P', cursive; font-size: 9px;
+      background: var(--win-gray);
+      border-top: 2px solid var(--win-white);
+      border-left: 2px solid var(--win-white);
+      border-right: 2px solid var(--win-dark);
+      border-bottom: 2px solid var(--win-dark);
+      box-shadow: inset 1px 1px #dfdfdf;
+      cursor: pointer; white-space: nowrap; transition: all 0.1s;
+    }
+    .task-item:active {
+      border-top: 2px solid var(--win-dark); border-left: 2px solid var(--win-dark);
+      border-right: 2px solid var(--win-white); border-bottom: 2px solid var(--win-white);
+    }
+    .task-item.active-task { background: #000080; color: white; }
+    .task-item:first-child {
+      background: linear-gradient(to top, #2e8b57, #3cb371);
+      border-top: 2px solid #9fffcf; border-left: 2px solid #9fffcf;
+      border-right: 2px solid #1f5f3c; border-bottom: 2px solid #1f5f3c;
+      color: white; font-weight: bold;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .win-body { padding: 16px; }
+      .hero-title { font-size: 13px; }
+      .idea-grid { grid-template-columns: 1fr; }
+      .idea-featured { grid-template-columns: 60px 1fr; }
+      .idea-featured-side { width: 60px; }
+      .idea-featured-emoji { font-size: 24px; }
+      .prop-grid { grid-template-columns: repeat(3, 1fr); }
+      .season-grid { grid-template-columns: 1fr 1fr; }
+      .comp-grid { grid-template-columns: 1fr 1fr; }
+      .solo-steps { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) {
+      .season-grid { grid-template-columns: 1fr; }
+      .prop-grid { grid-template-columns: repeat(2, 1fr); }
+      .solo-steps { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <span class="ticker-inner">
+    ★ 创意灵感 PHOTO BOOTH IDEAS ★ 30+ 拍摄主题 ★ 生日 情侣 朋友局 独拍 节日 ★ CREATIVE INSPIRATION ★ 创意灵感 PHOTO BOOTH IDEAS ★ 30+ 拍摄主题 ★ 生日 情侣 朋友局 独拍 节日 ★ CREATIVE INSPIRATION ★&nbsp;
+  </span>
+</div>
 
-  <div class="nav">
-    <a href="index.html">Home</a> |
-    <a href="how-to-use.html">How to Use</a> |
-    <a href="photo-booth-ideas.html">Photo Ideas</a> |
-    <a href="about.html">About</a> |
-    <a href="privacy.html">Privacy</a> |
-    <a href="contact.html">Contact</a>
+<!-- Header -->
+<div class="site-header">
+  <a href="index.html" class="site-logo">
+    <span style="font-size:20px">📷</span>
+    <span>MEME<br>PHOTO</span>
+  </a>
+  <a href="index.html" class="back-btn">← BACK TO BOOTH</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span>
+      <span class="win-dot yellow"></span>
+      <span class="win-dot green"></span>
+      &nbsp; photo-booth-ideas.html — 创意灵感
+    </div>
+    <div class="hero-block">
+      <div class="hero-label">★ CREATIVE INSPIRATION ★</div>
+      <div class="hero-title">今天拍什么？<br>30+ 个大头贴创意</div>
+      <div class="pixel-divider"></div>
+      <p class="hero-sub" style="margin-top:16px">
+        不知道拍什么主题？找不到灵感？这里收集了生日、情侣、朋友聚会、节日、独拍等各种场景的创意想法，按照心情找一个，打开摄像头就开始。
+      </p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;font-family:'Press Start 2P',cursive;font-size:7px">
+        <span style="background:var(--gold-light);border:2px solid var(--gold-border);padding:4px 10px;color:var(--accent)">🎂 生日</span>
+        <span style="background:#fce0ee;border:2px solid var(--pink);padding:4px 10px;color:var(--pink)">💕 情侣</span>
+        <span style="background:#edfaf3;border:2px solid var(--green-win);padding:4px 10px;color:var(--green-win)">👯 朋友局</span>
+        <span style="background:#f5f0ff;border:2px solid var(--purple);padding:4px 10px;color:var(--purple)">🪞 独拍</span>
+        <span style="background:#fff4e8;border:2px solid var(--orange);padding:4px 10px;color:var(--orange)">🎉 节日</span>
+        <span style="background:#e6f1fb;border:2px solid var(--blue-win);padding:4px 10px;color:var(--blue-win)">😂 Meme</span>
+      </div>
+    </div>
   </div>
 
-  <h1>Creative Photo Booth Ideas</h1>
+  <!-- ═══════════ BIRTHDAY ═══════════ -->
+  <div class="win-card gold">
+    <div class="win-titlebar gold-bar">★ 生日专场 | Birthday Ideas</div>
+    <div class="win-body">
+      <div class="sec-heading">🎂 让生日照片更有纪念感</div>
 
-  <p>
-    Looking for inspiration for your next photo booth session? Whether you're taking photos alone, with friends, or with your partner,
-    these creative ideas will help you capture fun and memorable moments.
-  </p>
+      <!-- Featured idea -->
+      <div class="idea-featured" style="margin-bottom:16px">
+        <div class="idea-featured-side">
+          <div class="idea-featured-emoji">🎂</div>
+          <div class="idea-featured-num">STAR</div>
+        </div>
+        <div class="idea-featured-body">
+          <div class="idea-featured-title">「每年同一天，同一个表情」挑战</div>
+          <div class="idea-featured-desc">
+            每年生日拍一组大头贴，用<strong>完全一样的格数和贴纸</strong>，然后把历年照片并排对比。5年后你会拥有一组最有故事感的生日照片——不是精修美颜，而是真实的岁月变化。
+          </div>
+          <div class="idea-tags">
+            <span class="idea-tag">9格</span>
+            <span class="idea-tag">年度挑战</span>
+            <span class="idea-tag">独拍</span>
+          </div>
+        </div>
+      </div>
 
-  <h2>Couple Photo Ideas</h2>
-  <ul>
-    <li>Start with a normal pose, then gradually get closer in each frame</li>
-    <li>Show different emotions: serious → smile → laugh → kiss</li>
-    <li>Mirror pose: both imitate each other's expressions</li>
-    <li>Hold hands and change positions in each shot</li>
-  </ul>
+      <div class="idea-grid">
+        <div class="idea-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🥳</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 01</div>
+              <div class="idea-title">许愿 → 吹蜡烛 → 许愿成功</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">用4格或6格记录"许愿时闭眼"→"深吸气"→"使劲吹"→"哈哈大笑"的完整过程。找个朋友帮你按倒计时，每格换一个表情。</div>
+            <div class="idea-tags"><span class="idea-tag">4格</span><span class="idea-tag">有朋友在</span></div>
+          </div>
+        </div>
 
-  <h2>Friends Photo Ideas</h2>
-  <ul>
-    <li>Each person takes turns being the "main character"</li>
-    <li>Group jump shot sequence</li>
-    <li>Funny face competition</li>
-    <li>Use props like glasses or hats</li>
-  </ul>
+        <div class="idea-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">👑</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 02</div>
+              <div class="idea-title">戴上任何头饰都行</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">生日帽、皇冠贴纸、花环……任何东西戴在头上都会让照片立刻有"今天是我的日子"的氛围。不需要昂贵道具，用纸折一个皇冠也成。</div>
+            <div class="idea-tags"><span class="idea-tag">道具推荐</span><span class="idea-tag">2格</span></div>
+          </div>
+        </div>
 
-  <h2>Social Media Content Ideas</h2>
-  <ul>
-    <li>"A day in my life" photo strip</li>
-    <li>Outfit transformation (before → after)</li>
-    <li>Emotion grid (happy, sad, angry, excited)</li>
-    <li>Trend-based challenges</li>
-  </ul>
+        <div class="idea-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🎁</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 03</div>
+              <div class="idea-title">拆礼物瞬间的表情</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">拆礼物时让朋友帮你开着 MemePhoto 等待，抓拍"不知道是什么→猜测→打开→真实反应"四个阶段。往往比摆拍更好玩。</div>
+            <div class="idea-tags"><span class="idea-tag">4格</span><span class="idea-tag">抓拍</span></div>
+          </div>
+        </div>
 
-  <h2>Creative Concepts</h2>
-  <ul>
-    <li>Tell a short story across 4 or 6 frames</li>
-    <li>Use only one color theme</li>
-    <li>Black and white retro style</li>
-    <li>Repeat the same pose with small changes</li>
-  </ul>
+        <div class="idea-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🔢</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 04</div>
+              <div class="idea-title">用手指比出今天的年龄</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">18岁两格、25岁两格半格、30岁三格……用手指数字记录年龄是最简单的生日照片构图之一。几年后回看会觉得特别有意思。</div>
+            <div class="idea-tags"><span class="idea-tag">独拍</span><span class="idea-tag">简单</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <h2>Seasonal Ideas</h2>
-  <ul>
-    <li>Birthday celebration photo strip</li>
-    <li>Holiday themes (Christmas, Halloween)</li>
-    <li>Travel memory snapshots</li>
-    <li>New year countdown sequence</li>
-  </ul>
+  <!-- ═══════════ COUPLE ═══════════ -->
+  <div class="win-card pink">
+    <div class="win-titlebar pink-bar">★ 情侣专场 | Couple Ideas</div>
+    <div class="win-body">
+      <div class="sec-heading pink-head">💕 拍出只有你们懂的照片</div>
 
-  <h2>Tips for Better Photos</h2>
-  <ul>
-    <li>Use natural lighting whenever possible</li>
-    <li>Keep your background simple</li>
-    <li>Stay within frame boundaries</li>
-    <li>Try different expressions in each shot</li>
-  </ul>
+      <div class="idea-grid">
+        <div class="idea-card pink-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">👀</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 05</div>
+              <div class="idea-title">对视 → 笑场</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">两人头靠头盯着摄像头，然后互相对视，几乎没有人能忍住不笑。6格记录从"认真"到"笑到眼睛闭上"的全过程——完全无法摆拍。</div>
+            <div class="idea-tags"><span class="idea-tag pink">6格</span><span class="idea-tag pink">真实感</span></div>
+          </div>
+        </div>
 
-  <p>
-    Ready to try these ideas? Go back to the homepage and start creating your own photo strips now.
-  </p>
+        <div class="idea-card pink-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🤳</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 06</div>
+              <div class="idea-title">一人做表情 · 另一人反应</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">A 做出夸张表情（惊恐、怒视、无语），B 用自然反应配合。然后换人。4格拍两轮，每次都不能提前商量，靠本能反应最好玩。</div>
+            <div class="idea-tags"><span class="idea-tag pink">4格</span><span class="idea-tag pink">即兴</span></div>
+          </div>
+        </div>
 
-  <footer>
-    <p>© 2025 Meme Photo</p>
+        <div class="idea-card pink-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">📅</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 07</div>
+              <div class="idea-title">纪念日系列：每次约会都拍</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">每次约会用同一个贴纸风格拍一组大头贴，时间久了就有一整个"约会相册"。不需要正式拍照，随手拍的质感反而更珍贵。</div>
+            <div class="idea-tags"><span class="idea-tag pink">习惯养成</span><span class="idea-tag pink">2格</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card pink-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🫶</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 08</div>
+              <div class="idea-title">比心 · 鼻子碰鼻子 · 背靠背</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">经典三连构图，每格用不同的亲密动作：第1格对视比心，第2格鼻尖碰鼻尖，第3格背靠背各自做一个鬼脸。不需要接吻镜头也很甜。</div>
+            <div class="idea-tags"><span class="idea-tag pink">3格动作</span><span class="idea-tag pink">经典</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card pink-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🎭</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 09</div>
+              <div class="idea-title">扮演对方的口头禅</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">你们在一起久了，一定知道对方某些标志性表情或动作。互相模仿对方最常做的表情，拍下来对比。往往笑到不行。</div>
+            <div class="idea-tags"><span class="idea-tag pink">搞笑</span><span class="idea-tag pink">4格</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card pink-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🌙</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 10</div>
+              <div class="idea-title">深夜困了也要拍一张</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">最真实的照片往往是最累的时候拍的。深夜眼睛快睁不开、头发乱了、妆也花了——这才是真实的你们，也是最后会记得的样子。</div>
+            <div class="idea-tags"><span class="idea-tag pink">真实感</span><span class="idea-tag pink">2格</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ FRIENDS ═══════════ -->
+  <div class="win-card green">
+    <div class="win-titlebar green-bar">★ 朋友局专场 | Squad Ideas</div>
+    <div class="win-body">
+      <div class="sec-heading green-head">👯 人越多越好玩</div>
+
+      <div class="idea-grid">
+        <div class="idea-card green-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🎰</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 11</div>
+              <div class="idea-title">随机表情转盘</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">出发前写下6-9个表情词（"大哭""惊恐""傲娇""爱心眼""无语""石乐志"……），每拍一格随机抽一张，不准提前准备。结果无法预测。</div>
+            <div class="idea-tags"><span class="idea-tag green">9格</span><span class="idea-tag green">随机</span><span class="idea-tag green">多人</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card green-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🪑</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 12</div>
+              <div class="idea-title">每格换一个人出镜</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">9格模式，9个人轮流单独出镜一格。最后下载的图片是一张"9人合集"——每个人都有自己的专属格子，还能互相截图单独的格子发给对方。</div>
+            <div class="idea-tags"><span class="idea-tag green">9格</span><span class="idea-tag green">多人轮流</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card green-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🏆</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 13</div>
+              <div class="idea-title">最佳表情大赛</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">宣布一个主题（"谁能做最惊讶的脸""谁笑得最假"），大家同时对着摄像头做，拍完后投票选冠军。9格够每人充分发挥。</div>
+            <div class="idea-tags"><span class="idea-tag green">竞赛</span><span class="idea-tag green">6格/9格</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card green-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">📖</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 14</div>
+              <div class="idea-title">朋友局"年度总结照"</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">年底聚会时一起拍，选一个每年固定的贴纸风格，几年下来就是一组真实的朋友成长记录。比精心策划的旅行照更有温度。</div>
+            <div class="idea-tags"><span class="idea-tag green">年度传统</span><span class="idea-tag green">4格</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card green-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🤫</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 15</div>
+              <div class="idea-title">有人不知道要拍照</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">提前设好倒计时，悄悄告诉其他人要拍了，就是不告诉某一个人。等他察觉的那一格往往是整组照片里最好笑的一张。</div>
+            <div class="idea-tags"><span class="idea-tag green">偷拍感</span><span class="idea-tag green">惊喜</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card green-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🧩</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 16</div>
+              <div class="idea-title">每人负责一格的主题</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">每格的主题由不同的人来决定，其他人只能配合。比如A格要求"假装哭"，B格要求"最帅/美的角度"，C格"乱入一个猫咪表情"。</div>
+            <div class="idea-tags"><span class="idea-tag green">创作权轮流</span><span class="idea-tag green">6格</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SOLO ═══════════ -->
+  <div class="win-card purple">
+    <div class="win-titlebar purple-bar">★ 独拍专场 | Solo Ideas</div>
+    <div class="win-body">
+      <div class="sec-heading purple-head">🪞 一个人也能拍得很好</div>
+
+      <div class="info-block purple">
+        <div class="info-icon-lg">💡</div>
+        <div class="info-block-body">
+          <strong>独拍最大的优势：</strong>没有人催你，每一格都可以反复确认，可以把摄像头角度调到最完美，可以花15分钟只拍一格。慢慢来，慢慢拍。
+        </div>
+      </div>
+
+      <div class="solo-steps" style="margin-bottom:20px">
+        <div class="solo-step">
+          <div class="solo-num">01</div>
+          <span class="solo-icon">🪑</span>
+          <div class="solo-title">找一面好看的墙</div>
+          <div class="solo-desc">白墙、书架、挂满照片的背景板，都是很好的独拍背景。避免杂乱的卧室角落。</div>
+        </div>
+        <div class="solo-step">
+          <div class="solo-num">02</div>
+          <span class="solo-icon">📐</span>
+          <div class="solo-title">摄像头高于眼睛</div>
+          <div class="solo-desc">把笔记本叠在书本上，或者调高椅子，让摄像头略高于眼睛水平，是独拍最重要的一步。</div>
+        </div>
+        <div class="solo-step">
+          <div class="solo-num">03</div>
+          <span class="solo-icon">☀️</span>
+          <div class="solo-title">面朝窗户或台灯</div>
+          <div class="solo-desc">自然光或台灯从正面打来，不要逆光。独拍时没人帮你调光，自己把光源摆好是关键。</div>
+        </div>
+        <div class="solo-step">
+          <div class="solo-num">04</div>
+          <span class="solo-icon">🎭</span>
+          <div class="solo-title">提前想好表情序列</div>
+          <div class="solo-desc">4格独拍建议：正脸微笑→侧脸→搞笑表情→最喜欢的Pose。有计划比随机好。</div>
+        </div>
+      </div>
+
+      <div class="idea-grid">
+        <div class="idea-card purple-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">📆</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 17</div>
+              <div class="idea-title">心情日记：今天是什么感觉</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">不需要特别的日子，就是今天，就是现在，拍一张"此刻的自己"。高兴就笑，困就困着拍，难过也可以拍。最真实的表情最珍贵。</div>
+            <div class="idea-tags"><span class="idea-tag purple">日记感</span><span class="idea-tag purple">独拍</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card purple-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">💅</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 18</div>
+              <div class="idea-title">出门前的「ready check」</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">妆画好了、衣服搭配好了，出门前拍一组。这是状态最好的时刻——比约会时更放松，比回家时更新鲜。2格最快，4格最完整。</div>
+            <div class="idea-tags"><span class="idea-tag purple">出门前</span><span class="idea-tag purple">2-4格</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card purple-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">✨</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 19</div>
+              <div class="idea-title">换新发型/换季第一天</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">剪完头发、新买衣服第一次穿、换季换了新妆容——这些"新开始"的瞬间值得被记录。用一个固定的贴纸风格，建立属于自己的"变化相册"。</div>
+            <div class="idea-tags"><span class="idea-tag purple">里程碑</span><span class="idea-tag purple">4格</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card purple-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🌙</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 20</div>
+              <div class="idea-title">深夜只有你清醒的时候</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">深夜独自在家，房间灯光昏黄，窗外很安静——这种时刻拍出来的照片有独特的氛围感。不需要化妆，不需要好状态，原样就好。</div>
+            <div class="idea-tags"><span class="idea-tag purple">深夜氛围</span><span class="idea-tag purple">2格</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ MEME IDEAS ═══════════ -->
+  <div class="win-card" id="sec-meme">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; Meme 专场 | Meme Ideas
+    </div>
+    <div class="win-body">
+      <div class="sec-heading blue-head">😂 为了好笑而生的大头贴</div>
+
+      <div class="idea-grid">
+        <div class="idea-card blue-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🪨</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 21</div>
+              <div class="idea-title">石乐志三连</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">第1格：正常表情。第2格：发现什么不对劲。第3格：彻底石乐志。第4格：装作什么都没发生。经典的四格叙事结构，怎么拍都好笑。</div>
+            <div class="idea-tags"><span class="idea-tag blue">4格</span><span class="idea-tag blue">剧情感</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card blue-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🐱</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 22</div>
+              <div class="idea-title">模仿网络表情包</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">选几个最近流行的表情包（担忧猫、惊讶皮卡丘、This is fine……），用真人复刻那个表情。拍完和原图对比，越像越好笑。</div>
+            <div class="idea-tags"><span class="idea-tag blue">模仿</span><span class="idea-tag blue">6格</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card blue-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">📉</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 23</div>
+              <div class="idea-title">情绪崩塌进度条</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">从"还好"到"不太好"到"很不好"到"彻底崩了"的表情递进。9格的话还可以加上"假装自愈"然后"再次崩塌"。是一种生活写实艺术。</div>
+            <div class="idea-tags"><span class="idea-tag blue">9格</span><span class="idea-tag blue">情绪流</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card blue-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🎬</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 24</div>
+              <div class="idea-title">复刻电影经典场景</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">《我不》的无语脸、《甄嬛传》的冷笑、各种国产剧名场面的表情。不需要台词，光一个表情就够了。发出去自己人秒懂。</div>
+            <div class="idea-tags"><span class="idea-tag blue">文化梗</span><span class="idea-tag blue">4格</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card blue-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">🤖</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 25</div>
+              <div class="idea-title">「AI生成感」表情</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">模拟 AI 生成图片里那种"哪里不对但说不出来"的奇怪感：眼神空洞、笑容过于完美、手势莫名其妙。这个主题配 Y2K 像素贴纸效果绝。</div>
+            <div class="idea-tags"><span class="idea-tag blue">前卫</span><span class="idea-tag blue">概念</span></div>
+          </div>
+        </div>
+
+        <div class="idea-card blue-card">
+          <div class="idea-card-head">
+            <div class="idea-emoji">⏰</div>
+            <div class="idea-head-text">
+              <div class="idea-num">IDEA 26</div>
+              <div class="idea-title">「今天第几次被整」记录</div>
+            </div>
+          </div>
+          <div class="idea-body">
+            <div class="idea-desc">每次被朋友、老板、甲方整到时拍一格大头贴记录当时的表情。积累够9格就是一组"人间观察"日记，每一张都是真实情绪。</div>
+            <div class="idea-tags"><span class="idea-tag blue">生活流水账</span><span class="idea-tag blue">9格</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ HOLIDAY CALENDAR ═══════════ -->
+  <div class="win-card orange">
+    <div class="win-titlebar orange-bar">★ 节日主题日历 | Holiday Calendar</div>
+    <div class="win-body">
+      <div class="sec-heading orange-head">🎉 每个节日都有借口拍一张</div>
+      <div class="season-grid">
+        <div class="season-card spring">
+          <div class="season-head">🌸 春季 SPRING</div>
+          <div class="season-body">
+            <div class="season-event"><span class="season-event-icon">🧧</span><span class="season-event-text">春节：全家福大头贴，用红色边框</span><span class="season-event-month">1-2月</span></div>
+            <div class="season-event"><span class="season-event-icon">💌</span><span class="season-event-text">情人节：情侣专属胶片风两格</span><span class="season-event-month">2月</span></div>
+            <div class="season-event"><span class="season-event-icon">👩</span><span class="season-event-text">妇女节：闺蜜局独立主题拍摄</span><span class="season-event-month">3月</span></div>
+            <div class="season-event"><span class="season-event-icon">🌸</span><span class="season-event-text">樱花季：粉色系贴纸配室外光</span><span class="season-event-month">3-4月</span></div>
+          </div>
+        </div>
+        <div class="season-card summer">
+          <div class="season-head">☀️ 夏季 SUMMER</div>
+          <div class="season-body">
+            <div class="season-event"><span class="season-event-icon">👶</span><span class="season-event-text">儿童节：成年人的儿时表情挑战</span><span class="season-event-month">6月</span></div>
+            <div class="season-event"><span class="season-event-icon">🎓</span><span class="season-event-text">毕业季：同学最后一张合照</span><span class="season-event-month">6-7月</span></div>
+            <div class="season-event"><span class="season-event-icon">🏖️</span><span class="season-event-text">暑假出游：行程各站打卡照片</span><span class="season-event-month">7-8月</span></div>
+            <div class="season-event"><span class="season-event-icon">🪷</span><span class="season-event-text">七夕：情侣日限定特别版</span><span class="season-event-month">8月</span></div>
+          </div>
+        </div>
+        <div class="season-card autumn">
+          <div class="season-head">🍂 秋季 AUTUMN</div>
+          <div class="season-body">
+            <div class="season-event"><span class="season-event-icon">🌕</span><span class="season-event-text">中秋：家人视频通话截图时拍</span><span class="season-event-month">9-10月</span></div>
+            <div class="season-event"><span class="season-event-icon">🎃</span><span class="season-event-text">万圣节：变装造型记录大赛</span><span class="season-event-month">10月</span></div>
+            <div class="season-event"><span class="season-event-icon">📸</span><span class="season-event-text">深秋出游：落叶系配色穿搭</span><span class="season-event-month">11月</span></div>
+            <div class="season-event"><span class="season-event-icon">🛍️</span><span class="season-event-text">双十一：快递到了的表情全记录</span><span class="season-event-month">11月</span></div>
+          </div>
+        </div>
+        <div class="season-card winter">
+          <div class="season-head">❄️ 冬季 WINTER</div>
+          <div class="season-body">
+            <div class="season-event"><span class="season-event-icon">🎄</span><span class="season-event-text">圣诞节：红色系贴纸+圣诞帽</span><span class="season-event-month">12月</span></div>
+            <div class="season-event"><span class="season-event-icon">🎆</span><span class="season-event-text">元旦：年度总结照+目标展望</span><span class="season-event-month">1月</span></div>
+            <div class="season-event"><span class="season-event-icon">⛷️</span><span class="season-event-text">冬季旅行：雪地氛围系列</span><span class="season-event-month">12-2月</span></div>
+            <div class="season-event"><span class="season-event-icon">🧣</span><span class="season-event-text">第一件新冬装：每年的穿搭记录</span><span class="season-event-month">11-12月</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PROPS GUIDE ═══════════ -->
+  <div class="win-card gold">
+    <div class="win-titlebar gold-bar">★ 道具推荐 | Props Guide</div>
+    <div class="win-body">
+      <div class="sec-heading">手边就有的道具，让大头贴更有戏</div>
+      <div class="prop-grid">
+        <div class="prop-card">
+          <span class="prop-icon">🕶️</span>
+          <div class="prop-name">墨镜</div>
+          <div class="prop-tip">瞬间提升高冷感，不需要化妆也能好看</div>
+        </div>
+        <div class="prop-card">
+          <span class="prop-icon">🎩</span>
+          <div class="prop-name">帽子</div>
+          <div class="prop-tip">棒球帽、贝雷帽、渔夫帽，不同帽子完全不同气质</div>
+        </div>
+        <div class="prop-card">
+          <span class="prop-icon">📚</span>
+          <div class="prop-name">书本遮脸</div>
+          <div class="prop-tip">只露出眼睛，神秘感+书卷气，一举两得</div>
+        </div>
+        <div class="prop-card">
+          <span class="prop-icon">🌸</span>
+          <div class="prop-name">花束</div>
+          <div class="prop-tip">哪怕是便利店买的小花，放在镜头前就有效果</div>
+        </div>
+        <div class="prop-card">
+          <span class="prop-icon">📱</span>
+          <div class="prop-name">手机遮半脸</div>
+          <div class="prop-tip">露出眼睛上方，制造"偷偷观察"的效果</div>
+        </div>
+        <div class="prop-card">
+          <span class="prop-icon">🧸</span>
+          <div class="prop-name">玩偶</div>
+          <div class="prop-tip">让玩偶和你一起出镜，萌感加倍，也适合独拍</div>
+        </div>
+        <div class="prop-card">
+          <span class="prop-icon">✏️</span>
+          <div class="prop-name">铅笔+嘴唇</div>
+          <div class="prop-tip">把铅笔横放在嘴唇下，做出"思考状"，简单道具高级感</div>
+        </div>
+        <div class="prop-card">
+          <span class="prop-icon">🧣</span>
+          <div class="prop-name">围巾/毛衣</div>
+          <div class="prop-tip">围巾拉到嘴巴以下，只露眼睛，秋冬专属氛围感</div>
+        </div>
+        <div class="prop-card">
+          <span class="prop-icon">🖼️</span>
+          <div class="prop-name">相框</div>
+          <div class="prop-tip">把相框（或用手比出相框形状）套在脸周围，画中画感</div>
+        </div>
+      </div>
+      <div class="info-block gold" style="margin-top:16px">
+        <div class="info-icon-lg">✨</div>
+        <div class="info-block-body">
+          <strong>道具不需要花钱买：</strong>家里的任何东西都可以是道具。原则是"遮住一部分脸"或"给画面增加一个不寻常的元素"。手、书、枕头、雨伞，只要位置对了都有效果。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ COMPOSITION GUIDE ═══════════ -->
+  <div class="win-card">
+    <div class="win-titlebar">
+      <span class="win-dot red"></span><span class="win-dot yellow"></span><span class="win-dot green"></span>
+      &nbsp; 构图参考 | Composition Guide
+    </div>
+    <div class="win-body">
+      <div class="sec-heading blue-head">六种经典大头贴构图</div>
+      <div class="comp-grid">
+
+        <div class="comp-card">
+          <div class="comp-preview">
+            <div class="comp-diagram" style="position:relative;width:80px;height:60px">
+              <div class="comp-grid-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="comp-face-dot" style="top:10px;left:28px">😊</div>
+            </div>
+          </div>
+          <div class="comp-label-bar">中心构图</div>
+          <div class="comp-desc">脸部居中，适合正脸单人特写。最安全的构图，永远不会出错。</div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-preview">
+            <div class="comp-diagram" style="position:relative;width:80px;height:60px">
+              <div class="comp-grid-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="comp-face-dot" style="top:6px;left:8px">😊</div>
+              <div class="comp-face-dot" style="top:6px;right:8px;left:auto">😄</div>
+            </div>
+          </div>
+          <div class="comp-label-bar">双人并排</div>
+          <div class="comp-desc">两人头部等高并排，各占画面一半。两人同时向对方方向微倾最自然。</div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-preview">
+            <div class="comp-diagram" style="position:relative;width:80px;height:60px">
+              <div class="comp-grid-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="comp-face-dot" style="top:4px;left:28px;font-size:10px">😊</div>
+              <div class="comp-face-dot" style="top:28px;left:14px;font-size:8px">😄</div>
+              <div class="comp-face-dot" style="top:28px;right:14px;left:auto;font-size:8px">😁</div>
+            </div>
+          </div>
+          <div class="comp-label-bar">三角构图</div>
+          <div class="comp-desc">三人时，一人在中间稍前，两人在后方左右。有层次感且三人面积均衡。</div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-preview">
+            <div class="comp-diagram" style="position:relative;width:80px;height:60px">
+              <div class="comp-grid-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="comp-face-dot" style="top:8px;left:6px;font-size:10px">😊</div>
+            </div>
+          </div>
+          <div class="comp-label-bar">左三分之一</div>
+          <div class="comp-desc">脸部偏左，右侧留出空气感。适合有背景故事感的独拍，比居中构图更有设计感。</div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-preview">
+            <div class="comp-diagram" style="position:relative;width:80px;height:60px">
+              <div class="comp-grid-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="comp-face-dot" style="top:16px;left:20px;font-size:12px">😊</div>
+              <div class="comp-face-dot" style="top:6px;right:8px;left:auto;font-size:9px">😄</div>
+            </div>
+          </div>
+          <div class="comp-label-bar">高低错落</div>
+          <div class="comp-desc">两人一高一低，高低差制造动感。适合身高差较大的情侣或朋友。</div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-preview">
+            <div class="comp-diagram" style="position:relative;width:80px;height:60px">
+              <div class="comp-grid-lines"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="comp-face-dot" style="top:16px;left:18px;font-size:18px">😊</div>
+            </div>
+          </div>
+          <div class="comp-label-bar">超近特写</div>
+          <div class="comp-desc">脸部填满大半个画面，只留少量边框。Meme 风和搞笑大头贴的首选构图。</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <div class="win-card gold">
+    <div class="win-titlebar gold-bar">★ 有灵感了吗？去拍吧！</div>
+    <div class="cta-block">
+      <div class="cta-title">30+ 个创意<br>总有一个适合今天</div>
+      <div class="pixel-divider"></div>
+      <p style="font-size:14px;color:#6a4a30;margin:16px 0 20px;line-height:1.8">
+        灵感有了，剩下的交给 MemePhoto。<br>
+        打开摄像头，三分钟完成一组大头贴。
+      </p>
+      <div>
+        <a href="index.html" class="cta-btn">★ 开始拍大头贴 ★</a>
+        <a href="tips.html" class="cta-btn blue-btn">📷 拍照技巧</a>
+      </div>
+      <div style="margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+        <a href="story.html"      style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">大头贴历史 →</a>
+        <a href="how-to-use.html" style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">使用教程 →</a>
+        <a href="contact.html"    style="font-family:'Press Start 2P',cursive;font-size:7px;color:var(--blue-win);text-decoration:none;border-bottom:1px solid var(--blue-win);padding-bottom:2px">联系我们 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center;font-size:13px;margin-top:10px;color:#6a4a30;line-height:2">
+    <p>
+      <a href="about.html"    style="color:var(--blue-win)">关于我们</a> |
+      <a href="privacy.html"  style="color:var(--blue-win)">隐私政策</a> |
+      <a href="contact.html"  style="color:var(--blue-win)">联系我们</a> |
+      <a href="story.html"    style="color:var(--blue-win)">Story</a> |
+      <a href="tips.html"     style="color:var(--blue-win)">Tips</a>
+    </p>
+    <p style="color:#9a7a50;font-size:12px;margin-top:6px">© 2025 MemePhoto.com.cn — All photos processed locally. No upload, no server.</p>
   </footer>
 
+</div><!-- /page-wrap -->
+
+<!-- Taskbar -->
+<div class="taskbar">
+  <div class="task-item" onclick="location.href='index.html'">🟢 Start</div>
+  <div class="task-item" onclick="location.href='about.html'">About</div>
+  <div class="task-item" onclick="location.href='privacy.html'">Privacy</div>
+  <div class="task-item" onclick="location.href='contact.html'">Contact</div>
+  <div class="task-item active-task">Ideas</div>
+  <div class="task-item" onclick="location.href='how-to-use.html'">Guide</div>
+  <div class="task-item" onclick="location.href='tips.html'">Tips</div>
+  <div class="task-item" onclick="location.href='story.html'">Story</div>
 </div>
 
 </body>
